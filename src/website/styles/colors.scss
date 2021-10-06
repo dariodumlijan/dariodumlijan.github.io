@@ -1,0 +1,15 @@
+$bg: #1d1f20;
+$black: #000000;
+$blackTransparent: #00000030;
+$primaryBlue: #0066cc;
+$white: #cccccc;
+$whiteTransparent: #cccccc30;
+
+:export {
+  bg: $bg;
+  black: $black;
+  blackTransparent: $blackTransparent;
+  primaryBlue: $primaryBlue;
+  white: $white;
+  whiteTransparent: $whiteTransparent;
+}

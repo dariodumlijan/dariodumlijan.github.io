@@ -1,14 +1,29 @@
 {
-  "name": "dariodumlijan",
+  "name": "zupakasina",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.4.10",
+    "@contentful/rich-text-plain-text-renderer": "^15.3.0",
+    "@contentful/rich-text-react-renderer": "^15.3.0",
+    "@contentful/rich-text-types": "^15.3.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
+    "@splidejs/react-splide": "^0.4.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "contentful": "^8.5.3",
+    "graphql": "^15.5.2",
+    "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-particles-js": "^3.5.3",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "tsparticles": "^1.35.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -34,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.42.1"
   }
 }
