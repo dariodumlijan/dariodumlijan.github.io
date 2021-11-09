@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../styles/home.scss";
+import "../../styles/home.scss";
 
 function Home() {
   // render the fetched Contentful data

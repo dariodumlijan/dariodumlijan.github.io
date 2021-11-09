@@ -1,135 +1,99 @@
 @import "./colors.scss";
 
-/* General Styles - START */
+/* CUSTOM Fonts - START */
+@font-face {
+  font-family: Wandertucker;
+  src: url(../assets/font/Wandertucker.ttf) format("opentype");
+}
+/* CUSTOM Fonts - END */
+* {
+  font-family: "PT Sans", sans-serif;
+  font-style: normal;
+}
+
+/* Remove Focus Blue Border - START */
+:focus {
+  outline: none;
+}
+/* Remove Focus Blue Border - END */
+
+/* Remove Text Selection - START */
+*,
+input,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+/* Remove Text Selection - END */
+
+/* Remove Default Text Styles - START */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+span,
+a,
+li,
+.workTitle {
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+img {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+}
+/* Remove Default Text Styles - END */
+
+/* Scrollbar */
+::-webkit-scrollbar-track {
+  border-radius: 0pt;
+}
+
+::-webkit-scrollbar {
+  width: 5pt;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5pt;
+}
+/* Scrollbar END */
+
 html,
 body {
   background-color: $bg;
-}
-body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Lato", sans-serif;
-  height: 100%;
   margin: 0;
-  overflow-x: hidden;
   padding: 0;
-  width: 100%;
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
-  }
-
-  :focus {
-    outline: none;
-  }
-
-  *,
-  input,
-  button {
-    -webkit-tap-highlight-color: transparent;
-  }
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  i,
-  span,
-  a,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    color: $white;
-    text-decoration: none;
-  }
-  img {
-    -webkit-touch-callout: none;
-    pointer-events: none;
-  }
-
-  #body-wrapper {
-    display: grid;
-    gap: 40px;
-    grid-template-columns: 160px auto;
-    margin: 0 300px 0 100px;
-    width: initial;
-
-    @media screen and (max-width: 1400px) {
-      margin: 0 240px 0 40px;
-    }
-
-    @media screen and (max-width: 1200px) {
-      margin: 0 40px;
-    }
-
-    @media screen and (max-width: 991px) {
-      grid-template-columns: auto;
-      grid-auto-flow: row;
-    }
-
-    @media screen and (max-width: 767px) {
-      margin: 0 10px;
-    }
-
-    main {
-      display: flex;
-      height: auto;
-      margin-top: 40px;
-      width: auto;
-      flex-direction: column;
-    }
-  }
-
-  #to-top {
-    align-items: center;
-    background-color: $primaryBlue;
-    border-radius: 50%;
-    box-shadow: 0 0 10px 5px $blackTransparent;
-    bottom: 40px;
-    color: $white;
-    cursor: pointer;
-    display: flex;
-    font-size: 30px;
-    height: 48px;
-    justify-content: center;
-    opacity: 0;
-    padding-bottom: 2px;
-    position: fixed;
-    right: 40px;
-    transition: 0.5s;
-    user-select: none;
-    visibility: hidden;
-    width: 50px;
-    z-index: 99;
-
-    @media screen and (max-width: 767px) {
-      bottom: 20px;
-      right: 10px;
-    }
-
-    &.active {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
+  color: $white;
+  overflow-x: hidden;
 }
 
-::-webkit-scrollbar-track {
-  background-color: $white;
-  border-radius: 0;
-}
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: $primaryBlue;
-  border-radius: 5px;
+main {
+  min-height: 84vh;
 }
 
-/* General Styles - END */
+.menu-icon {
+  position: absolute;
+  top: 25pt;
+  right: 5vw;
+  width: 30pt;
+  font-size: 25pt;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+/* Main Style - START */

@@ -1,16 +1,31 @@
 @import "./colors.scss";
 
-#footer {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin: 0 17vw;
-  text-align: center;
-  width: auto;
+#to-top {
+  position: fixed;
+  right: 1vw;
+  bottom: -20vh;
+  cursor: pointer;
+  font-size: 30pt;
+  border-radius: 100%;
+  background-color: $bg;
+  z-index: 999;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
 
-  @media screen and (max-width: 991px) {
-    margin: 0 40px;
+  &.active {
+    bottom: 5vh;
   }
+}
+
+footer {
+  position: relative;
+  font-size: 10pt;
+  text-align: center;
+  padding: 10pt 0;
+  -webkit-box-shadow: 0 0 10pt $black;
+  box-shadow: 0 0 10pt $black;
+  z-index: 1;
 
   span {
     color: $white;

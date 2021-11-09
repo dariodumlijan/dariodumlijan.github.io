@@ -1,185 +1,76 @@
 import { gql } from "@apollo/client";
 
-export const WEB_SETTINGS = gql`
+export const GENERAL_QUERY = gql`
   {
-    vijestiPostavkeCollection {
+    generalCollection {
       items {
-        more
-        limit
-      }
-    }
-    listicPostavkeCollection {
-      items {
-        more
-        hide
-        limit
-        max
-      }
-    }
-    galerijaCollection {
-      items {
-        followText
+        siteTitle
+        multiLogo {
+          title
+          url
+        }
+        designLogo {
+          title
+          url
+        }
+        musicLogo {
+          title
+          url
+        }
+        landingQuote
+        email
+        hire
       }
     }
   }
 `;
 
-export const NAV_QUERY = gql`
+export const SECTIONS_QUERY = gql`
   {
-    generalCollection {
+    siteSectionsCollection(order: order_ASC) {
       items {
-        nazivStranice
-        misaoDana
-        bojeStranice
-      }
-    }
-    straniceCollection {
-      items {
-        sys {
-          id
+        title
+        subtitle
+        slug
+        img {
+          title
+          url
         }
-        navPage
-        stranicaUrl
-        order
-        parent {
-          sys {
-            id
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const SIDE_QUERY = gql`
-  {
-    generalCollection {
-      items {
-        logo {
+        gif {
           title
           url
         }
       }
     }
-    sidebarCollection {
-      items {
-        obavijesti
-        raspored {
-          json
-        }
-      }
-    }
-    sidebarLinksCollection {
-      items {
-        pageName
-        pageUrl
-        index
-      }
-    }
   }
 `;
 
-export const HOME_QUERY = gql`
-  {
-    homepageCollection {
-      items {
-        slideshowCollection(limit: 4) {
-          items {
-            title
-            url
-          }
-        }
-        selaNaslov
-        sela
-        bitneStraniceNaslov
-        bitneStraniceCollection(limit: 10) {
-          items {
-            title
-            description
-            url
-          }
-        }
-        korisniLinkoviNaslov
-        korisniLinkovi
-        korisniLinkoviUrl
-        najnovijeVijestiNaslov
-        zupniListicNaslov
-      }
-    }
-    vijestiCollection(limit: 3, order: datumObjave_DESC) {
-      items {
-        slika {
-          title
-          url
-        }
-        naslov
-        url
-        datumObjave
-        content {
-          json
-        }
-      }
-    }
-    zupniListicCollection(limit: 1, order: date_DESC) {
-      items {
-        naslov
-        pagesCollection {
-          items {
-            url
-          }
-        }
-      }
-    }
-  }
-`;
-
-export const STATS_QUERY = gql`
-  {
-    statistikaCollection {
-      items {
-        statistikaPdfCollection {
-          items {
-            title
-            url
-          }
-        }
-        repeater
-      }
-    }
-  }
-`;
-
-export const CONTACT_QUERY = gql`
-  {
-    contactCollection {
-      items {
-        naslov
-        details {
-          json
-        }
-      }
-    }
-  }
-`;
-
-export const BOTTOM_QUERY = gql`
-  {
-    bottomCollection {
-      items {
-        kontaktNaslov
-        kontaktDetalji
-        drustveneMrezeNaslov
-        drustveneMrezeUrl
-      }
-    }
-  }
-`;
-
-export const FOOT_QUERY = gql`
+export const LANDING_QUERY = gql`
   {
     generalCollection {
       items {
-        nazivStranice
+        multiLogo {
+          title
+          url
+        }
+        landingQuote
+        email
+        hire
+      }
+    }
+    siteSectionsCollection(order: order_ASC) {
+      items {
+        title
+        subtitle
+        slug
+        img {
+          title
+          url
+        }
+        gif {
+          title
+          url
+        }
       }
     }
   }

@@ -1,13 +1,13 @@
 import React from "react";
-import "../styles/loading.scss";
+import "../../styles/loading.scss";
 
-function LoadingContent() {
+function Loading() {
   return (
-    <div className="loading-relative">
+    <div className="loading-fixed">
       <div className="loader">Loading...</div>
       <h2>The page is loading</h2>
     </div>
   );
 }
 
-export default LoadingContent;
+export default Loading;

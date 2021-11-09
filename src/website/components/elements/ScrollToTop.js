@@ -32,6 +32,7 @@ function ScrollToTop() {
       window.removeEventListener("scroll", () => handleScroll);
     };
   }, []);
+
   return (
     <div id="to-top" className={show ? "active" : ""} onClick={toTop}>
       <FontAwesomeIcon icon={faAngleUp} />

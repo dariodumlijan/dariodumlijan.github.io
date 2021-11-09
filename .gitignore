@@ -24,7 +24,7 @@ yarn-error.log*
 
 # tokens
 src/website/tokens/
-src/website/staging/
+src/staging/credentials.js
 
 # firebase
 .firebase
