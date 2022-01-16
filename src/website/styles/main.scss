@@ -16,8 +16,7 @@ body {
   width: 100%;
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 
   :focus {
@@ -87,7 +86,7 @@ body {
 
   #to-top {
     align-items: center;
-    background-color: $primaryBlue;
+    background-color: $primary;
     border-radius: 50%;
     box-shadow: 0 0 10px 5px $blackTransparent;
     bottom: 40px;
@@ -128,7 +127,7 @@ body {
   height: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: $primaryBlue;
+  background-color: $primary;
   border-radius: 5px;
 }
 

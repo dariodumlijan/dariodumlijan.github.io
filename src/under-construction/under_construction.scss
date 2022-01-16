@@ -1,3 +1,4 @@
+@import "../website/styles/colors";
 @font-face {
   font-family: Wandertucker;
   src: url(./font/Wandertucker.ttf) format("opentype");
@@ -34,7 +35,7 @@ a {
 }
 a {
   text-decoration: none;
-  color: #ccc;
+  color: $white;
 }
 img {
   pointer-events: none;
@@ -45,8 +46,8 @@ html {
   width: 100%;
   height: 100%;
   margin: auto;
-  color: #ccc;
-  background-color: #1d1f20;
+  color: $white;
+  background-color: $bg !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,7 +62,7 @@ html {
     width: 100%;
     height: 100%;
 
-    #logo {
+    .logo {
       position: fixed;
       top: 3vw;
       left: 3vw;
@@ -78,7 +79,7 @@ html {
         width: 35vw;
       }
     }
-    #text {
+    .text {
       width: auto;
       height: auto;
       display: flex;
@@ -115,19 +116,13 @@ html {
         }
       }
 
-      #animatedLine {
+      .line {
         border: none;
         width: 100%;
         border-radius: 2pt;
         margin: 15pt -10pt 15pt -10pt;
         padding: 2pt;
-        background: -o-linear-gradient(
-          left,
-          #ffc61a,
-          #dc143c,
-          #0066cc,
-          #00a550
-        );
+        background: -o-linear-gradient(left, #ffc61a, #dc143c, #0066cc, #00a550);
         background: -webkit-gradient(
           linear,
           left top,
@@ -137,13 +132,7 @@ html {
           color-stop(#0066cc),
           to(#00a550)
         );
-        background: linear-gradient(
-          to right,
-          #ffc61a,
-          #dc143c,
-          #0066cc,
-          #00a550
-        );
+        background: linear-gradient(to right, #ffc61a, #dc143c, #0066cc, #00a550);
         background-size: 400% 100%;
         -webkit-animation: borderAnimate 15s infinite;
         animation: borderAnimate 15s infinite;
