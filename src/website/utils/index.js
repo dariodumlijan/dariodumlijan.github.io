@@ -1,20 +1,31 @@
+// @flow
 import { useLocation } from "react-router";
 
-export const useLocationInfo = () => {
+// $FlowFixMe
+export const isPromise = (p) => !!p && typeof p.then === "function";
+
+export const useLocationInfo = (): { isHome: boolean, ... } => {
   const location = useLocation();
-  const landing = location.pathname === "/";
+  const home = location.pathname === "/";
 
   return {
-    isLanding: landing,
+    isHome: home,
   };
 };
 
-export const useEnvironmentInfo = () => {
+export const useEnvironmentInfo = (): {
+  isDevelopment: boolean,
+  isProduction: boolean,
+  isStaging: boolean,
+  ...
+} => {
   const development = window.location.hostname === "";
+  const production = window.location.hostname === "localwoofers.com";
   const staging = window.location.href.includes("staging");
 
   return {
     isDevelopment: development,
+    isProduction: production,
     isStaging: staging,
   };
 };

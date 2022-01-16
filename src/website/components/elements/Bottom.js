@@ -1,33 +1,29 @@
 import React from "react";
+import type { Node } from "react";
+import { useSelector } from "react-redux";
 import classNames from "classnames";
-import { useQuery } from "@apollo/client";
-import { GENERAL_QUERY } from "../../api";
 
 import Loading from "./Loading";
-import Error from "./Error";
 import { useLocationInfo } from "../../utils";
 
-import "../../styles/bottom.scss";
-
-function Bottom() {
-  const { data, loading, error } = useQuery(GENERAL_QUERY);
+function Bottom(): Node {
+  const cms = useSelector((state) => state.cms);
   const locationInfo = useLocationInfo();
   const bottomClass = classNames({
     bottom: !locationInfo.isLanding,
     "landing-bottom": locationInfo.isLanding,
   });
 
-  if (loading) return <Loading />;
-  if (error) return <Error error={error.message} />;
+  if (!cms) return <Loading />;
 
   return (
     <div className={bottomClass}>
       <div className="call-to-action">
-        <p id="email">{data.generalCollection.items[0].email}</p>
+        <p id="email">{cms.generalCollection.items[0].email}</p>
       </div>
 
       <div className="call-to-action hireMe">
-        <p id="hireMeBottom">{data.generalCollection.items[0].hire}</p>
+        <p id="hireMeBottom">{cms.generalCollection.items[0].hire}</p>
       </div>
 
       <div className="call-to-action">

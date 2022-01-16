@@ -1,10 +1,9 @@
 import React from "react";
+import type { Node } from "react";
 
-import "../../styles/home.scss";
-
-function Home() {
+function Home(): Node {
   // render the fetched Contentful data
-  return <main className="home"></main>;
+  return <main className="home" />;
 }
 
 export default Home;

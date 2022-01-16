@@ -1,38 +1,40 @@
-import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
+import React, { useEffect, useState } from "react";
+import type { Node } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Particles from "react-particles-js";
+import { isEmpty } from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
-import Particles from "react-particles-js";
-
-import { LANDING_QUERY } from "../../api";
 
 import Loading from "../elements/Loading";
-import Error from "../elements/Error";
+import { actions } from "../../store/cmsStore";
+import { LANDING_QUERY } from "../../api/cms.querys";
 
-import "../../styles/landing.scss";
-
-function Landing() {
-  const { data, loading, error } = useQuery(LANDING_QUERY);
+function Landing(): Node {
+  const dispatch = useDispatch();
+  const cms = useSelector((state) => state.cms);
   const [hover, setHover] = useState(null);
 
-  if (loading) return <Loading />;
-  if (error) return <Error error={error.message} />;
+  useEffect(() => {
+    if (isEmpty(cms)) dispatch(actions.fetchCMS(LANDING_QUERY));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const sections = data.siteSectionsCollection.items;
+  if (isEmpty(cms)) return <Loading />;
 
   return (
     <main className="landing-wrapper">
       <img
         className="landing-logo"
-        src={data.generalCollection.items[0].multiLogo.url}
-        alt={data.generalCollection.items[0].multiLogo.title}
+        src={cms.generalCollection.items[0].multiLogo.url}
+        alt={cms.generalCollection.items[0].multiLogo.title}
       />
       <FontAwesomeIcon icon={faEllipsisV} className="menu-icon" />
 
       <div className="main-wrapper">
         <div className="site-sections">
-          {sections.map((section) => (
+          {cms.siteSectionsCollection.items.map((section) => (
             <Link
               key={section.slug}
               to={section.slug}
@@ -57,7 +59,7 @@ function Landing() {
         </div>
 
         <p className="landing-quote">
-          {data.generalCollection.items[0].landingQuote}
+          {cms.generalCollection.items[0].landingQuote}
         </p>
       </div>
 

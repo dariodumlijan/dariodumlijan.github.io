@@ -39,7 +39,7 @@
   }
 
   .error-link {
-    background-color: $primaryBlue;
+    background-color: $primary;
     border-radius: 60px;
     box-shadow: 0 2px 10px 5px $blackTransparent;
     font-size: 18px;
@@ -49,7 +49,7 @@
 
     &:hover {
       background-color: $white;
-      color: $primaryBlue;
+      color: $primary;
     }
   }
 }

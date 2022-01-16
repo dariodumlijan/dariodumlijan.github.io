@@ -1,62 +1,77 @@
+// @flow
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Redirect } from "react-router";
+import type { Node } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { isEmpty } from "lodash";
 
-import Landing from "./pages/Landing";
-import Home from "./pages/Home";
 import ScrollToTop from "./elements/ScrollToTop";
-import Bottom from "./elements/Bottom";
-import Footer from "./elements/Footer";
+// import Bottom from "./elements/Bottom";
+// import Footer from "./elements/Footer";
+import Login from "../../staging/Login";
+import Landing from "./pages/Landing";
+// import Home from "./pages/Home";
+
 import { useEnvironmentInfo } from "../utils";
+import { sessionStorageKeys } from "../tokens";
 
-/* Staging protection */
-import Protect from "../../staging/Protect";
-import credentials from "../../staging/credentials";
-
-import "../styles/main.scss";
-
-const sections = ["/app", "/design", "/production", "/music"];
-
-function Body() {
+// const sections = ["/app", "/design", "/production", "/music"];
+function Body(): Node {
   const environment = useEnvironmentInfo();
+  const [authenticated, setAuthenticated] = useState(false);
 
-  const [loginPass, setLoginPass] = useState(false);
-
-  const handleLogin = (user, pass) => {
-    if (user === credentials.admin && pass === credentials.adminPass) {
-      window.sessionStorage.setItem("admin", JSON.stringify(user));
-      window.sessionStorage.setItem("adminPass", JSON.stringify(pass));
-      setLoginPass(true);
+  const handleLogin = (credentials: Object) => {
+    if (
+      credentials.username === process.env.REACT_APP_STAGING_USERNAME &&
+      credentials.password === process.env.REACT_APP_STAGING_PASSWORD
+    ) {
+      window.sessionStorage.setItem(
+        sessionStorageKeys.staginUser,
+        JSON.stringify(credentials)
+      );
+      setAuthenticated(true);
     }
   };
 
   useEffect(() => {
-    const storedAdmin = window.sessionStorage.getItem("admin");
-    const storedAdminPass = window.sessionStorage.getItem("adminPass");
-    if (
-      storedAdmin !== null ||
-      storedAdmin !== undefined ||
-      storedAdmin !== ""
-    ) {
-      handleLogin(JSON.parse(storedAdmin), JSON.parse(storedAdminPass));
+    const credentials = window.sessionStorage.getItem(
+      sessionStorageKeys.staginUser
+    );
+    if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials));
+    if (process.env.REACT_APP_FORCE_LOGIN) {
+      handleLogin({
+        username: process.env.REACT_APP_STAGING_USERNAME,
+        password: process.env.REACT_APP_STAGING_PASSWORD,
+      });
     }
   }, []);
 
-  if (!loginPass && environment.isStaging)
-    return <Protect login={handleLogin} />;
+  if (!authenticated && !environment.isStaging) {
+    return (
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Login onSubmit={handleLogin} />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
+    );
+  }
 
   return (
     <Router>
-      <Switch>
-        <Route path={sections} component={Home} />
-        <Route exact path="/" component={Landing} />
-
-        <Redirect to="/" />
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<Landing />} />
+        {/* <Route path={sections} element={<Home />} /> */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
 
       <ScrollToTop />
-      <Bottom />
-      <Footer />
+      {/* <Bottom /> */}
+      {/* <Footer /> */}
     </Router>
   );
 }

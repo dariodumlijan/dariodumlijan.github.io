@@ -1,23 +1,20 @@
+// @flow
 import React from "react";
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import Tokens from "./tokens";
+import { Provider } from "react-redux";
+import type { Node } from "react";
 
 import Body from "./components/Body";
+import { configureStore } from "./store";
+import type { ReduxState } from "./types";
 
-const client = new ApolloClient({
-  uri: Tokens.cms_Url,
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${Tokens.cms_Authorization}`,
-  },
-  cache: new InMemoryCache(),
-});
+const initialReduxState: ReduxState = {};
+const store = configureStore(initialReduxState);
 
-function App() {
+function App(): Node {
   return (
-    <ApolloProvider client={client}>
+    <Provider store={store}>
       <Body />
-    </ApolloProvider>
+    </Provider>
   );
 }
 
