@@ -1,25 +1,22 @@
 // @flow
 import React, { useEffect, useState } from "react";
 import type { Node } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate, Outlet } from "react-router";
 import { isEmpty } from "lodash";
 
-import ScrollToTop from "./elements/ScrollToTop";
-// import Bottom from "./elements/Bottom";
-// import Footer from "./elements/Footer";
 import Login from "../../staging/Login";
 import Landing from "./pages/Landing";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
+import ScrollToTop from "./elements/ScrollToTop";
+// import Bottom from "./elements/Bottom";
+import Footer from "./elements/Footer";
 
 import { useEnvironmentInfo } from "../utils";
 import { sessionStorageKeys } from "../tokens";
 
-// const sections = ["/app", "/design", "/production", "/music"];
+const sections = ["/dev", "/music"];
+
 function Body(): Node {
   const environment = useEnvironmentInfo();
   const [authenticated, setAuthenticated] = useState(false);
@@ -38,19 +35,16 @@ function Body(): Node {
   };
 
   useEffect(() => {
-    const credentials = window.sessionStorage.getItem(
-      sessionStorageKeys.staginUser
-    );
-    if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials));
-    if (process.env.REACT_APP_FORCE_LOGIN) {
-      handleLogin({
-        username: process.env.REACT_APP_STAGING_USERNAME,
-        password: process.env.REACT_APP_STAGING_PASSWORD,
-      });
+    if (!environment.isProduction) {
+      const credentials = window.sessionStorage.getItem(
+        sessionStorageKeys.staginUser
+      );
+      if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!authenticated && !environment.isStaging) {
+  if (!authenticated && environment.isStaging) {
     return (
       <Router>
         <Routes>
@@ -64,14 +58,18 @@ function Body(): Node {
   return (
     <Router>
       <Routes>
+        <Route element={<Outlet />}>
+          {sections.map((section) => (
+            <Route key={section} path={section} element={<Home />} />
+          ))}
+        </Route>
         <Route exact path="/" element={<Landing />} />
-        {/* <Route path={sections} element={<Home />} /> */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <ScrollToTop />
       {/* <Bottom /> */}
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

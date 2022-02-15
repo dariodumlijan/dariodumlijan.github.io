@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
+import type Node from "react";
 import { Link } from "react-router-dom";
-import type { Node } from "react";
 
 type Props = {
   error: string,

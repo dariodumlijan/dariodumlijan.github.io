@@ -3,8 +3,8 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { concat, forEach, get, isString } from "lodash";
-import { reducer as globalReducer } from "./globalStore";
-import { reducer as cmsReducer } from "./cmsStore";
+import { reducer as cmsStoreReducer } from "./cmsStore";
+import { reducer as globalStoreReducer } from "./globalStore";
 import { isPromise } from "../utils";
 
 import type {
@@ -95,8 +95,8 @@ export const configureStore = (
 
   return createStore(
     combineReducers({
-      global: globalReducer,
-      cms: cmsReducer,
+      cms: cmsStoreReducer,
+      global: globalStoreReducer,
     }),
     initialState,
     middlewareApplier

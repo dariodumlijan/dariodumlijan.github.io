@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import type { Node } from "react";
 import useLocale from "../website/locale";
+import "./login.scss";
 
 type Props = {
   onSubmit: Function,

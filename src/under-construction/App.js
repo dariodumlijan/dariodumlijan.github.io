@@ -1,13 +1,9 @@
 // @flow
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import Particles from "react-particles-js";
 import type { Node } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router";
+import Particles from "react-tsparticles";
 import Logo from "./img/logo.png";
 
 function App(): Node {
@@ -19,12 +15,12 @@ function App(): Node {
           path="/"
           element={
             <div className="under-construction-wrapper">
-              <img src={Logo} alt="logo" className="logo" />
-              <div className="text">
+              <img src={Logo} alt="logo" id="logo" />
+              <div id="text">
                 <h1>Coming Soon</h1>
-                <i className="line" />
-                <h3>Chimera Studio</h3>
-                <span>Official website</span>
+                <i id="animatedLine" />
+                <h3>Dario Dumlijan</h3>
+                <span>Official portfolio</span>
               </div>
               <Particles
                 params={{

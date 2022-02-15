@@ -1,3 +1,4 @@
+// @flow
 export const GENERAL_QUERY = `
   {
     generalCollection {

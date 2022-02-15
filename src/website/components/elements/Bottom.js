@@ -2,19 +2,15 @@ import React from "react";
 import type { Node } from "react";
 import { useSelector } from "react-redux";
 import classNames from "classnames";
-
-import Loading from "./Loading";
 import { useLocationInfo } from "../../utils";
 
 function Bottom(): Node {
-  const cms = useSelector((state) => state.cms);
+  const data = useSelector((state) => state.cms.bottom);
   const locationInfo = useLocationInfo();
   const bottomClass = classNames({
     bottom: !locationInfo.isLanding,
     "landing-bottom": locationInfo.isLanding,
   });
-
-  if (!cms) return <Loading />;
 
   return (
     <div className={bottomClass}>

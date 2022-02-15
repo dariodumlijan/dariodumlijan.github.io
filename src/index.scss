@@ -1,14 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import "./website/styles/colors.scss";
-@import "./website/styles/styles";
+@import "./website/styles/styles.scss";
+/* CUSTOM Fonts - START */
 @font-face {
   font-family: Wandertucker;
-  src: url(./website/assets/font/Wandertucker.ttf) format("opentype");
+  src: url(../src/website/assets/font/Wandertucker.ttf) format("opentype");
 }
+/* CUSTOM Fonts - END */
 * {
-  font-family: "Open Sans", sans-serif;
+  font-family: "PT Sans", sans-serif;
   font-style: normal;
 }
+
 /*** The new CSS Reset - version 1.4.4 (last updated 22.12.2021) ***/
 
 /*
@@ -70,16 +73,17 @@ textarea {
 /* General Styles - START */
 html,
 body {
-  background-color: $white;
+  background-color: $bg;
+  color: $white;
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Open Sans", sans-serif;
-  height: 100%;
   margin: 0;
-  overflow-x: hidden;
   padding: 0;
   width: 100%;
 
@@ -111,7 +115,7 @@ body {
     padding: 0;
   }
   a {
-    color: $primary;
+    color: $white;
     text-decoration: none;
   }
   img {
@@ -119,18 +123,17 @@ body {
     pointer-events: none;
   }
 
-  main {
-    display: flex;
-    height: auto;
-    width: auto;
+  #root {
+    height: 100%;
   }
 
   #to-top {
     align-items: center;
-    background-color: $primary;
+    background-color: $primaryBlue;
     border-radius: 50%;
+    border: 1px solid $white;
     bottom: 40px;
-    box-shadow: 0 0 10px 5px $blackTransparent;
+    box-shadow: 0 6px 6px $blackTransparent;
     color: $white;
     cursor: pointer;
     display: flex;
@@ -147,29 +150,30 @@ body {
     width: 50px;
     z-index: 99;
 
-    @media screen and (max-width: 767px) {
+    @media only screen and (max-width: "767px") {
       bottom: 20px;
       right: 10px;
     }
 
-    &.active {
+    &.show {
       opacity: 1;
       visibility: visible;
     }
   }
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar-track {
-  background-color: $white;
-  border-radius: 0;
+  border-radius: 0pt;
 }
+
 ::-webkit-scrollbar {
-  height: 5px;
-  width: 5px;
+  width: 5pt;
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: $primary;
-  border-radius: 5px;
+  border-radius: 5pt;
 }
+/* Scrollbar END */
 
 /* General Styles - END */
