@@ -1,0 +1,10 @@
+{
+  "login": {
+    "username": "Username",
+    "password": "Password",
+    "cta": "Login"
+  },
+  "landing": {
+    "quote": "If I'm only remembered for doing one thing, that's fine. But I don't want to be making just one thing."
+  }
+}

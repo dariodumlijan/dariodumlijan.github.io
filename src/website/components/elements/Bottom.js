@@ -1,24 +1,16 @@
 import React from "react";
+import type { Node } from "react";
+import { useSelector } from "react-redux";
 import classNames from "classnames";
-import { useQuery } from "@apollo/client";
-import { GENERAL_QUERY } from "../../api";
-
-import Loading from "./Loading";
-import Error from "./Error";
 import { useLocationInfo } from "../../utils";
 
-import "../../styles/bottom.scss";
-
-function Bottom() {
-  const { data, loading, error } = useQuery(GENERAL_QUERY);
+function Bottom(): Node {
+  const data = useSelector((state) => state.cms.bottom);
   const locationInfo = useLocationInfo();
   const bottomClass = classNames({
     bottom: !locationInfo.isLanding,
     "landing-bottom": locationInfo.isLanding,
   });
-
-  if (loading) return <Loading />;
-  if (error) return <Error error={error.message} />;
 
   return (
     <div className={bottomClass}>

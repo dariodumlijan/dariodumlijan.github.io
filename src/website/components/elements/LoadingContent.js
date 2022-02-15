@@ -1,7 +1,7 @@
 import React from "react";
-import "../../styles/loading.scss";
+import type { Node } from "react";
 
-function LoadingContent() {
+function LoadingContent(): Node {
   return (
     <div className="loading-relative">
       <div className="loader">Loading...</div>

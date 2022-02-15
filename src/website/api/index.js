@@ -1,77 +1,31 @@
-import { gql } from "@apollo/client";
+// @flow
+import axios from "axios";
+// import { database } from "./firebase.config";
+import cmsHeader from "./cms.config";
 
-export const GENERAL_QUERY = gql`
-  {
-    generalCollection {
-      items {
-        siteTitle
-        multiLogo {
-          title
-          url
-        }
-        designLogo {
-          title
-          url
-        }
-        musicLogo {
-          title
-          url
-        }
-        landingQuote
-        email
-        hire
-      }
+export const fetchCMS = async (query: string): any => {
+  try {
+    const response = await axios.post(
+      process.env.REACT_APP_CMS_GRAPHQL_URL || "",
+      {
+        query,
+      },
+      cmsHeader
+    );
+    if (response.status === 200) {
+      return response.data.data;
     }
+  } catch (err) {
+    // console.error(err);
+    return null;
   }
-`;
+};
 
-export const SECTIONS_QUERY = gql`
-  {
-    siteSectionsCollection(order: order_ASC) {
-      items {
-        title
-        subtitle
-        slug
-        img {
-          title
-          url
-        }
-        gif {
-          title
-          url
-        }
-      }
-    }
-  }
-`;
+// export const fetchFirebaseDoc = async (
+//   collection: string,
+//   doc: string
+// ): any => {
+//   const response = await database.collection(collection).doc(doc).get();
 
-export const LANDING_QUERY = gql`
-  {
-    generalCollection {
-      items {
-        multiLogo {
-          title
-          url
-        }
-        landingQuote
-        email
-        hire
-      }
-    }
-    siteSectionsCollection(order: order_ASC) {
-      items {
-        title
-        subtitle
-        slug
-        img {
-          title
-          url
-        }
-        gif {
-          title
-          url
-        }
-      }
-    }
-  }
-`;
+//   return response;
+// };

@@ -1,5 +1,3 @@
-@import "./colors.scss";
-
 .landing-wrapper {
   position: relative;
   display: -ms-grid;
@@ -92,7 +90,7 @@
           animation: hoverAnimate4 30s linear infinite;
         }
 
-        .section-icons {
+        .section-wrapper {
           text-align: center;
           width: 16vw;
           margin: 0 auto;
@@ -127,19 +125,6 @@
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     z-index: 2;
-  }
-
-  .particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100%;
-    background-image: url("");
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    z-index: 0;
   }
 }
 

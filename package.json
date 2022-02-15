@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.4.10",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "@contentful/rich-text-plain-text-renderer": "^15.3.0",
     "@contentful/rich-text-react-renderer": "^15.3.0",
     "@contentful/rich-text-types": "^15.3.3",
@@ -15,15 +18,27 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.26.0",
     "classnames": "^2.3.1",
     "contentful": "^8.5.3",
-    "graphql": "^15.5.2",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.28.0",
+    "firebase": "^9.6.5",
+    "flow-bin": "^0.160.2",
     "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-particles-js": "^3.5.3",
-    "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.3",
+    "react-redux": "^7.2.5",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "react-router-sitemap-generator": "^0.0.8",
+    "react-scripts": "^5.0.0",
+    "react-tsparticles": "^1.41.1",
+    "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
     "tsparticles": "^1.35.4",
     "web-vitals": "^1.0.1"
   },
@@ -31,7 +46,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ignore-path .eslintignore ./src --ext js",
+    "flow": "flow",
+    "deploy": "react-scripts build && firebase deploy --only hosting",
+    "sitemap": "yarn babel-node scripts/sitemap"
   },
   "eslintConfig": {
     "extends": [
@@ -53,5 +72,8 @@
   },
   "devDependencies": {
     "sass": "^1.42.1"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

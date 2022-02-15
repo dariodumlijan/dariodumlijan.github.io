@@ -1,7 +1,7 @@
 import React from "react";
-import "../../styles/loading.scss";
+import type { Node } from "react";
 
-function Loading() {
+function Loading(): Node {
   return (
     <div className="loading-fixed">
       <div className="loader">Loading...</div>
