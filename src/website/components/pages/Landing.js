@@ -1,26 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import type { Node } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import MultiLogo from "../../assets/icons/MultiLogo";
 import useLocale from "../../locale";
 
 function Landing(): Node {
   const t = useLocale;
-  const [hover, setHover] = useState(null);
 
   const sections = [
     {
-      slug: "/dev",
-      title: "Development",
-      subtitle: "",
-      img: require("../../assets/images/design_icon.png"),
+      slug: "/design",
+      title: t("landing.design.title"),
+      subtitle: t("landing.design.subtitle"),
+      cta: t("landing.design.cta"),
+      ctaIcon: faArrowLeft,
     },
     {
       slug: "/music",
-      title: "Music",
-      subtitle: "",
-      img: require("../../assets/images/music_icon.png"),
+      title: t("landing.music.title"),
+      subtitle: t("landing.music.subtitle"),
+      cta: t("landing.music.cta"),
+      ctaIcon: faArrowRight,
     },
   ];
 
@@ -29,28 +32,21 @@ function Landing(): Node {
       <MultiLogo />
       <div className="main-wrapper">
         <div className="site-sections">
-          {sections.map((section) => (
-            <Link
-              key={section.slug}
-              to={section.slug}
-              className="section-links"
-            >
-              <div
-                className="section-wrapper"
-                onMouseEnter={() => setHover(section.slug)}
-                onMouseLeave={() => setHover(null)}
+          {sections.map((section, index) => (
+            <div key={section.slug} className="section-wrapper">
+              <h2 className="title">{section.title}</h2>
+              <span className="subtitle">{section.subtitle}</span>
+              <Link
+                to={section.slug}
+                className={classNames("section-links", {
+                  left: index === 0,
+                  right: index === sections.length - 1,
+                })}
               >
-                <img
-                  src={section.img}
-                  alt="section"
-                  className={classNames("section-img", {
-                    active: hover === section.slug,
-                  })}
-                />
-                <h2 className="title">{section.title}</h2>
-                <span className="subtitle">{section.subtitle}</span>
-              </div>
-            </Link>
+                <span>{section.cta}</span>
+                <FontAwesomeIcon icon={section.ctaIcon} />
+              </Link>
+            </div>
           ))}
         </div>
 

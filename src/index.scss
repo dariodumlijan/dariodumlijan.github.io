@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import "./website/styles/colors.scss";
 @import "./website/styles/styles.scss";
 /* CUSTOM Fonts - START */
@@ -7,10 +7,6 @@
   src: url(../src/website/assets/font/Wandertucker.ttf) format("opentype");
 }
 /* CUSTOM Fonts - END */
-* {
-  font-family: "PT Sans", sans-serif;
-  font-style: normal;
-}
 
 /*** The new CSS Reset - version 1.4.4 (last updated 22.12.2021) ***/
 
@@ -83,6 +79,7 @@ body {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -116,6 +113,7 @@ body {
   }
   a {
     color: $white;
+    cursor: pointer;
     text-decoration: none;
   }
   img {
@@ -129,7 +127,7 @@ body {
 
   #to-top {
     align-items: center;
-    background-color: $primaryBlue;
+    background-color: $primary;
     border-radius: 50%;
     border: 1px solid $white;
     bottom: 40px;
@@ -168,11 +166,12 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 5pt;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 5pt;
+  background-color: $primary;
+  border-radius: 5px;
 }
 /* Scrollbar END */
 

@@ -1,11 +1,15 @@
 import React from "react";
 import type { Node } from "react";
-import { useSelector } from "react-redux";
 import classNames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Waves from "../../assets/svg-components/Waves";
+import useLocale from "../../locale";
 import { useLocationInfo } from "../../utils";
+import useLists from "../../utils/lists";
 
 function Bottom(): Node {
-  const data = useSelector((state) => state.cms.bottom);
+  const t = useLocale;
+  const { cta } = useLists();
   const locationInfo = useLocationInfo();
   const bottomClass = classNames({
     bottom: !locationInfo.isLanding,
@@ -14,26 +18,28 @@ function Bottom(): Node {
 
   return (
     <div className={bottomClass}>
+      {(locationInfo.isDesign || locationInfo.isMusic) && (
+        <Waves className="bottom-waves" />
+      )}
       <div className="call-to-action">
-        <p id="email">{cms.generalCollection.items[0].email}</p>
+        <p className="email">{t("contact.email")}</p>
       </div>
 
-      <div className="call-to-action hireMe">
-        <p id="hireMeBottom">{cms.generalCollection.items[0].hire}</p>
+      <div className="call-to-action">
+        <button className="hire-me">{t("bottom.hire_cta")}</button>
       </div>
 
       <div className="call-to-action">
-        {/*
-        {call2action.map((action) => (
+        {cta.map((action) => (
           <a
-            className="call2ActionIcons"
-            href="{{actionLink}}"
-            value="{{call2ActionIconSort}}"
+            key={action.label}
+            href={action.url}
+            target="_blank"
+            className="call-to-action-icons"
           >
-            <i className="{{actionIcon}}"></i>
+            <FontAwesomeIcon icon={action.icon} />
           </a>
         ))}
-        */}
       </div>
     </div>
   );

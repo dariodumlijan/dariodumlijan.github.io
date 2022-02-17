@@ -1,157 +1,94 @@
 .bottom {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  margin: 0;
-  padding: 0 5vw;
-  width: 90vw;
   height: 40vh;
-  -webkit-box-shadow: inset 0 0 40pt 30pt #000;
-  box-shadow: inset 0 0 40pt 30pt #000;
-  background-repeat: no-repeat;
-  background-size: cover;
+  justify-content: center;
+  margin: 0;
   overflow: hidden;
+  position: relative;
 
-  #fluidHover {
+  .bottom-waves {
+    bottom: 0;
+    left: 0;
+    opacity: 0.8;
     position: absolute;
-    top: 12vh;
-    left: 42.5vw;
-    -webkit-transition: ease;
-    -o-transition: ease;
-    transition: ease;
+    transform: rotate(180deg);
+    width: 100%;
     z-index: 0;
   }
 
-  .square {
-    position: relative;
-    width: 15vw;
-    height: 15vw;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-box-shadow: 0 0 0 100vw #1d1f20, inset 0 0 10pt 0 #000;
-      box-shadow: 0 0 0 100vw #1d1f20, inset 0 0 10pt 0 #000;
-      -webkit-transition: 0.5s;
-      -o-transition: 0.5s;
-      transition: 0.5s;
-      -webkit-animation: animate 10s linear infinite;
-      animation: animate 10s linear infinite;
-    }
-  }
-
-  #bottom > *:not(:first-child) {
+  .title {
+    font-family: Wandertucker;
+    font-size: 70px;
+    font-weight: 100;
     z-index: 1;
   }
 
-  #bottom #bottomTitle {
-    font-family: Wandertucker;
-    font-size: 70pt;
-    font-weight: 100;
-  }
-
-  #hireMeBottom {
-    font-size: 30pt;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-  }
-
-  .endContact {
-    display: -webkit-box;
-    display: -ms-flexbox;
+  .call-to-action {
+    align-items: center;
     display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
+    flex: 1;
     width: 100%;
-  }
+    max-width: 465px;
+    justify-content: center;
+    z-index: 1;
 
-  #email {
-    margin-right: 20pt;
+    .call-to-action-icons {
+      -o-transition: 0.3s;
+      -webkit-transition: 0.3s;
+      color: $white;
+      cursor: pointer;
+      font-size: 25px;
+      margin-right: 15px;
+      transition: 0.3s;
+
+      &:hover {
+        color: $primary;
+      }
+    }
   }
 }
 
 .landing-bottom {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: landingBottom;
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-}
-
-.call-to-action {
-  width: 33%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
+  justify-content: space-evenly;
+  padding: 40px 0;
+  width: 100%;
 
-.call2Action:first-of-type {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
+  .call-to-action {
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    flex: 1;
+    font-size: 16px;
+    justify-content: center;
 
-.call2Action:last-of-type {
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
+    &:first-of-type {
+      -ms-flex-pack: end;
+      -webkit-box-pack: end;
+      justify-content: flex-end;
+    }
 
-.call2ActionIcons {
-  font-size: 25pt;
-  margin-right: 15pt;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
+    &:last-of-type {
+      -ms-flex-pack: start;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+    }
 
-#hireMeBottom {
-  padding: 5pt 10pt;
-  cursor: pointer;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
+    .call-to-action-icons {
+      -o-transition: 0.3s;
+      -webkit-transition: 0.3s;
+      color: $white;
+      cursor: pointer;
+      font-size: 25px;
+      margin-right: 15px;
+      transition: 0.3s;
 
-#hireMeBottom:hover {
-  color: #1d1f20;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
 }

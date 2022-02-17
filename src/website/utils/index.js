@@ -5,12 +5,23 @@ import { inRange } from "lodash";
 // $FlowFixMe
 export const isPromise = (p) => !!p && typeof p.then === "function";
 
-export const useLocationInfo = (): { isLanding: boolean } => {
+export const useLocationInfo = (): {
+  current: string,
+  isLanding: boolean,
+  isMusic: boolean,
+  isDesign: boolean,
+} => {
   const location = useLocation();
-  const home = location.pathname === "/";
+  const current = location.pathname;
+  const landing = location.pathname === "/";
+  const music = location.pathname.includes("/music");
+  const design = location.pathname.includes("/design");
 
   return {
-    isHome: home,
+    current,
+    isLanding: landing,
+    isMusic: music,
+    isDesign: design,
   };
 };
 

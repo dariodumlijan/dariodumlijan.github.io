@@ -5,7 +5,7 @@ import type { Node } from "react";
 function Footer(): Node {
   return (
     <footer id="footer">
-      <span>&copy; {new Date().getFullYear()} | All rights reserved</span>
+      <span>&copy; {new Date().getFullYear()}</span>
     </footer>
   );
 }

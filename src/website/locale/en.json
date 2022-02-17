@@ -5,6 +5,22 @@
     "cta": "Login"
   },
   "landing": {
+    "design": {
+      "title": "Design",
+      "subtitle": "Development & Graphics",
+      "cta": "Go to Design"
+    },
+    "music": {
+      "title": "Music",
+      "subtitle": "Production & Composition",
+      "cta": "Go to Music"
+    },
     "quote": "If I'm only remembered for doing one thing, that's fine. But I don't want to be making just one thing."
+  },
+  "bottom": {
+    "hire_cta": "Hire Me"
+  },
+  "contact": {
+    "email": "contact@dariodumlijan.com"
   }
 }

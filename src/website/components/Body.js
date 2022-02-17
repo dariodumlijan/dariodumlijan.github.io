@@ -8,14 +8,15 @@ import { isEmpty } from "lodash";
 import Login from "../../staging/Login";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
+import Navigation from "./blocks/Navigation";
 import ScrollToTop from "./elements/ScrollToTop";
-// import Bottom from "./elements/Bottom";
+import Bottom from "./elements/Bottom";
 import Footer from "./elements/Footer";
 
 import { useEnvironmentInfo } from "../utils";
 import { sessionStorageKeys } from "../tokens";
 
-const sections = ["/dev", "/music"];
+const sections = ["/design", "/music"];
 
 function Body(): Node {
   const environment = useEnvironmentInfo();
@@ -57,6 +58,7 @@ function Body(): Node {
 
   return (
     <Router>
+      <Navigation />
       <Routes>
         <Route element={<Outlet />}>
           {sections.map((section) => (
@@ -68,7 +70,7 @@ function Body(): Node {
       </Routes>
 
       <ScrollToTop />
-      {/* <Bottom /> */}
+      <Bottom />
       <Footer />
     </Router>
   );
