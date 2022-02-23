@@ -2,7 +2,7 @@
 
 .wrapper {
   align-items: flex-start;
-  background-color: $primary;
+  background-color: $bg;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -23,7 +23,7 @@
 
     input {
       background-color: $white;
-      border-color: $white;
+      border-color: $primary;
       border-image: initial;
       border-radius: 26px;
       border-style: solid;

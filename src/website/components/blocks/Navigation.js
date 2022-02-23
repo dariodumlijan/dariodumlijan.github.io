@@ -1,5 +1,5 @@
 // @flow
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { Node } from "react";
 import { Link, NavLink } from "react-router-dom";
 import classNames from "classnames";
@@ -9,6 +9,7 @@ import DesignLogo from "../../assets/icons/DesignLogo";
 import MusicLogo from "../../assets/icons/MusicLogo";
 import { useLocationInfo } from "../../utils";
 import useLocale from "../../locale";
+import colors from "../../styles/_colors.scss";
 
 function Navigation(): Node {
   const t = useLocale;
@@ -32,6 +33,30 @@ function Navigation(): Node {
       url: "/about",
     },
   ];
+
+  if (locationInfo.isMusic) {
+    links.splice(2, 0, {
+      label: "Showreel",
+      url: "/showreel",
+    });
+  }
+
+  useEffect(() => {
+    if (!document.documentElement) return;
+
+    if (locationInfo.isDesign) {
+      document.documentElement.style.setProperty(
+        "--primary-color",
+        colors.primaryDesign
+      );
+    } else {
+      document.documentElement.style.setProperty(
+        "--primary-color",
+        colors.primaryMusic
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locationInfo.current]);
 
   if (locationInfo.isLanding) return null;
 

@@ -22,7 +22,7 @@ function Bottom(): Node {
         <Waves className="bottom-waves" />
       )}
       <div className="call-to-action">
-        <p className="email">{t("contact.email")}</p>
+        <p className="email">{t("bottom.email")}</p>
       </div>
 
       <div className="call-to-action">

@@ -1,8 +1,14 @@
+:root {
+  --primary-color: #0066cc;
+}
+
 $bg: #1d1f20;
 $black: #000000;
 $blackTransparent: #00000030;
 $gray: #555555;
-$primary: #0066cc;
+$primary: var(--primary-color);
+$primaryMusic: #0066cc;
+$primaryDesign: #00a550;
 $white: #cccccc;
 $whiteTransparent: #cccccc30;
 
@@ -12,6 +18,8 @@ $whiteTransparent: #cccccc30;
   blackTransparent: $blackTransparent;
   gray: $gray;
   primary: $primary;
+  primaryMusic: $primaryMusic;
+  primaryDesign: $primaryDesign;
   white: $white;
   whiteTransparent: $whiteTransparent;
 }

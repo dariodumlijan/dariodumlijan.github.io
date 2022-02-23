@@ -1,0 +1,75 @@
+:root {
+  --hero-graphic-offsetX: 0deg;
+  --hero-graphic-offsetY: 0deg;
+}
+
+main.home {
+  section {
+    .section-title {
+      font-family: "Wandertucker", "Open Sans", Helvetica, sans-serif;
+      font-size: 60px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  #hero-wrapper {
+    align-items: center;
+    background-color: $primary;
+    display: flex;
+    gap: 50px;
+    height: 380px;
+    justify-content: space-between;
+    padding: 0 5vw;
+    position: relative;
+    transform: translateX(-5vw);
+    width: 100vw;
+
+    .text-wrapper {
+      position: relative;
+      z-index: 1;
+
+      .hero-title {
+        font-family: "Wandertucker", "Open Sans", Helvetica, sans-serif;
+        font-size: 80px;
+      }
+
+      .typewriter {
+        font-size: 24px;
+
+        .carrot {
+          background-color: $primary;
+          height: 33px;
+        }
+      }
+    }
+
+    .hero-graphic {
+      fill: $black;
+      height: 320px;
+      transform: perspective(240px) rotateX(var(--hero-graphic-offsetX)) rotateY(var(--hero-graphic-offsetY));
+      width: 320px;
+    }
+
+    .hero-background {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+    }
+  }
+
+  #about-wrapper {
+    .content {
+      align-items: center;
+      display: flex;
+      gap: 50px;
+      justify-content: space-between;
+    }
+  }
+
+  #projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+  }
+}

@@ -17,10 +17,45 @@
     },
     "quote": "If I'm only remembered for doing one thing, that's fine. But I don't want to be making just one thing."
   },
-  "bottom": {
-    "hire_cta": "Hire Me"
+  "home": {
+    "common": {
+      "hero": {
+        "title": "Welcome to my website"
+      },
+      "about": {
+        "title": "Who am I?"
+      },
+      "projects": {
+        "title": "Featured work"
+      }
+    },
+    "design": {
+      "hero": {
+        "typewriter_static": "This is where",
+        "typewriter_prompt_1": "I design.",
+        "typewriter_prompt_2": "I develop.",
+        "typewriter_prompt_3": "I create."
+      },
+      "about": {
+        "paragraph_1": "I am a web designer from Croatia who's been coding since the age of 15. Since then I have made several websites for all sorts of different people, businesses and others. My experience ranges from developing static responsive sites to custom WordPress themes and other CMS driven websites. When working I always try to create a clear message for whom the site is aimed towards. This helps me better understand the needs of my client and how to best fulfil them while still making sure that everything on the website is clear and easy to find. That means when my job is done both the client and I are happy with the outcome.",
+        "paragraph_2": "I have acquired my degree in web design at the ”School for graphics, design and media production” and have gone onto study in the UK. During my time there I have expanded my skills in coding and learned how to use other frameworks, and programming languages. When I am not working on a project I'll most likely be spending my time learning new things and polishing the older ones to make sure that when the next project comes up, I am better suited for it and any challenges it may bring."
+      }
+    },
+    "music": {
+      "hero": {
+        "typewriter_static": "This is where",
+        "typewriter_prompt_1": " I write.",
+        "typewriter_prompt_2": " I produce.",
+        "typewriter_prompt_3": " I create."
+      },
+      "about": {
+        "paragraph_1": "I am a music producer from Croatia mostly working with the singer-songwriter/band styles of music along with composing for different mediums such as films, adverts, games and others. Thou I am more comfortable in those areas I am always up for a new challenge. My usual workflow when recording a song for the artist is to first start with what the song is about and what is the feeling the artists wants to focus on as the main driving element of the piece. This helps me better understand what direction the production should take and what sound we are looking for.",
+        "paragraph_2": "It gives me such a rush when we get to that creative point where the ideas are flowing and the production is rapidly building. My mindset going into such sessions is to just have fun and create music. This helps the artist feel more comfortable and ultimately I think it gives a better, more honest product, which both the fans and the artist love. That is really the purpose of a music producer, to help guide the artists' vision and expand upon the initial idea to create the world in which that song/albums inhabits."
+      }
+    }
   },
-  "contact": {
-    "email": "contact@dariodumlijan.com"
+  "bottom": {
+    "email": "contact@dariodumlijan.com",
+    "hire_cta": "Hire Me"
   }
 }

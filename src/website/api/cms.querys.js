@@ -1,76 +1,118 @@
 // @flow
-export const GENERAL_QUERY = `
+export const HOME_QUERY = (section: string): string => `
   {
-    generalCollection {
+    featuredCollection(limit: 2, order: order_ASC, where: {sectionName: "${section}"}) {
       items {
-        siteTitle
-        multiLogo {
-          title
-          url
+        sys {
+          id
         }
-        designLogo {
-          title
+        title
+        links
+        description
+        img {
           url
-        }
-        musicLogo {
           title
-          url
         }
-        landingQuote
-        email
-        hire
+        audioCollection {
+          items {
+            url
+            title
+          }
+        }
       }
     }
-  }
-`;
+  }`;
 
-export const SECTIONS_QUERY = `
+export const ABOUT_QUERY = (section: string): string => `
   {
-    siteSectionsCollection(order: order_ASC) {
+    aboutCollection(where: {sectionName: "${section}"}) {
       items {
         title
         subtitle
-        slug
+        description
         img {
           title
           url
         }
-        gif {
+        cv {
           title
           url
         }
       }
     }
-  }
-`;
-
-export const LANDING_QUERY = `
-  {
-    generalCollection {
-      items {
-        multiLogo {
-          title
-          url
-        }
-        landingQuote
-        email
-        hire
-      }
-    }
-    siteSectionsCollection(order: order_ASC) {
+    aboutTabsCollection(where: {sectionName: "${section}"}, order: order_ASC) {
       items {
         title
-        subtitle
-        slug
-        img {
-          title
-          url
-        }
-        gif {
-          title
-          url
+        description {
+          json
         }
       }
     }
-  }
-`;
+  }`;
+
+export const PORTFOLIO_QUERY = (section: string): string => {
+  const sections: { design: string, music: string } = {
+    design: `{
+      designCollection {
+        items {
+          coverArt {
+            title
+            url
+          }
+          title
+          role
+          client
+          links
+          description {
+            json
+          }
+          mockupsCollection {
+            items {
+              title
+              url
+            }
+          }
+        }
+      }
+    }`,
+    music: `{
+      productionCollection {
+        items {
+          coverArt {
+            title
+            url
+          }
+          filter
+          title
+          artist
+          description {
+            json
+          }
+          video
+          audioCollection {
+            items {
+              title
+              url
+            }
+          }
+        }
+      }
+    }`,
+  };
+
+  return sections[section];
+};
+
+export const SHOWREEL_QUERY: string = `
+  {
+    showreelCollection(limit: 1) {
+      items {
+        video
+        title
+        artist
+        description {
+          json
+        }
+      }
+    }
+  }`;

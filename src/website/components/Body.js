@@ -8,6 +8,8 @@ import { isEmpty } from "lodash";
 import Login from "../../staging/Login";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
 import Navigation from "./blocks/Navigation";
 import ScrollToTop from "./elements/ScrollToTop";
 import Bottom from "./elements/Bottom";
@@ -62,7 +64,23 @@ function Body(): Node {
       <Routes>
         <Route element={<Outlet />}>
           {sections.map((section) => (
-            <Route key={section} path={section} element={<Home />} />
+            <React.Fragment key={section}>
+              <Route path={section} element={<Home title="" />} />
+              <Route
+                path={section + "/about"}
+                element={<About title=" - About me" />}
+              />
+              <Route
+                path={section + "/portfolio"}
+                element={<Portfolio title=" - Portfolio" />}
+              />
+              {section === "/music" && (
+                <Route
+                  path={section + "/showreel"}
+                  element={<Portfolio title=" - Showreel" />}
+                />
+              )}
+            </React.Fragment>
           ))}
         </Route>
         <Route exact path="/" element={<Landing />} />

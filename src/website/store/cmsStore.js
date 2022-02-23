@@ -1,5 +1,5 @@
 // @flow
-import { merge, orderBy } from "lodash";
+import { merge } from "lodash";
 import * as API from "../api";
 import type { ReduxAction, ReduxState } from "../types";
 
@@ -21,21 +21,14 @@ export const selectors = {
 };
 
 export const actions = {
-  fetchWeb: (query: string): ReduxAction => ({
+  fetchWeb: (destination: string, query: string): ReduxAction => ({
     type: types.CMS_FETCH_WEB,
-    payload: API.fetchCMS(query),
+    payload: API.fetchCMS(destination, query),
   }),
 };
 
-const _fetchWeb = (state: State, payload: any) => {
-  const newState = {
-    general: payload.webCollection.items[0],
-    team: orderBy(payload.teamMembersCollection.items, "order"),
-    apps: orderBy(payload.featuredAppCollection.items, "order"),
-  };
-
-  return merge({}, state, newState);
-};
+const _fetchWeb = (state: State, payload: Object) =>
+  merge({}, state, { [payload.destination]: payload.data });
 
 export const reducer = (state: State, action: any): any => {
   switch (action.type) {
