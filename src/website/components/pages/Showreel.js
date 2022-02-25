@@ -15,7 +15,7 @@ function Showreel(props: Props): Node {
   const t = useLocale;
   const dispatch = useDispatch();
   const showreel = useSelector(
-    (state) => get(state.cms, "music.featuredCollection.items", null),
+    (state) => get(state.cms, "music.showreelCollection.items", null),
     isEqual
   );
 

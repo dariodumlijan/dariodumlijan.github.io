@@ -16,10 +16,16 @@ function Portfolio(props: Props): Node {
   const t = useLocale;
   const dispatch = useDispatch();
   const locationInfo = useLocationInfo();
-  const currentSection: string = locationInfo.current.replace(/\//g, "");
+  const currentSection: string = locationInfo.isMusic ? "music" : "design";
   const portfolio = useSelector(
     (state) =>
-      get(state.cms, `${currentSection}.featuredCollection.items`, null),
+      get(
+        state.cms,
+        `${currentSection}.${
+          locationInfo.isMusic ? "productionCollection" : "designCollection"
+        }.items`,
+        null
+      ),
     isEqual
   );
 
@@ -27,7 +33,7 @@ function Portfolio(props: Props): Node {
     document.title += props.title;
     if (!portfolio) {
       dispatch(
-        actions.fetchWeb(currentSection, PORTFOLIO_QUERY(locationInfo.current))
+        actions.fetchWeb(currentSection, PORTFOLIO_QUERY(currentSection))
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

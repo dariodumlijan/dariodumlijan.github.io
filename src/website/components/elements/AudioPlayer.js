@@ -27,6 +27,14 @@ function AudioPlayer(props: Props): Node {
   const [volume, setVolume] = useState(0.8);
   const [progress, setProgress] = useState(0);
   const audio = useRef(new Audio(selected.url));
+  const colorKey = "--primary-color";
+
+  const getRootStyle = (key: string): string => {
+    const doc: any = document.documentElement;
+    if (!doc) return "";
+
+    return doc.style.getPropertyValue(key);
+  };
 
   const calcPercentage = (value: number, total: number): number =>
     (value * 100) / total;
@@ -38,10 +46,18 @@ function AudioPlayer(props: Props): Node {
   const volumePercent: string = Math.round(calcPercentage(volume, 1)) + "%";
 
   const progressStyle = {
-    background: `linear-gradient(90deg, ${colors.primary}, ${colors.primary} ${progressPercent}, ${colors.primary}66 ${progressPercent}, ${colors.primary}66 100%)`,
+    background: `linear-gradient(90deg, ${colors.primary}, ${
+      colors.primary
+    } ${progressPercent}, ${getRootStyle(
+      colorKey
+    )}66 ${progressPercent}, ${getRootStyle(colorKey)}66 100%)`,
   };
   const volumeStyle = {
-    background: `linear-gradient(90deg, ${colors.primary}, ${colors.primary} ${volumePercent}, ${colors.primary}66 ${volumePercent}, ${colors.primary}66 100%)`,
+    background: `linear-gradient(90deg, ${colors.primary}, ${
+      colors.primary
+    } ${volumePercent}, ${getRootStyle(
+      colorKey
+    )}66 ${volumePercent}, ${getRootStyle(colorKey)}66 100%)`,
   };
 
   /*

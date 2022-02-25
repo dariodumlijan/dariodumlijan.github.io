@@ -1,10 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import type { Node } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { get, isEqual } from "lodash";
+import classNames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBriefcase,
+  faTools,
+  faUniversity,
+  faLightbulb,
+} from "@fortawesome/free-solid-svg-icons";
 import Loading from "../elements/Loading";
-import useLocale from "../../locale";
 import { useLocationInfo } from "../../utils";
+import contentfulToReact from "../../utils/cmsRichText";
 import { actions } from "../../store/cmsStore";
 import { ABOUT_QUERY } from "../../api/cms.querys";
 
@@ -13,34 +22,104 @@ type Props = {
 };
 
 function About(props: Props): Node {
-  const t = useLocale;
   const dispatch = useDispatch();
   const locationInfo = useLocationInfo();
-  const currentSection: string = locationInfo.current.replace(/\//g, "");
-  const about = useSelector(
-    (state) =>
-      get(state.cms, `${currentSection}.featuredCollection.items`, null),
+  const currentSection: string = locationInfo.isMusic ? "music" : "design";
+  const about: { description: Object, tabs: Object[] } = useSelector(
+    (state) => ({
+      description: get(
+        state.cms,
+        `${currentSection}.aboutCollection.items[0]`,
+        null
+      ),
+      tabs: get(state.cms, `${currentSection}.aboutTabsCollection.items`, null),
+    }),
     isEqual
   );
+  const mediaQuery = window.matchMedia("(max-width: 991px)");
+  const [activeTab, setActiveTab] = useState(null);
+  const [tabContent, setTabContent] = useState(null);
+  const [smallScreen, setSmallScreen] = useState(mediaQuery.matches);
+
+  const handleIcons = (title: string): Node => {
+    if (title === "Work") return <FontAwesomeIcon icon={faBriefcase} />;
+    if (title === "Skills") return <FontAwesomeIcon icon={faTools} />;
+    if (title === "Education") return <FontAwesomeIcon icon={faUniversity} />;
+    if (title === "Inspiration") return <FontAwesomeIcon icon={faLightbulb} />;
+  };
+
+  const handleTabClick = (tab: Object) => {
+    setActiveTab(tab.title);
+    setTabContent(tab.description.json);
+  };
 
   useEffect(() => {
     document.title += props.title;
-    if (!about) {
-      dispatch(
-        actions.fetchWeb(currentSection, ABOUT_QUERY(locationInfo.current))
-      );
+    if (!about.description || !about.tabs) {
+      dispatch(actions.fetchWeb(currentSection, ABOUT_QUERY(currentSection)));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSection]);
 
-  if (!about) return <Loading />;
+  useEffect(() => {
+    const handler = () => {
+      setSmallScreen(mediaQuery.matches);
+    };
+
+    mediaQuery.addEventListener("change", handler);
+
+    return () => mediaQuery.removeEventListener("change", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!about.description || !about.tabs) return <Loading />;
 
   return (
     <main className="about">
       <section id="about-wrapper">
-        <h1 className="section-title">{t("about.title")}</h1>
+        <div className="about-content">
+          <h1 className="about-title">{about.description.title}</h1>
+          <h3 className="about-subtitle">{about.description.subtitle}</h3>
+          <p className="about-description">{about.description.description}</p>
+        </div>
+        {smallScreen ? (
+          <img
+            className="section-image"
+            src={about.description.img.url}
+            alt="about"
+          />
+        ) : (
+          <div
+            className="section-image"
+            style={{ backgroundImage: `url(${about.description.img.url})` }}
+          />
+        )}
       </section>
-      <section id="tabs-wrapper" />
+      <section id="tabs-wrapper">
+        <div className="tabs">
+          {about.tabs.map((tab: Object, index: number) => (
+            <button
+              key={tab.title}
+              className={classNames("tab-links", {
+                animate: index === 0 && !activeTab,
+                active: tab.title === activeTab,
+              })}
+              onClick={() => handleTabClick(tab)}
+            >
+              {handleIcons(tab.title)}
+              {tab.title}
+            </button>
+          ))}
+          <a className="cv-link" href={about.description.cv.url} download>
+            {about.description.cv.title}
+          </a>
+        </div>
+        {tabContent && (
+          <div className="tab-content rich-content">
+            {documentToReactComponents(tabContent, contentfulToReact())}
+          </div>
+        )}
+      </section>
     </main>
   );
 }

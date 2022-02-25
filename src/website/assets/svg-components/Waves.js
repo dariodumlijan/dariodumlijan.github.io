@@ -1,5 +1,6 @@
 import React from "react";
 import type { Node } from "react";
+import colors from "../../styles/_colors.scss";
 
 type Props = {
   className: string,
@@ -15,8 +16,8 @@ function Waves(props: Props): Node {
     >
       <g transform="translate(700,150) scale(1,1) translate(-700,-150)">
         <linearGradient id="lg-0.5450171058836231" x1="0" x2="1" y1="0" y2="0">
-          <stop stopColor="#0066cc" offset="0" />
-          <stop stopColor="#0066cc" offset="1" />
+          <stop stopColor={colors.primary} offset="0" />
+          <stop stopColor={colors.primary} offset="1" />
         </linearGradient>
         <path d="" fill="url(#lg-0.5450171058836231)" opacity="0.4">
           <animate

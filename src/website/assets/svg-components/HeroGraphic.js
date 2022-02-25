@@ -1,5 +1,6 @@
 import React from "react";
 import type { Node } from "react";
+import colors from "../../styles/_colors.scss";
 
 type Props = {
   className: string,
@@ -15,27 +16,7 @@ function HeroGraphic(props: Props): Node {
       viewBox="0 0 1700 700"
     >
       <path
-        fill="#D6D6D6"
-        d="M1163.8,667.6l-1.1,7.2l4.2,3.3l3.7-1.6l65.4,23L1163.8,667.6z"
-      />
-      <linearGradient
-        id="SVGID_1_"
-        gradientUnits="userSpaceOnUse"
-        x1="1213.8843"
-        y1="-10.3118"
-        x2="1182.0151"
-        y2="44.8866"
-        gradientTransform="matrix(1 0 0 -1 0 702)"
-      >
-        <stop offset="0" stopColor="#000000" stopOpacity="0.4" />
-        <stop offset="0.91" stopColor="#FFFFFF" stopOpacity="0" />
-      </linearGradient>
-      <path
-        fill="url(#SVGID_1_)"
-        d="M1163.8,667.6l-1.1,7.2l4.2,3.3l3.7-1.6l65.4,23L1163.8,667.6z"
-      />
-      <path
-        fill="#1D1F20"
+        fill={colors.bg}
         d="M0,776.1c-2.8,0-5-2.2-5-5v-566c0-2.5,1.8-4.6,4.3-4.9c23.6-3.6,47.5-5.4,71.3-5.5c65,0,111.9,15.1,157.3,29.7
 	c44.9,14.5,87.3,28.1,145.9,28.1c31.4,0,64.4-3.9,101-12c9.3-2,18.8-3,28.3-3c38.3,0,77.2,14.6,114.8,28.8
 	c33.5,12.6,65.1,24.6,92.7,24.5c9,0.1,18-1.4,26.4-4.6c20.8-8,41-12.1,60.1-12.1c28.5,0,54.7,8.9,77.9,26.6
@@ -45,7 +26,7 @@ function HeroGraphic(props: Props): Node {
 	L0,776.1z"
       />
       <path
-        fill="#7FB2E5"
+        fill={colors.primaryLight}
         d="M70.6,199.7c126.7,0,182.9,57.8,303.2,57.8c29.5,0,62.9-3.5,102.1-12.1c8.9-1.9,18.1-2.9,27.2-2.9
 	c71.5,0,147.8,53.4,207.4,53.4c9.6,0.1,19.2-1.5,28.2-4.9c20.9-8.1,40.3-11.8,58.3-11.8c57.3,0,99.9,37.7,127.1,91.5
 	c31,61.6-21.3,55,89.6,115c74.9,40.6,4.3,135,136.3,145.8c49.5,4.1,72.2,0,122.2,21.7c73,31.7,190.5,43.6,267.5,43.6

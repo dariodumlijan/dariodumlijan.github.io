@@ -76,6 +76,34 @@
       font-weight: 600;
     }
 
+    .links-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+
+      a {
+        align-items: center;
+        background-color: transparent;
+        border-radius: 100vw;
+        border: 2px solid $primary;
+        color: $primary;
+        cursor: pointer;
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        justify-content: center;
+        padding: 8px 20px;
+        transition: 0.3s;
+        width: fit-content;
+
+        &:hover {
+          background-color: $primary;
+          color: $bg;
+        }
+      }
+    }
+
     .content-description {
       max-height: 200px;
       overflow-y: auto;

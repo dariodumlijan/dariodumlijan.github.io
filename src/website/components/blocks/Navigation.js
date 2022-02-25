@@ -15,6 +15,7 @@ function Navigation(): Node {
   const t = useLocale;
   const locationInfo = useLocationInfo();
   const [showSettings, setShowSettings] = useState();
+  const currentSection: string = locationInfo.isMusic ? "music" : "design";
   const settingsClass = classNames("settings-wrapper", {
     show: showSettings,
   });
@@ -42,18 +43,15 @@ function Navigation(): Node {
   }
 
   useEffect(() => {
-    if (!document.documentElement) return;
+    const doc: any = document.documentElement;
+    if (!doc) return;
 
     if (locationInfo.isDesign) {
-      document.documentElement.style.setProperty(
-        "--primary-color",
-        colors.primaryDesign
-      );
+      doc.style.setProperty("--primary-color", colors.primaryDesign);
+      doc.style.setProperty("--primary-light-color", colors.primaryDesignLight);
     } else {
-      document.documentElement.style.setProperty(
-        "--primary-color",
-        colors.primaryMusic
-      );
+      doc.style.setProperty("--primary-color", colors.primaryMusic);
+      doc.style.setProperty("--primary-light-color", colors.primaryMusicLight);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locationInfo.current]);
@@ -68,7 +66,7 @@ function Navigation(): Node {
           {locationInfo.isMusic && <MusicLogo />}
         </Link>
         {links.map((slug) => (
-          <NavLink key={slug.url} to={locationInfo.current + slug.url}>
+          <NavLink key={slug.url} to={currentSection + slug.url}>
             {slug.label}
           </NavLink>
         ))}

@@ -39,12 +39,10 @@ function HeroSection(): Node {
       }
     };
 
-    sectionRef.current.addEventListener("mousemove", handleMouseMove);
+    const graphic = sectionRef.current;
+    graphic.addEventListener("mousemove", handleMouseMove);
 
-    return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      sectionRef.current.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => graphic.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (

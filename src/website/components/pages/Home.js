@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { get, isEqual } from "lodash";
 import HeroSection from "../blocks/HeroSection";
 import FeaturedMusic from "../blocks/FeaturedMusic";
+import FeaturedDesign from "../blocks/FeaturedDesign";
 import Loading from "../elements/Loading";
 import useLocale from "../../locale";
 import { useLocationInfo } from "../../utils";
@@ -38,7 +39,7 @@ function Home(props: Props): Node {
   return (
     <main className="home">
       <HeroSection />
-      <section id="about-wrapper">
+      <section id="about-home-wrapper">
         <h1 className="section-title">{t("home.common.about.title")}</h1>
         <div className="content">
           <p>{t(`home.${currentSection}.about.paragraph_1`)}</p>
@@ -51,9 +52,10 @@ function Home(props: Props): Node {
           projects.map((project) => (
             <FeaturedMusic key={project.sys.id} data={project} />
           ))}
-        {/* {locationInfo.isDesign && projects.map((project) => (
-          <FeaturedMusic key={project.sys.id} data={project} />
-        ))} */}
+        {locationInfo.isDesign &&
+          projects.map((project) => (
+            <FeaturedDesign key={project.sys.id} data={project} />
+          ))}
       </section>
     </main>
   );
