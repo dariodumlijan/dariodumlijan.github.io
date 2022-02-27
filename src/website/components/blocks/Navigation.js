@@ -5,6 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import FormCaller from "../elements/FormCaller";
 import DesignLogo from "../../assets/icons/DesignLogo";
 import MusicLogo from "../../assets/icons/MusicLogo";
 import { useLocationInfo } from "../../utils";
@@ -66,11 +67,17 @@ function Navigation(): Node {
           {locationInfo.isMusic && <MusicLogo />}
         </Link>
         {links.map((slug) => (
-          <NavLink key={slug.url} to={currentSection + slug.url}>
+          <NavLink
+            key={slug.url}
+            to={currentSection + slug.url}
+            className="nav-link"
+          >
             {slug.label}
           </NavLink>
         ))}
-        <button className="hire-me">{t("bottom.hire_cta")}</button>
+        <FormCaller>
+          <button className="hire-me">{t("bottom.hire_cta")}</button>
+        </FormCaller>
       </div>
       <div className={settingsClass}>
         <div className="lang-wrapper">

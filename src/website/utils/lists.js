@@ -9,6 +9,7 @@ import {
 
 type Lists = {
   cta: Object[],
+  filters: Object[],
 };
 
 const useLists = (): Lists => {
@@ -44,8 +45,30 @@ const useLists = (): Lists => {
       url: "https://www.youtube.com/channel/UCauLC6nNzwA4CyGeMxQZbug",
     },
   ];
+  const filters = [
+    {
+      label: "All",
+      value: "all",
+    },
+    {
+      label: "Advert",
+      value: "advert",
+    },
+    {
+      label: "Album",
+      value: "album",
+    },
+    {
+      label: "Composition",
+      value: "composition",
+    },
+    {
+      label: "Single",
+      value: "single",
+    },
+  ];
 
-  return { cta };
+  return { cta, filters };
 };
 
 export default useLists;

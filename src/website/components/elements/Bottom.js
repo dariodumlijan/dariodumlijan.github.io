@@ -1,7 +1,9 @@
+// @flow
 import React from "react";
 import type { Node } from "react";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FormCaller from "./FormCaller";
 import Waves from "../../assets/svg-components/Waves";
 import useLocale from "../../locale";
 import { useLocationInfo } from "../../utils";
@@ -21,25 +23,27 @@ function Bottom(): Node {
       {(locationInfo.isDesign || locationInfo.isMusic) && (
         <Waves className="bottom-waves" />
       )}
-      <div className="call-to-action">
-        <p className="email">{t("bottom.email")}</p>
-      </div>
+      <div className="action-container">
+        <div className="call-to-action">
+          <p className="email">{t("bottom.email")}</p>
+        </div>
 
-      <div className="call-to-action">
-        <button className="hire-me">{t("bottom.hire_cta")}</button>
-      </div>
+        <FormCaller className="call-to-action">
+          <button className="hire-me">{t("bottom.hire_cta")}</button>
+        </FormCaller>
 
-      <div className="call-to-action">
-        {cta.map((action) => (
-          <a
-            key={action.label}
-            href={action.url}
-            target="_blank"
-            className="call-to-action-icons"
-          >
-            <FontAwesomeIcon icon={action.icon} />
-          </a>
-        ))}
+        <div className="call-to-action">
+          {cta.map((action) => (
+            <a
+              key={action.label}
+              href={action.url}
+              target="_blank"
+              className="call-to-action-icons"
+            >
+              <FontAwesomeIcon icon={action.icon} />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

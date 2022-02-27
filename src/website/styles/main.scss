@@ -18,6 +18,7 @@ main {
 
   &:hover {
     background-color: $primary;
-    color: $bg;
+    border: 2px solid $primaryLight;
+    color: $white;
   }
 }

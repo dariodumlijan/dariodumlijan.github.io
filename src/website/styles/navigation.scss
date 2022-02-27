@@ -28,6 +28,34 @@
         fill: $white;
       }
     }
+
+    .nav-link {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      position: relative;
+      width: fit-content;
+
+      &.active,
+      &:hover {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+
+      &::before {
+        background-color: $primary;
+        border-radius: 100vw;
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transition: 0.3s;
+        width: 100%;
+      }
+    }
   }
 
   .settings-wrapper {

@@ -110,7 +110,12 @@ function About(props: Props): Node {
               {tab.title}
             </button>
           ))}
-          <a className="cv-link" href={about.description.cv.url} download>
+          <a
+            className="cv-link"
+            target="_blank"
+            href={about.description.cv.url}
+            download
+          >
             {about.description.cv.title}
           </a>
         </div>

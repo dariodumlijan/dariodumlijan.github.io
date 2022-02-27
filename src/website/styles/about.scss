@@ -87,12 +87,15 @@
       &:hover,
       &.active {
         background-color: $primary;
-        color: $bg;
+        border: 2px solid $primaryLight;
+        color: $white;
       }
 
       &.animate {
         animation: pulseTab 3s infinite ease-in-out;
-        color: $bg;
+        background-color: $primary;
+        border: 2px solid $primaryLight;
+        color: $white;
         transition: 0.3s;
 
         &:hover {
@@ -102,18 +105,12 @@
 
         @keyframes pulseTab {
           0% {
-            background-color: $primary;
-            border: 2px solid $primary;
             opacity: 0.7;
           }
           50% {
-            background-color: $primary;
-            border: 2px solid $primary;
             opacity: 1;
           }
           100% {
-            background-color: $primary;
-            border: 2px solid $primary;
             opacity: 0.7;
           }
         }

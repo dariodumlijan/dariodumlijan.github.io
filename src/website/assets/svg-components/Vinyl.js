@@ -1,8 +1,9 @@
+// @flow
 import React from "react";
 import type { Node } from "react";
 
 type Props = {
-  className: string,
+  className?: string,
 };
 
 function Vinyl(props: Props): Node {

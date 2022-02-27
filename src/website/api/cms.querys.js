@@ -9,6 +9,7 @@ export const HOME_QUERY = (section: string): string => `
         title
         links
         description
+        projectType
         img {
           url
           title
@@ -53,8 +54,9 @@ export const ABOUT_QUERY = (section: string): string => `
 export const PORTFOLIO_QUERY = (section: string): string => {
   const sections: { design: string, music: string } = {
     design: `{
-      designCollection {
+      designCollection(order: order_ASC) {
         items {
+          order
           coverArt {
             title
             url
@@ -76,8 +78,9 @@ export const PORTFOLIO_QUERY = (section: string): string => {
       }
     }`,
     music: `{
-      productionCollection {
+      productionCollection(order: order_ASC) {
         items {
+          order
           coverArt {
             title
             url

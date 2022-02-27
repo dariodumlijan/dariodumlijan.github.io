@@ -24,7 +24,9 @@ const contentfulToReact = (assets?: Object): any => ({
   },
   renderNode: {
     [INLINES.HYPERLINK]: (node: Object) => (
-      <a className="rich-link">{node.content[0].value}</a>
+      <a href={node.data.uri} target="_blank" className="rich-link">
+        {node.content[0].value}
+      </a>
     ),
     [BLOCKS.PARAGRAPH]: (_node, children) => (
       <p className="rich-text">{children}</p>

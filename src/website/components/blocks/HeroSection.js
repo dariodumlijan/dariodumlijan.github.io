@@ -1,3 +1,4 @@
+// @flow
 import React, { useEffect, useRef } from "react";
 import type { Node } from "react";
 import Typewriter from "../elements/Typewriter";
@@ -11,7 +12,7 @@ function HeroSection(): Node {
   const locationInfo = useLocationInfo();
   const currentSection: string = locationInfo.current.replace(/\//g, "");
   const sectionRef = useRef();
-  const strength = 80;
+  const strength: number = 80;
 
   const typewriterPrompts = [
     t(`home.${currentSection}.hero.typewriter_prompt_1`),
@@ -21,10 +22,14 @@ function HeroSection(): Node {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      const graphic = document
-        .querySelector(".hero-graphic")
-        .getBoundingClientRect();
+      let graphic = document.querySelector(".hero-graphic");
+      // $FlowFixMe
+      graphic = graphic.getBoundingClientRect();
+
+      if (!graphic) return;
+      // $FlowFixMe
       const calcX = -(e.clientY - graphic.y - graphic.height / 2) / strength;
+      // $FlowFixMe
       const calcY = (e.clientX - graphic.x - graphic.width / 2) / strength;
 
       if (document.documentElement) {
@@ -32,6 +37,7 @@ function HeroSection(): Node {
           "--hero-graphic-offsetX",
           calcX + "deg"
         );
+        // $FlowFixMe
         document.documentElement.style.setProperty(
           "--hero-graphic-offsetY",
           calcY + "deg"
@@ -40,21 +46,27 @@ function HeroSection(): Node {
     };
 
     const graphic = sectionRef.current;
+    // $FlowFixMe
     graphic.addEventListener("mousemove", handleMouseMove);
 
-    return () => graphic.removeEventListener("mousemove", handleMouseMove);
+    // $FlowFixMe
+    return () => sectionRef.removeEventListener("mousemove", handleMouseMove);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
+    // $FlowFixMe
     <section ref={sectionRef} id="hero-wrapper">
-      <div className="text-wrapper">
-        <h1 className="hero-title">{t("home.common.hero.title")}</h1>
-        <Typewriter
-          messageStatic={t(`home.${currentSection}.hero.typewriter_static`)}
-          prompts={typewriterPrompts}
-        />
+      <div className="hero-container">
+        <div className="text-wrapper">
+          <h1 className="hero-title">{t("home.common.hero.title")}</h1>
+          <Typewriter
+            messageStatic={t(`home.${currentSection}.hero.typewriter_static`)}
+            prompts={typewriterPrompts}
+          />
+        </div>
+        <Portrait className="hero-graphic" />
       </div>
-      <Portrait className="hero-graphic" />
       <HeroGraphic className="hero-background" />
     </section>
   );

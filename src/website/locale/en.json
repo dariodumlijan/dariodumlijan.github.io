@@ -54,9 +54,55 @@
       }
     }
   },
-  "portfolio": {},
-  "showreel": {},
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "The best I got so far!"
+  },
+  "showreel": {
+    "title": "Showreel"
+  },
   "about": {},
+  "form": {
+    "tagline": "Lets work together!",
+    "free_option_info": "If you have a project but don't want to/don't have the money to hire us, you can ask us to work for *FREE. Depending if we like a project & believe in its success we might accept with a condition that we will get an agreed-upon percentage of your business.",
+    "name": {
+      "label": "Name",
+      "placeholder": "Name..."
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "E-mail..."
+    },
+    "job_type": {
+      "label": "Job type",
+      "placeholder": "Job type..."
+    },
+    "details": {
+      "label": "Tell us about your project",
+      "placeholder": "My project is about..."
+    },
+    "references": {
+      "label": "Send us links to references",
+      "placeholder": "References..."
+    },
+    "budget": {
+      "label": "Your budget",
+      "placeholder": "£££ / *Free"
+    },
+    "deadline": {
+      "label": "Project deadline",
+      "placeholder": "DD/MM/YYYY"
+    },
+    "actions": {
+      "reset": "Reset form",
+      "submit": "Submit form"
+    },
+    "send_message": {
+      "pending": "Your message is being sent...",
+      "rejected": "Error. There was a problem sending the message!",
+      "fulfilled": "Sent succesfully!"
+    }
+  },
   "bottom": {
     "email": "contact@dariodumlijan.com",
     "hire_cta": "Hire Me"

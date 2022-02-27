@@ -1,5 +1,5 @@
 // @flow
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { Node } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,6 +7,7 @@ import {
   faPause,
   faVolumeMute,
   faVolumeUp,
+  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import colors from "../../styles/_colors.scss";
 
@@ -27,14 +28,6 @@ function AudioPlayer(props: Props): Node {
   const [volume, setVolume] = useState(0.8);
   const [progress, setProgress] = useState(0);
   const audio = useRef(new Audio(selected.url));
-  const colorKey = "--primary-color";
-
-  const getRootStyle = (key: string): string => {
-    const doc: any = document.documentElement;
-    if (!doc) return "";
-
-    return doc.style.getPropertyValue(key);
-  };
 
   const calcPercentage = (value: number, total: number): number =>
     (value * 100) / total;
@@ -45,26 +38,35 @@ function AudioPlayer(props: Props): Node {
     ) + "%";
   const volumePercent: string = Math.round(calcPercentage(volume, 1)) + "%";
 
+  const handleHEX = (hex: string): string => {
+    if (hex.length === 7) return hex;
+    const newColor: string[] = Array.from(hex);
+
+    return (
+      newColor[0] +
+      newColor[1] +
+      newColor[1] +
+      newColor[2] +
+      newColor[2] +
+      newColor[3] +
+      newColor[3]
+    );
+  };
+
   const progressStyle = {
     background: `linear-gradient(90deg, ${colors.primary}, ${
       colors.primary
-    } ${progressPercent}, ${getRootStyle(
-      colorKey
-    )}66 ${progressPercent}, ${getRootStyle(colorKey)}66 100%)`,
+    } ${progressPercent}, ${handleHEX(
+      colors.primaryMusic
+    )}66 ${progressPercent}, ${handleHEX(colors.primaryMusic)}66 100%)`,
   };
   const volumeStyle = {
     background: `linear-gradient(90deg, ${colors.primary}, ${
       colors.primary
-    } ${volumePercent}, ${getRootStyle(
-      colorKey
-    )}66 ${volumePercent}, ${getRootStyle(colorKey)}66 100%)`,
+    } ${volumePercent}, ${handleHEX(
+      colors.primaryMusic
+    )}66 ${volumePercent}, ${handleHEX(colors.primaryMusic)}66 100%)`,
   };
-
-  /*
-  const handleDownload = () => {
-    audio.current.download()
-  };
-  */
 
   audio.current.ontimeupdate = () => {
     setProgress(Math.round(audio.current.currentTime));
@@ -107,6 +109,20 @@ function AudioPlayer(props: Props): Node {
     handlePlay(true);
   };
 
+  useEffect(() => {
+    props.onPress(false);
+    audio.current.pause();
+    audio.current.currentTime = 0;
+    setProgress(0);
+    setVolume(0.8);
+    setMute(false);
+    setPlay(false);
+    setSelected(props.songs[0]);
+    audio.current = new Audio(props.songs[0].url);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.songs]);
+
   return (
     <div className="player-wrapper">
       <div className="master-player">
@@ -144,11 +160,14 @@ function AudioPlayer(props: Props): Node {
               onClick={() => handleMute(!mute)}
             />
           </div>
-          {/* <FontAwesomeIcon
+          <a
+            href={selected.url}
+            target="_blank"
+            download
             className="download-icon"
-            icon={faDownload}
-            onClick={handleDownload}
-          /> */}
+          >
+            <FontAwesomeIcon icon={faDownload} />
+          </a>
         </div>
       </div>
       <div className="songs-list">

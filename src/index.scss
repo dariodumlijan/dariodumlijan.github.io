@@ -129,7 +129,7 @@ body {
     align-items: center;
     background-color: $primary;
     border-radius: 50%;
-    border: 2px solid $bg;
+    border: 2px solid $primaryLight;
     bottom: 40px;
     box-shadow: 0 6px 6px $blackTransparent;
     color: $white;
@@ -162,7 +162,8 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar-track {
-  border-radius: 0pt;
+  border-radius: 5px;
+  background-color: rgba($black, 0.2);
 }
 
 ::-webkit-scrollbar {
