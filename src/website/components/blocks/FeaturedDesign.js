@@ -1,8 +1,10 @@
 // @flow
 import React from "react";
 import type { Node } from "react";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import PhoneModel from "../../assets/svg-components/PhoneModel";
 import MonitorModel from "../../assets/svg-components/MonitorModel";
+import contentfulToReact from "../../utils/cmsRichText";
 
 type Props = {
   data: Object,
@@ -56,7 +58,14 @@ function FeaturedDesign(props: Props): Node {
             </a>
           ))}
         </div>
-        <p className="content-description">{data.description}</p>
+        {data.description && (
+          <div className="content-description rich-content">
+            {documentToReactComponents(
+              data.description.json,
+              contentfulToReact()
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

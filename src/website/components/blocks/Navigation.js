@@ -1,7 +1,7 @@
 // @flow
 import React, { useEffect, useState } from "react";
 import type { Node } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
@@ -16,32 +16,47 @@ function Navigation(): Node {
   const t = useLocale;
   const locationInfo = useLocationInfo();
   const [showSettings, setShowSettings] = useState();
-  const currentSection: string = locationInfo.isMusic ? "music" : "design";
   const settingsClass = classNames("settings-wrapper", {
     show: showSettings,
   });
 
-  const links = [
+  const musicLinks = [
     {
       label: "Home",
-      url: "",
+      url: "/music",
     },
     {
       label: "Portfolio",
-      url: "/portfolio",
+      url: "/music/portfolio",
+    },
+    {
+      label: "Showreel",
+      url: "/music/showreel",
     },
     {
       label: "About me",
-      url: "/about",
+      url: "/music/about",
     },
   ];
 
-  if (locationInfo.isMusic) {
-    links.splice(2, 0, {
-      label: "Showreel",
-      url: "/showreel",
-    });
-  }
+  const designLinks = [
+    {
+      label: "Home",
+      url: "/design",
+    },
+    {
+      label: "Portfolio",
+      url: "/design/portfolio",
+    },
+    {
+      label: "About me",
+      url: "/design/about",
+    },
+  ];
+
+  const links: Object[] = locationInfo.isMusic
+    ? [...musicLinks]
+    : [...designLinks];
 
   useEffect(() => {
     const doc: any = document.documentElement;
@@ -67,13 +82,17 @@ function Navigation(): Node {
           {locationInfo.isMusic && <MusicLogo />}
         </Link>
         {links.map((slug) => (
-          <NavLink
+          <Link
             key={slug.url}
-            to={currentSection + slug.url}
-            className="nav-link"
+            to={slug.url}
+            className={classNames("nav-link", {
+              active:
+                locationInfo.current === slug.url ||
+                locationInfo.current === slug.url + "/",
+            })}
           >
             {slug.label}
-          </NavLink>
+          </Link>
         ))}
         <FormCaller>
           <button className="hire-me">{t("bottom.hire_cta")}</button>

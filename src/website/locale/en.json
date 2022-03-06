@@ -56,7 +56,12 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "subtitle": "The best I got so far!"
+    "subtitle": "The best I got so far!",
+    "design": {
+      "role": "Role",
+      "client": "Client",
+      "links": "Links"
+    }
   },
   "showreel": {
     "title": "Showreel"

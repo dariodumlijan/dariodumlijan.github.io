@@ -50,7 +50,7 @@ function HeroSection(): Node {
     graphic.addEventListener("mousemove", handleMouseMove);
 
     // $FlowFixMe
-    return () => sectionRef.removeEventListener("mousemove", handleMouseMove);
+    return () => graphic.removeEventListener("mousemove", handleMouseMove);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

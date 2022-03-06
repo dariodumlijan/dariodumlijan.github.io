@@ -52,12 +52,6 @@ function Typewriter(props: Props): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
-  // eslint-disable-next-line arrow-body-style
-  useEffect(() => {
-    return () => clearTimeout(animation);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <span className={className}>
       {props.messageStatic + type}

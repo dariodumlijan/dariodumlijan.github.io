@@ -10,6 +10,7 @@ import Landing from "./pages/Landing";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
+import Showreel from "./pages/Showreel";
 import Navigation from "./blocks/Navigation";
 import ScrollToTop from "./elements/ScrollToTop";
 import Bottom from "./elements/Bottom";
@@ -76,8 +77,8 @@ function Body(): Node {
               />
               {section === "/music" && (
                 <Route
-                  path={section + "/showreel"}
-                  element={<Portfolio title=" - Showreel" />}
+                  path="/music/showreel"
+                  element={<Showreel title=" - Showreel" />}
                 />
               )}
             </React.Fragment>

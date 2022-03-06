@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { Node } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +21,6 @@ function Form(props: Props): Node {
   const dispatch = useDispatch();
   const formSubmitted = useSelector((state) => state.global.formSubmitted);
   const environment = useEnvironmentInfo();
-  const formRef = useRef(null);
   const [captcha, setCaptcha] = useState(null);
   const [form, setForm] = useState(null);
   const [sendStatus, setSendStatus] = useState(null);
@@ -57,23 +56,6 @@ function Form(props: Props): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formSubmitted]);
 
-  useEffect(() => {
-    const handleClick = (e) => {
-      if (
-        formRef.current !== e.target &&
-        formRef.current &&
-        !formRef.current.contains(e.target)
-      ) {
-        props.close();
-      }
-    };
-
-    window.addEventListener("click", handleClick);
-
-    return () => window.removeEventListener("click", handleClick);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const handleFormInput = (origin: string, val: string) => {
     setForm(merge({}, form, { [origin]: val }));
   };
@@ -83,7 +65,6 @@ function Form(props: Props): Node {
 
     if (
       sendStatus === "PENDING" ||
-      !formRef.current ||
       isEmpty(get(form, "name")) ||
       isEmpty(get(form, "email")) ||
       isEmpty(get(form, "details")) ||
@@ -157,7 +138,7 @@ function Form(props: Props): Node {
 
   return (
     <ReCaptchaWrapper onVerify={(token) => setCaptcha(token)}>
-      <form ref={formRef} onSubmit={handleSubmit} className="form-wrapper">
+      <form onSubmit={handleSubmit} className="form-wrapper">
         {sendStatus && <span className="form-notification">{sendMessage}</span>}
         <Waves className="form-graphic" />
         <FontAwesomeIcon

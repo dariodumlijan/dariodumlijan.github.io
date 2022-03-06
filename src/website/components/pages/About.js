@@ -1,3 +1,4 @@
+// @flow
 import React, { useEffect, useState } from "react";
 import type { Node } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,7 +42,7 @@ function About(props: Props): Node {
   const [tabContent, setTabContent] = useState(null);
   const [smallScreen, setSmallScreen] = useState(mediaQuery.matches);
 
-  const handleIcons = (title: string): Node => {
+  const handleIcons = (title: string) => {
     if (title === "Work") return <FontAwesomeIcon icon={faBriefcase} />;
     if (title === "Skills") return <FontAwesomeIcon icon={faTools} />;
     if (title === "Education") return <FontAwesomeIcon icon={faUniversity} />;
@@ -80,7 +81,14 @@ function About(props: Props): Node {
         <div className="about-content">
           <h1 className="about-title">{about.description.title}</h1>
           <h3 className="about-subtitle">{about.description.subtitle}</h3>
-          <p className="about-description">{about.description.description}</p>
+          {about.description.description && (
+            <div className="about-description rich-content">
+              {documentToReactComponents(
+                about.description.description.json,
+                contentfulToReact()
+              )}
+            </div>
+          )}
         </div>
         {smallScreen ? (
           <img

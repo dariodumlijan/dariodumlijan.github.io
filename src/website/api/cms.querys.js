@@ -8,7 +8,9 @@ export const HOME_QUERY = (section: string): string => `
         }
         title
         links
-        description
+        description {
+          json
+        }
         projectType
         img {
           url
@@ -30,7 +32,9 @@ export const ABOUT_QUERY = (section: string): string => `
       items {
         title
         subtitle
-        description
+        description{
+          json
+        }
         img {
           title
           url
@@ -56,7 +60,6 @@ export const PORTFOLIO_QUERY = (section: string): string => {
     design: `{
       designCollection(order: order_ASC) {
         items {
-          order
           coverArt {
             title
             url
@@ -80,7 +83,6 @@ export const PORTFOLIO_QUERY = (section: string): string => {
     music: `{
       productionCollection(order: order_ASC) {
         items {
-          order
           coverArt {
             title
             url
@@ -111,8 +113,6 @@ export const SHOWREEL_QUERY: string = `
     showreelCollection(limit: 1) {
       items {
         video
-        title
-        artist
         description {
           json
         }

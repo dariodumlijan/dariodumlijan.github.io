@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import type { Node } from "react";
 import classNames from "classnames";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import AudioPlayer from "../elements/AudioPlayer";
 import Vinyl from "../../assets/svg-components/Vinyl";
+import contentfulToReact from "../../utils/cmsRichText";
 
 type Props = {
   data: Object,
@@ -38,7 +40,14 @@ function FeaturedMusic(props: Props): Node {
           songs={data.audioCollection.items}
           onPress={(isPlaying: boolean) => setAnimate(isPlaying)}
         />
-        <p className="content-description">{data.description}</p>
+        {data.description && (
+          <div className="content-description rich-content">
+            {documentToReactComponents(
+              data.description.json,
+              contentfulToReact()
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

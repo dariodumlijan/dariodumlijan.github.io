@@ -1,6 +1,5 @@
 // @flow
 import axios from "axios";
-import { useEnvironmentInfo } from "../utils";
 // import { database } from "./firebase.config";
 import cmsHeader from "./cms.config";
 
@@ -22,19 +21,21 @@ export const fetchCMS = async (destination: string, query: string): any => {
 };
 
 export const sendForm = async (form: Object): any => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { isDevelopment } = useEnvironmentInfo();
-  const baseURL: string = isDevelopment
-    ? "localhost:3000"
-    : process.env.REACT_APP_EMAIL_ENDPOINT || "";
+  const formatEmail = {
+    from: "hello@dariodumlijan.com",
+    to: process.env.REACT_APP_EMAIL_TO_ADDRESS || "",
+    subject: "Dario Dumlijan - Website",
+    body: `Name: ${form.name}\nE-mail: ${form.email}\nJob type: ${form.job_type}\nDetails: ${form.details}\nReferences: ${form.references}\nBudget: ${form.budget}\nDeadline: ${form.deadline}`,
+  };
 
   try {
-    const response = await axios.post("/form_submit.php", form, {
+    const response = await axios.post("/mail", JSON.stringify(formatEmail), {
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "https://staging.dariodumlijan.com",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REACT_APP_EMAIL_API_KEY || ""}`,
       },
-      baseURL,
+      baseURL: process.env.REACT_APP_EMAIL_ENDPOINT || "",
     });
     if (response.status === 200) {
       return null;

@@ -2,14 +2,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { Node } from "react";
 import ReactDOM from "react-dom";
-import Form from "../blocks/Form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   className?: string,
   children: Node,
 };
 
-function FormCaller(props: Props): Node {
+function LightBox(props: Props): Node {
   const [showModal, setShowModal] = useState();
   const modalRef = useRef(null);
 
@@ -34,7 +35,14 @@ function FormCaller(props: Props): Node {
       {showModal &&
         ReactDOM.createPortal(
           <div ref={modalRef} className="modal-overlay">
-            <Form close={() => setShowModal(false)} />
+            <div className="modal-item">
+              <FontAwesomeIcon
+                className="close"
+                icon={faTimes}
+                onClick={() => setShowModal(false)}
+              />
+              {props.children}
+            </div>
           </div>,
           document.getElementById("modal")
         )}
@@ -42,4 +50,4 @@ function FormCaller(props: Props): Node {
   );
 }
 
-export default FormCaller;
+export default LightBox;
