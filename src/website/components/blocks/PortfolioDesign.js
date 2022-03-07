@@ -57,7 +57,6 @@ function PortfolioDesign(): Node {
           options={{
             arrows: true,
             autoplay: true,
-            drag: false,
             gap: 20,
             pagination: false,
             pauseOnHover: true,

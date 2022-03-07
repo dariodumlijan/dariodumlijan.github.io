@@ -15,7 +15,7 @@
 
   @media only screen and (max-width: "769px") {
     align-self: flex-start;
-    margin: 30px;
+    margin: 10px;
     max-height: 80vh;
     padding: 40px 10px;
   }
@@ -60,11 +60,6 @@
     @media only screen and (max-width: "769px") {
       transform: translate(0px, -20px);
     }
-
-    @media only screen and (max-width: "450px") {
-      height: 30px;
-      width: 30px;
-    }
   }
 
   h1 {
@@ -78,14 +73,13 @@
     z-index: 1;
 
     @media only screen and (max-width: "769px") {
-      font-size: 30px;
-      margin-bottom: 10px;
-      margin-top: 0;
+      font-size: 40px;
+      margin: 0 10px 10px;
       transform: translateY(0);
     }
 
     @media only screen and (max-width: "450px") {
-      font-size: 24px;
+      font-size: 30px;
     }
   }
 

@@ -28,6 +28,12 @@ function PortfolioMusic(): Node {
   const vinylClass = classNames("vinyl-cover", {
     animate,
   });
+  const body = document.querySelector("body");
+
+  const handleSelectProject = (project: Object) => {
+    setSelected(project);
+    if (body) body.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     if (portfolio) setSelected(portfolio[0]);
@@ -121,7 +127,7 @@ function PortfolioMusic(): Node {
                 key={work.title}
                 className="portfolio-project"
                 style={{ backgroundImage: `url(${work.coverArt.url})` }}
-                onClick={() => setSelected(work)}
+                onClick={() => handleSelectProject(work)}
               >
                 <div className="project-credentials">
                   <h3>{work.title}</h3>

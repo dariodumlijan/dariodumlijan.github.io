@@ -1,6 +1,6 @@
 @import "../website/styles/colors.scss";
 
-.wrapper {
+.login-wrapper {
   align-items: flex-start;
   background-color: $bg;
   display: flex;
@@ -12,7 +12,7 @@
   width: 100vw;
   z-index: 9999;
 
-  .form-wrapper {
+  .login-form {
     align-items: center;
     display: flex;
     flex-direction: column;

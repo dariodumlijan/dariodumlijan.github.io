@@ -14,8 +14,8 @@ function Login(props: Props): Node {
   const [password, setPassword] = useState("");
 
   return (
-    <div className="wrapper">
-      <div className="form-wrapper">
+    <div className="login-wrapper">
+      <div className="login-form">
         <input
           type="text"
           placeholder={t("login.username")}
