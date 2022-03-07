@@ -16,6 +16,10 @@
     transform: translateX(-50%);
     width: 160px;
     z-index: 2;
+
+    @media screen and (max-width: 769px) {
+      width: 120px;
+    }
   }
 
   .menu-icon {
@@ -57,6 +61,12 @@
       width: 100%;
       z-index: 2;
 
+      @media screen and (max-width: 800px) {
+        align-items: center;
+        flex-direction: column;
+        gap: 120px;
+      }
+
       .section-wrapper {
         display: flex;
         flex-direction: column;
@@ -65,12 +75,20 @@
 
         .title {
           font-family: "Wandertucker", sans-serif;
-          font-size: 4em;
+          font-size: 60px;
+
+          @media screen and (max-width: 991px) {
+            font-size: 40px;
+          }
         }
 
         .subtitle {
           color: $gray;
-          font-size: 1.2em;
+          font-size: 20px;
+
+          @media screen and (max-width: 991px) {
+            font-size: 16px;
+          }
         }
 
         .section-links {
@@ -82,6 +100,7 @@
           color: $bg;
           cursor: pointer;
           display: flex;
+          font-size: 16px;
           font-weight: 600;
           gap: 20px;
           justify-content: center;
@@ -89,6 +108,16 @@
           padding: 8px 20px;
           transition: 0.3s;
           width: fit-content;
+
+          @media screen and (max-width: 991px) {
+            font-size: 12px;
+          }
+
+          svg {
+            @media screen and (max-width: 800px) {
+              display: none;
+            }
+          }
 
           &.left {
             flex-direction: row-reverse;
@@ -128,10 +157,15 @@
       animation-fill-mode: forwards;
       animation-iteration-count: 1;
       animation: fadeInQuote ease 3s;
-      font-size: 1em;
+      font-size: 16px;
       font-style: italic;
+      text-align: center;
       text-shadow: 0 0 3px $black;
       z-index: 2;
+
+      @media screen and (max-width: 991px) {
+        font-size: 14px;
+      }
 
       @-webkit-keyframes fadeInQuote {
         0% {

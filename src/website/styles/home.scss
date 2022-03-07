@@ -29,6 +29,18 @@ main.home {
     transform: translateX(-5vw);
     width: 100vw;
 
+    @media screen and (max-width: 1120px) {
+      height: 380px;
+    }
+
+    @media screen and (max-width: 991px) {
+      height: 320px;
+    }
+
+    @media screen and (max-width: 800px) {
+      background-color: transparent;
+    }
+
     .hero-container {
       align-items: center;
       display: flex;
@@ -41,6 +53,10 @@ main.home {
       position: relative;
       width: 100%;
 
+      @media screen and (max-width: 800px) {
+        justify-content: center;
+      }
+
       .text-wrapper {
         position: relative;
         z-index: 1;
@@ -49,11 +65,36 @@ main.home {
           font-family: "Wandertucker", "Open Sans", Helvetica, sans-serif;
           font-size: 80px;
           text-shadow: 0 2px 2px rgba($black, 0.6);
+
+          @media screen and (max-width: 1120px) {
+            font-size: 60px;
+          }
+
+          @media screen and (max-width: 991px) {
+            font-size: 50px;
+          }
+
+          @media screen and (max-width: 800px) {
+            color: $primary;
+            font-size: 80px;
+          }
+
+          @media screen and (max-width: 700px) {
+            font-size: 60px;
+          }
         }
 
         .typewriter {
           font-size: 24px;
           text-shadow: 0 2px 2px rgba($black, 0.6);
+
+          @media screen and (max-width: 991px) {
+            font-size: 18px;
+          }
+
+          @media screen and (max-width: 800px) {
+            font-size: 22px;
+          }
 
           .carrot {
             background-color: $primary;
@@ -68,6 +109,15 @@ main.home {
         height: 320px;
         transform: perspective(240px) rotateX(var(--hero-graphic-offsetX)) rotateY(var(--hero-graphic-offsetY));
         width: 320px;
+
+        @media screen and (max-width: 1120px) {
+          height: 280px;
+          width: 280px;
+        }
+
+        @media screen and (max-width: 800px) {
+          display: none;
+        }
       }
     }
 
@@ -75,6 +125,10 @@ main.home {
       bottom: 0;
       left: 0;
       position: absolute;
+
+      @media screen and (max-width: 800px) {
+        display: none;
+      }
     }
   }
 
@@ -84,6 +138,10 @@ main.home {
       display: flex;
       gap: 50px;
       justify-content: space-between;
+
+      @media screen and (max-width: 991px) {
+        flex-direction: column;
+      }
 
       p {
         flex: 1;

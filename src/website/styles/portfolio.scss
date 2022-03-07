@@ -34,6 +34,11 @@
     margin-bottom: 60px;
     width: 100%;
 
+    @media screen and (max-width: 991px) {
+      align-items: center;
+      flex-direction: column;
+    }
+
     .video {
       height: 100%;
       min-height: 300px;
@@ -245,6 +250,18 @@
     gap: 20px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
+    @media screen and (max-width: 991px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media screen and (max-width: 769px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
+
     .portfolio-project {
       align-items: center;
       aspect-ratio: 1/1;
@@ -401,12 +418,20 @@
     gap: 40px;
     margin-top: 80px;
 
+    @media screen and (max-width: 991px) {
+      flex-direction: column-reverse;
+    }
+
     .project-notes {
       display: flex;
       flex-direction: column;
       gap: 40px;
       margin-top: 48px;
       width: 25%;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
 
       .note {
         display: flex;
@@ -452,6 +477,10 @@
     gap: 40px;
     grid-template-columns: 1fr 1fr;
     margin-top: 40px;
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
 
     .mockup {
       border-radius: 10px;

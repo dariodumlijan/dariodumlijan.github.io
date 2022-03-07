@@ -4,6 +4,10 @@
   justify-content: space-between;
   width: 100%;
 
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
+
   .about-content {
     box-shadow: 8px 0 4px 8px $bg;
     display: flex;
@@ -69,6 +73,21 @@
     flex-wrap: wrap;
     gap: 20px;
 
+    @media screen and (max-width: 991px) {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-content: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 500px) {
+      grid-template-columns: 1fr;
+    }
+
     .tab-links {
       align-items: center;
       background-color: transparent;
@@ -80,9 +99,15 @@
       flex: 1;
       font-size: 16px;
       gap: 10px;
+      height: fit-content;
       justify-content: center;
       padding: 8px 10px;
       transition: 0.3s;
+      white-space: nowrap;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
 
       &:hover,
       &.active {
@@ -125,6 +150,7 @@
       text-decoration: underline;
       text-shadow: 1px 1px $black;
       transition: 0.3s;
+      white-space: nowrap;
 
       &:hover {
         color: rgba($gray, 1);

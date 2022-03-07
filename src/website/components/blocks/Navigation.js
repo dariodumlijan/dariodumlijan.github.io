@@ -4,7 +4,12 @@ import type { Node } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faChevronDown,
+  faChevronUp,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
 import FormCaller from "../elements/FormCaller";
 import DesignLogo from "../../assets/icons/DesignLogo";
 import MusicLogo from "../../assets/icons/MusicLogo";
@@ -15,10 +20,13 @@ import colors from "../../styles/_colors.scss";
 function Navigation(): Node {
   const t = useLocale;
   const locationInfo = useLocationInfo();
-  const [showSettings, setShowSettings] = useState();
+  const [showSettings, setShowSettings] = useState(false);
+  const [showMobile, setShowMobile] = useState(false);
   const settingsClass = classNames("settings-wrapper", {
     show: showSettings,
   });
+  const mediaQuery = window.matchMedia("(max-width: 991px)");
+  const [isMobile, setIsMobile] = useState(mediaQuery.matches);
 
   const musicLinks = [
     {
@@ -72,6 +80,17 @@ function Navigation(): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locationInfo.current]);
 
+  useEffect(() => {
+    const handleScreen = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleScreen);
+
+    return () => mediaQuery.removeEventListener("change", handleScreen);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mediaQuery]);
+
   if (locationInfo.isLanding) return null;
 
   return (
@@ -81,43 +100,112 @@ function Navigation(): Node {
           {locationInfo.isDesign && <DesignLogo />}
           {locationInfo.isMusic && <MusicLogo />}
         </Link>
-        {links.map((slug) => (
-          <Link
-            key={slug.url}
-            to={slug.url}
-            className={classNames("nav-link", {
-              active:
-                locationInfo.current === slug.url ||
-                locationInfo.current === slug.url + "/",
-            })}
-          >
-            {slug.label}
-          </Link>
-        ))}
+        {!isMobile && (
+          <>
+            {links.map((slug) => (
+              <Link
+                key={slug.url}
+                to={slug.url}
+                className={classNames("nav-link", {
+                  active:
+                    locationInfo.current === slug.url ||
+                    locationInfo.current === slug.url + "/",
+                })}
+              >
+                {slug.label}
+              </Link>
+            ))}
+          </>
+        )}
         <FormCaller>
           <button className="hire-me">{t("bottom.hire_cta")}</button>
         </FormCaller>
+        {isMobile && (
+          <FontAwesomeIcon
+            icon={faBars}
+            className="open-mobile"
+            onClick={() => setShowMobile(true)}
+          />
+        )}
       </div>
-      <div className={settingsClass}>
-        <div className="lang-wrapper">
-          <span className="option">Eng</span>
-          <span className="option">Hrv</span>
+      {!isMobile && (
+        <div className={settingsClass}>
+          {/* <div className="lang-wrapper">
+            <span className="option">Eng</span>
+            <span className="option">Hrv</span>
+          </div> */}
+          <div className="section-wrapper">
+            <Link
+              to="/design"
+              onClick={() => setShowSettings(!showSettings)}
+              className={classNames("option", {
+                active: locationInfo.current.includes("design"),
+              })}
+            >
+              Design
+            </Link>
+            <div className="spliter" />
+            <Link
+              to="/music"
+              onClick={() => setShowSettings(!showSettings)}
+              className={classNames("option", {
+                active: locationInfo.current.includes("music"),
+              })}
+            >
+              Music
+            </Link>
+          </div>
+          <FontAwesomeIcon
+            icon={showSettings ? faChevronUp : faChevronDown}
+            className="drop-icon"
+            onClick={() => setShowSettings(!showSettings)}
+          />
         </div>
-        <hr />
-        <div className="section-wrapper">
-          <Link to="/design" className="option">
-            Design
-          </Link>
-          <Link to="/music" className="option">
-            Music
-          </Link>
+      )}
+      {isMobile && showMobile && (
+        <div className="mobile-nav">
+          <FontAwesomeIcon
+            icon={faTimes}
+            className="close-mobile"
+            onClick={() => setShowMobile(false)}
+          />
+          <div className="section-wrapper">
+            <Link
+              to="/design"
+              onClick={() => setShowMobile(false)}
+              className={classNames("option", {
+                active: locationInfo.current.includes("design"),
+              })}
+            >
+              Design
+            </Link>
+            <div className="spliter" />
+            <Link
+              to="/music"
+              onClick={() => setShowMobile(false)}
+              className={classNames("option", {
+                active: locationInfo.current.includes("music"),
+              })}
+            >
+              Music
+            </Link>
+          </div>
+          {links.map((slug) => (
+            <Link
+              key={slug.url}
+              to={slug.url}
+              className={classNames("nav-link", {
+                active:
+                  locationInfo.current === slug.url ||
+                  locationInfo.current === slug.url + "/",
+              })}
+              onClick={() => setShowMobile(false)}
+            >
+              {slug.label}
+            </Link>
+          ))}
         </div>
-        <FontAwesomeIcon
-          icon={showSettings ? faChevronUp : faChevronDown}
-          className="drop-icon"
-          onClick={() => setShowSettings(!showSettings)}
-        />
-      </div>
+      )}
     </nav>
   );
 }

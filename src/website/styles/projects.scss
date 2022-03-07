@@ -5,8 +5,18 @@
   display: flex;
   gap: 50px;
   justify-content: space-between;
+  margin-left: -50px;
   padding: 50px;
-  width: 100%;
+  width: calc(100% + 100px);
+
+  @media screen and (max-width: 991px) {
+    align-items: center;
+    flex-direction: column !important;
+  }
+
+  @media screen and (max-width: 600px) {
+    border: 0;
+  }
 
   &:first-of-type {
     border-top: 0;
@@ -136,10 +146,11 @@
     }
 
     .links-wrapper {
-      display: flex;
       align-items: center;
-      justify-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
+      justify-content: flex-start;
 
       a {
         align-items: center;
