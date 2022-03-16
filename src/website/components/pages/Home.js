@@ -7,6 +7,7 @@ import HeroSection from "../blocks/HeroSection";
 import FeaturedMusic from "../blocks/FeaturedMusic";
 import FeaturedDesign from "../blocks/FeaturedDesign";
 import Loading from "../elements/Loading";
+import Blob from "../../assets/svg-components/Blob";
 import useLocale from "../../locale";
 import { useLocationInfo } from "../../utils";
 import { actions } from "../../store/cmsStore";
@@ -44,6 +45,7 @@ function Home(props: Props): Node {
         <h1 className="section-title">{t("home.common.about.title")}</h1>
         <div className="content">
           <p>{t(`home.${currentSection}.about.paragraph_1`)}</p>
+          <Blob isDesign={locationInfo.isDesign} />
           <p>{t(`home.${currentSection}.about.paragraph_2`)}</p>
         </div>
       </section>

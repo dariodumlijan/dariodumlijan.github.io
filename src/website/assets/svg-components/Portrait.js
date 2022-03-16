@@ -10,7 +10,7 @@ function Portrait(props: Props): Node {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 727.7 999.56"
+      viewBox="0 1 730 1040"
       className={props.className}
     >
       <g>

@@ -110,6 +110,12 @@ main.home {
         transform: perspective(240px) rotateX(var(--hero-graphic-offsetX)) rotateY(var(--hero-graphic-offsetY));
         width: 320px;
 
+        path,
+        polygon {
+          fill: $white;
+          filter: drop-shadow(2px 4px 5px rgba($black, 0.6));
+        }
+
         @media screen and (max-width: 1120px) {
           height: 280px;
           width: 280px;
