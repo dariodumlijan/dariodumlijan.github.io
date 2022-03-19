@@ -1,4 +1,10 @@
 {
+  "loading": {
+    "p1": "The page is loading",
+    "p2": "Please be patient...",
+    "error": "There has been an error while loading the content, you can try to reload the site...",
+    "reload": "Reload page"
+  },
   "login": {
     "username": "Username",
     "password": "Password",
@@ -15,7 +21,7 @@
       "subtitle": "Production & Composition",
       "cta": "Go to Music"
     },
-    "quote": "If I'm only remembered for doing one thing, that's fine. But I don't want to be making just one thing."
+    "quote": "If I'm only remembered for doing one thing, that's fine. But I'm not gonna do just one thing."
   },
   "home": {
     "common": {
@@ -32,9 +38,9 @@
     "design": {
       "hero": {
         "typewriter_static": "This is where",
-        "typewriter_prompt_1": "I design.",
-        "typewriter_prompt_2": "I develop.",
-        "typewriter_prompt_3": "I create."
+        "typewriter_prompt_1": " I design.",
+        "typewriter_prompt_2": " I develop.",
+        "typewriter_prompt_3": " I create."
       },
       "about": {
         "paragraph_1": "I am a web designer from Croatia who's been coding since the age of 15. Since then I have made several websites for all sorts of different people, businesses and others. My experience ranges from developing static responsive sites to custom WordPress themes and other CMS driven websites. When working I always try to create a clear message for whom the site is aimed towards. This helps me better understand the needs of my client and how to best fulfil them while still making sure that everything on the website is clear and easy to find. That means when my job is done both the client and I are happy with the outcome.",

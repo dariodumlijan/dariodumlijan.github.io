@@ -4,7 +4,7 @@ import type { Node } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { get, isEqual } from "lodash";
-import Loading from "../elements/Loading";
+import LoadingContent from "../elements/LoadingContent";
 import useLocale from "../../locale";
 import contentfulToReact from "../../utils/cmsRichText";
 import { actions } from "../../store/cmsStore";
@@ -17,6 +17,7 @@ type Props = {
 function Showreel(props: Props): Node {
   const t = useLocale;
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.error, isEqual);
   const showreel = useSelector(
     (state) => get(state.cms, "music.showreelCollection.items[0]", null),
     isEqual
@@ -30,7 +31,7 @@ function Showreel(props: Props): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!showreel) return <Loading />;
+  if (!showreel) return <LoadingContent error={error} />;
 
   return (
     <main className="showreel">

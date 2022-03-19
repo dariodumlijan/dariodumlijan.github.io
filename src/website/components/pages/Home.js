@@ -6,7 +6,7 @@ import { get, isEqual } from "lodash";
 import HeroSection from "../blocks/HeroSection";
 import FeaturedMusic from "../blocks/FeaturedMusic";
 import FeaturedDesign from "../blocks/FeaturedDesign";
-import Loading from "../elements/Loading";
+import LoadingContent from "../elements/LoadingContent";
 import Blob from "../../assets/svg-components/Blob";
 import useLocale from "../../locale";
 import { useLocationInfo } from "../../utils";
@@ -22,6 +22,7 @@ function Home(props: Props): Node {
   const dispatch = useDispatch();
   const locationInfo = useLocationInfo();
   const currentSection: string = locationInfo.current.replace(/\//g, "");
+  const error = useSelector((state) => state.error, isEqual);
   const projects = useSelector(
     (state) =>
       get(state.cms, `${currentSection}.featuredCollection.items`, null),
@@ -36,7 +37,7 @@ function Home(props: Props): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSection]);
 
-  if (!projects) return <Loading />;
+  if (!projects) return <LoadingContent error={error} />;
 
   return (
     <main className="home">

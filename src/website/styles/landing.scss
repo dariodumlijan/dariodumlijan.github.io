@@ -9,7 +9,11 @@
   position: relative;
 
   .landing-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     fill: $white;
+    filter: drop-shadow(0 2px 2px rgba($black, 0.6));
     left: 50%;
     position: absolute;
     top: 20px;
@@ -19,6 +23,62 @@
 
     @media screen and (max-width: 769px) {
       width: 120px;
+    }
+  }
+
+  .landing-graphic {
+    background-color: $black;
+    left: 50%;
+    max-width: 1200px;
+    overflow: hidden;
+    position: absolute;
+    top: -5%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1;
+
+    @media screen and (max-width: 800px) {
+      top: 50%;
+      transform: translate(-40%, -50%) rotate(90deg);
+    }
+
+    @media screen and (max-width: 400px) {
+      display: none;
+    }
+
+    img {
+      bottom: 50px;
+      height: 550px;
+      left: 50%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      transform: translateX(-48%) scale(0.8);
+      z-index: 1;
+
+      @media screen and (max-width: 800px) {
+        top: 0;
+        left: 0;
+        transform: translate(0%, -30%) rotate(-90deg);
+      }
+    }
+
+    .landing-graphic-border {
+      height: 100%;
+      position: relative;
+      transform: translate(0, -5%) scale(1.5);
+      width: 100%;
+      z-index: 2;
+
+      @media screen and (max-width: 800px) {
+        transform: translate(-19%, -5%) scale(1.5);
+        width: 145%;
+      }
+
+      .bg,
+      .border {
+        filter: drop-shadow(0 4px 10px $black);
+      }
     }
   }
 
@@ -39,12 +99,18 @@
     display: -webkit-box;
     display: flex;
     flex-direction: column;
+    gap: 80px;
     height: 100vh;
     justify-content: center;
     margin: 0 auto;
     max-width: 1400px;
     position: relative;
     width: 100%;
+    z-index: 2;
+
+    @media screen and (max-width: 800px) {
+      gap: 0;
+    }
 
     .site-sections {
       -ms-flex-align: start;
@@ -64,7 +130,7 @@
       @media screen and (max-width: 800px) {
         align-items: center;
         flex-direction: column;
-        gap: 120px;
+        gap: 100px;
       }
 
       .section-wrapper {
@@ -76,6 +142,7 @@
         .title {
           font-family: "Wandertucker", sans-serif;
           font-size: 60px;
+          text-shadow: 0 2px 4px $black;
 
           @media screen and (max-width: 991px) {
             font-size: 40px;
@@ -85,6 +152,7 @@
         .subtitle {
           color: $gray;
           font-size: 20px;
+          text-shadow: 0 2px 4px rgba($black, 0.6);
 
           @media screen and (max-width: 991px) {
             font-size: 16px;
@@ -96,8 +164,9 @@
           align-self: center;
           background-color: $primary;
           border-radius: 100vw;
-          border: 2px solid $primary;
-          color: $bg;
+          border: 2px solid $primaryLight;
+          box-shadow: 0 4px 6px 0px rgba($black, 0.6);
+          color: $white;
           cursor: pointer;
           display: flex;
           font-size: 16px;
@@ -138,10 +207,6 @@
           }
 
           &:hover {
-            background-color: $primary;
-            color: $white;
-            fill: $white;
-
             svg {
               transform: translateX(0px);
             }
@@ -157,10 +222,12 @@
       animation-fill-mode: forwards;
       animation-iteration-count: 1;
       animation: fadeInQuote ease 3s;
-      font-size: 16px;
+      font-size: 18px;
+      font-weight: 500;
       font-style: italic;
       text-align: center;
-      text-shadow: 0 0 3px $black;
+      text-shadow: 2px 2px 2px $black;
+      max-width: 400px;
       z-index: 2;
 
       @media screen and (max-width: 991px) {

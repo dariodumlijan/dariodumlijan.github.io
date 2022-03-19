@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import LandingHeroGraphic from "../../assets/svg-components/LandingHeroGraphic";
 import MultiLogo from "../../assets/icons/MultiLogo";
 import useLocale from "../../locale";
 
@@ -30,6 +31,7 @@ function Landing(): Node {
 
   return (
     <main className="landing-wrapper">
+      <LandingHeroGraphic />
       <MultiLogo />
       <div className="main-wrapper">
         <div className="site-sections">

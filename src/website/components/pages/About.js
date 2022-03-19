@@ -12,7 +12,7 @@ import {
   faUniversity,
   faLightbulb,
 } from "@fortawesome/free-solid-svg-icons";
-import Loading from "../elements/Loading";
+import LoadingContent from "../elements/LoadingContent";
 import { useLocationInfo } from "../../utils";
 import contentfulToReact from "../../utils/cmsRichText";
 import { actions } from "../../store/cmsStore";
@@ -26,6 +26,7 @@ function About(props: Props): Node {
   const dispatch = useDispatch();
   const locationInfo = useLocationInfo();
   const currentSection: string = locationInfo.isMusic ? "music" : "design";
+  const error = useSelector((state) => state.error, isEqual);
   const about: { description: Object, tabs: Object[] } = useSelector(
     (state) => ({
       description: get(
@@ -73,7 +74,9 @@ function About(props: Props): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!about.description || !about.tabs) return <Loading />;
+  if (!about.description || !about.tabs) {
+    return <LoadingContent error={error} />;
+  }
 
   return (
     <main className="about">

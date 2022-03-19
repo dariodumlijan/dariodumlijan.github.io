@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { get, isEqual } from "lodash";
 import classNames from "classnames";
-import Loading from "../elements/Loading";
+import LoadingContent from "../elements/LoadingContent";
 import AudioPlayer from "../elements/AudioPlayer";
 import Vinyl from "../../assets/svg-components/Vinyl";
 import useLocale from "../../locale";
@@ -18,6 +18,7 @@ function PortfolioMusic(): Node {
   const t = useLocale;
   const dispatch = useDispatch();
   const { filters } = useLists();
+  const error = useSelector((state) => state.error, isEqual);
   const portfolio = useSelector(
     (state) => get(state.cms, "music.productionCollection.items", null),
     isEqual
@@ -46,7 +47,7 @@ function PortfolioMusic(): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!portfolio) return <Loading />;
+  if (!portfolio) return <LoadingContent error={error} />;
 
   return (
     <main className="portfolio">

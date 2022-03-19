@@ -11,7 +11,7 @@ function HeroSection(): Node {
   const t = useLocale;
   const locationInfo = useLocationInfo();
   const currentSection: string = locationInfo.current.replace(/\//g, "");
-  const sectionRef = useRef();
+  const sectionRef = useRef<HTMLElement | null>(null);
   const strength: number = 80;
 
   const typewriterPrompts = [
@@ -22,15 +22,18 @@ function HeroSection(): Node {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      let graphic = document.querySelector(".hero-graphic");
+      let wrapper = document.querySelector("#hero-wrapper");
       // $FlowFixMe
-      graphic = graphic.getBoundingClientRect();
+      wrapper = wrapper.getBoundingClientRect();
 
-      if (!graphic) return;
-      // $FlowFixMe
-      const calcX = -(e.clientY - graphic.y - graphic.height / 2) / strength;
-      // $FlowFixMe
-      const calcY = (e.clientX - graphic.x - graphic.width / 2) / strength;
+      if (!wrapper) return;
+      let calcX = -(e.clientY - wrapper.height / 2) / strength;
+      let calcY = (e.clientX - wrapper.width / 2) / strength;
+
+      if (e.clientY > wrapper.height) {
+        calcX = 0;
+        calcY = 0;
+      }
 
       if (document.documentElement) {
         document.documentElement.style.setProperty(
@@ -55,7 +58,6 @@ function HeroSection(): Node {
   }, []);
 
   return (
-    // $FlowFixMe
     <section ref={sectionRef} id="hero-wrapper">
       <div className="hero-container">
         <div className="text-wrapper">
@@ -65,7 +67,7 @@ function HeroSection(): Node {
             prompts={typewriterPrompts}
           />
         </div>
-        <Portrait className="hero-graphic" />
+        <Portrait className="hero-graphic" isDesign={locationInfo.isDesign} />
       </div>
       <HeroGraphic className="hero-background" />
     </section>

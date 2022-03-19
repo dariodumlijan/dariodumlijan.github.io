@@ -6,7 +6,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { get, isEqual } from "lodash";
 import classNames from "classnames";
-import Loading from "../elements/Loading";
+import LoadingContent from "../elements/LoadingContent";
 import LightBox from "../elements/LightBox";
 import useLocale from "../../locale";
 import contentfulToReact from "../../utils/cmsRichText";
@@ -16,6 +16,7 @@ import { PORTFOLIO_QUERY } from "../../api/cms.querys";
 function PortfolioDesign(): Node {
   const t = useLocale;
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.error, isEqual);
   const portfolio: Object[] = useSelector(
     (state) => get(state.cms, "design.designCollection.items", null),
     isEqual
@@ -44,7 +45,7 @@ function PortfolioDesign(): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (!portfolio) return <Loading />;
+  if (!portfolio) return <LoadingContent error={error} />;
 
   return (
     <main className="portfolio">

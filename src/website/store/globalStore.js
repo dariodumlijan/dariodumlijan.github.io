@@ -1,10 +1,12 @@
 // @flow
 import { merge, omit } from "lodash";
 import * as API from "../api";
+import { types as cmsTypes } from "./cmsStore";
 import type { ReduxAction, ReduxState } from "../types";
 
 export type State = {
   formSubmitted: boolean,
+  error: boolean,
 };
 
 export const types = {
@@ -14,6 +16,7 @@ export const types = {
   GS_SEND_FORM_MESSAGE_FULFILLED: "GS/SEND_FORM_MESSAGE_FULFILLED",
 
   GS_CLEAR_FORM_STATUS: "GS/CLEAR_FORM_STATUS",
+  GS_RELOAD_SITE: "GS/RELOAD_SITE",
 };
 
 export const selectors = {
@@ -28,10 +31,17 @@ export const actions = {
   clearFormStatus: (): ReduxAction => ({
     type: types.GS_CLEAR_FORM_STATUS,
   }),
+  reloadSite: (): ReduxAction => ({
+    type: types.GS_RELOAD_SITE,
+  }),
 };
 
 export const reducer = (state: State, action: any): any => {
   switch (action.type) {
+    case cmsTypes.CMS_FETCH_WEB_REJECTED:
+      return merge({}, state, { error: true });
+    case types.GS_RELOAD_SITE:
+      return window.location.reload();
     case types.GS_SEND_FORM_MESSAGE_REJECTED:
       return merge({}, state, { formSubmitted: "REJECTED" });
     case types.GS_SEND_FORM_MESSAGE_FULFILLED:
