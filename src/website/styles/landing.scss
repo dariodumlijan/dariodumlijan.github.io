@@ -47,13 +47,13 @@
     }
 
     img {
-      bottom: -10px;
+      bottom: 0;
       height: 550px;
       left: 50%;
       object-fit: cover;
       object-position: center;
       position: absolute;
-      transform: translateX(-48%) scale(0.8);
+      transform: translateX(-48%);
       z-index: 1;
 
       @media screen and (max-width: 800px) {
