@@ -7,6 +7,13 @@ function Sitemap() {
     <Router>
       <Routes>
         <Route exact path="/" />
+        <Route exact path="/design" />
+        <Route exact path="/design/about" />
+        <Route exact path="/design/portfolio" />
+        <Route exact path="/music" />
+        <Route exact path="/music/about" />
+        <Route exact path="/music/portfolio" />
+        <Route exact path="/music/showreel" />
       </Routes>
     </Router>
   );
