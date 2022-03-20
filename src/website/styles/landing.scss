@@ -47,7 +47,7 @@
     }
 
     img {
-      bottom: 50px;
+      bottom: -10px;
       height: 550px;
       left: 50%;
       object-fit: cover;
@@ -58,8 +58,8 @@
 
       @media screen and (max-width: 800px) {
         top: 0;
-        left: 0;
-        transform: translate(0%, -30%) rotate(-90deg);
+        left: 20%;
+        transform: translate(0, -20%) rotate(-90deg);
       }
     }
 

@@ -123,6 +123,23 @@
         margin-right: 2px;
       }
 
+      .select-wrapper {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+
+        svg {
+          height: 20px;
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+        }
+      }
+
       .form-input {
         background-color: rgba($black, 0.2);
         border-radius: 100vw;
@@ -131,8 +148,11 @@
         font-size: 14px;
         font-weight: 500;
         padding: 10px;
-        text-indent: 0;
         width: 100%;
+
+        &#deadline {
+          text-indent: 10px;
+        }
 
         &::placeholder {
           color: rgba($white, 0.4);

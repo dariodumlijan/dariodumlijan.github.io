@@ -4,13 +4,14 @@ import type { Node } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { get, isEmpty, merge } from "lodash";
+import { get, includes, isEmpty, merge } from "lodash";
 import classNames from "classnames";
-import Waves from "../../assets/svg-components/Waves";
-import useLocale from "../../locale";
-import { useEnvironmentInfo } from "../../utils";
-import { actions } from "../../store/globalStore";
 import ReCaptchaWrapper from "../elements/ReCaptchaWrapper";
+import Waves from "../../assets/svg-components/Waves";
+import Arrow from "../../assets/svg-components/Arrow";
+import useLocale from "../../locale";
+import { useEnvironmentInfo, useLocationInfo } from "../../utils";
+import { actions } from "../../store/globalStore";
 
 type Props = {
   close: Function,
@@ -19,10 +20,15 @@ type Props = {
 function Form(props: Props): Node {
   const t = useLocale;
   const dispatch = useDispatch();
+  const locationInfo = useLocationInfo();
   const formSubmitted = useSelector((state) => state.global.formSubmitted);
   const environment = useEnvironmentInfo();
   const [captcha, setCaptcha] = useState(null);
-  const [form, setForm] = useState(null);
+  const [form, setForm] = useState({
+    job_type: locationInfo.isDesign
+      ? t("form.job_type.options.design")
+      : t("form.job_type.options.music"),
+  });
   const [sendStatus, setSendStatus] = useState(null);
   const [closeDelay, setCloseDelay] = useState(null);
 
@@ -99,7 +105,7 @@ function Form(props: Props): Node {
       placeholder: t("form.job_type.placeholder"),
       id: "job_type",
       autocomplete: "",
-      type: "text",
+      type: "select",
       required: true,
     },
     {
@@ -168,7 +174,27 @@ function Form(props: Props): Node {
                   onChange={(e) => handleFormInput(input.id, e.target.value)}
                 />
               )}
-              {input.type !== "textarea" && (
+              {input.type === "select" && (
+                <div className="select-wrapper">
+                  <select
+                    id={input.id}
+                    className={classNames("form-input", {
+                      empty: isEmpty(get(form, input.id, "")),
+                    })}
+                    type={input.type}
+                    name={input.id}
+                    required={input.required}
+                    placeholder={input.placeholder}
+                    value={get(form, input.id, "")}
+                    onChange={(e) => handleFormInput(input.id, e.target.value)}
+                  >
+                    <option>{t("form.job_type.options.design")}</option>
+                    <option>{t("form.job_type.options.music")}</option>
+                  </select>
+                  <Arrow />
+                </div>
+              )}
+              {includes(["text", "date"], input.type) && (
                 <input
                   id={input.id}
                   className={classNames("form-input", {
@@ -187,7 +213,16 @@ function Form(props: Props): Node {
           ))}
         </div>
         <div className="actions">
-          <span className="reset" onClick={() => setForm(null)}>
+          <span
+            className="reset"
+            onClick={() =>
+              setForm({
+                job_type: locationInfo.isDesign
+                  ? t("form.job_type.options.design")
+                  : t("form.job_type.options.music"),
+              })
+            }
+          >
             {t("form.actions.reset")}
           </span>
           <input

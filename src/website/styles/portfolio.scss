@@ -388,6 +388,7 @@
       }
 
       .portfolio-slide {
+        aspect-ratio: 1;
         border-radius: 10px;
         border: 2px solid $primary;
         cursor: pointer;
@@ -404,7 +405,7 @@
         img {
           height: 100%;
           object-fit: cover;
-          object-position: center;
+          object-position: top;
           transform: scale(1);
           transition: 0.3s;
           width: 100%;
