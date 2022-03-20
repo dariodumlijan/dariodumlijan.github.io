@@ -86,10 +86,14 @@
     },
     "job_type": {
       "label": "Job type",
-      "placeholder": "Job type..."
+      "placeholder": "Job type...",
+      "options": {
+        "design": "Design",
+        "music": "Music"
+      }
     },
     "details": {
-      "label": "Tell us about your project",
+      "label": "Tell me about your project",
       "placeholder": "My project is about..."
     },
     "references": {
@@ -98,7 +102,7 @@
     },
     "budget": {
       "label": "Your budget",
-      "placeholder": "£££ / *Free"
+      "placeholder": "£££ / *Free (inquire for details)"
     },
     "deadline": {
       "label": "Project deadline",

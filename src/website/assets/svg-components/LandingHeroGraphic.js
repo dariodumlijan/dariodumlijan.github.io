@@ -2,7 +2,7 @@
 import React from "react";
 import type { Node } from "react";
 import colors from "../../styles/_colors.scss";
-import landingProfile from "../images/landing_img.jpeg";
+import landingProfile from "../images/landing_img.jpg";
 
 function LandingHeroGraphic(): Node {
   return (
