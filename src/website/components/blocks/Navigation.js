@@ -67,7 +67,10 @@ function Navigation(): Node {
     : [...designLinks];
 
   useEffect(() => {
-    const doc: any = document.documentElement;
+    const doc: HTMLElement | null = document.documentElement;
+    const body: HTMLBodyElement | null = document.querySelector("body");
+    if (body) body.scrollTo(0, 0);
+
     if (!doc) return;
 
     if (locationInfo.isDesign) {

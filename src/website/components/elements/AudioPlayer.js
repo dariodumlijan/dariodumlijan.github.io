@@ -69,7 +69,18 @@ function AudioPlayer(props: Props): Node {
   };
 
   audio.current.ontimeupdate = () => {
-    setProgress(Math.round(audio.current.currentTime));
+    const currentTime = Math.round(audio.current.currentTime);
+    if (currentTime === Math.round(audio.current.duration)) {
+      props.onPress(false);
+      audio.current.pause();
+      audio.current.currentTime = 0;
+      setProgress(0);
+      setPlay(false);
+
+      return;
+    }
+
+    setProgress(currentTime);
   };
 
   const handlePlay = (shouldPlay: boolean) => {
