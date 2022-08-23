@@ -36,21 +36,21 @@ const contentfulToReact = (assets?: Object): any => ({
       const embeddedId = node.data.target.sys.id;
       const asset = find(assets, ['sys.id', embeddedId]);
 
+      if (includes(asset.contentType, 'image')) {
+        return (
+          <img
+            className="rich-img"
+            alt="embedded-asset"
+            src={asset.url || null}
+          />
+        );
+      }
+
       return (
-        <>
-          {includes(asset.contentType, 'image') ? (
-            <img
-              className="rich-img"
-              alt="embedded-asset"
-              src={asset.url || null}
-            />
-          ) : (
-            // eslint-disable-next-line jsx-a11y/media-has-caption
-            <video className="rich-video">
-              <source src={asset.url} />
-            </video>
-          )}
-        </>
+        // eslint-disable-next-line jsx-a11y/media-has-caption
+        <video className="rich-video">
+          <source src={asset.url} />
+        </video>
       );
     },
     [BLOCKS.HEADING_1]: (_node, children) => (
