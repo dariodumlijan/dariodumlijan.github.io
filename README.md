@@ -19,7 +19,7 @@
     <img align="center" src="https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg" alt="instagram" height="30" />
   </a>
   <a href="https://apps.apple.com/us/developer/dario-dumlijan/id1561674382" target="_blank" style="text-decoration: none; margin: 5px">
-    <img align="center" src="https://www.vectorlogo.zone/logos/apple_appstore/apple_appstore-icon.svg" alt="appstore" height="30" />
+    <img align="center" src="https://cdn-icons-png.flaticon.com/512/5977/5977575.png" alt="appstore" height="30" />
   </a>
   <a href="https://play.google.com/store/apps/dev?id=5565198170046611244" target="_blank" style="text-decoration: none; margin: 5px">
     <img align="center" src="https://www.vectorlogo.zone/logos/google_play/google_play-icon.svg" alt="googleplay" height="30" />
