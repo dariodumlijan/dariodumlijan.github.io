@@ -1,21 +1,21 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
-import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FormCaller from "./FormCaller";
-import Waves from "../../assets/svg-components/Waves";
-import useLocale from "../../locale";
-import { useLocationInfo } from "../../utils";
-import useLists from "../../utils/lists";
+import React from 'react';
+import type { Node } from 'react';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FormCaller from './FormCaller';
+import Waves from '../../assets/svg-components/Waves';
+import useLocale from '../../locale';
+import { useLocationInfo } from '../../utils';
+import useLists from '../../utils/lists';
 
 function Bottom(): Node {
-  const t = useLocale;
+  const { t } = useLocale();
   const { cta } = useLists();
   const locationInfo = useLocationInfo();
   const bottomClass = classNames({
     bottom: !locationInfo.isLanding,
-    "landing-bottom": locationInfo.isLanding,
+    'landing-bottom': locationInfo.isLanding,
   });
 
   return (
@@ -25,11 +25,11 @@ function Bottom(): Node {
       )}
       <div className="action-container">
         <div className="call-to-action">
-          <p className="email">{t("bottom.email")}</p>
+          <p className="email">{t('bottom.email')}</p>
         </div>
 
         <FormCaller className="call-to-action">
-          <button className="hire-me">{t("bottom.hire_cta")}</button>
+          <button className="hire-me">{t('bottom.hire_cta')}</button>
         </FormCaller>
 
         <div className="call-to-action">

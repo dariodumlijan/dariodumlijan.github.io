@@ -1,7 +1,7 @@
 // @flow
-import { merge } from "lodash";
-import * as API from "../api";
-import type { ReduxAction, ReduxState } from "../types";
+import { merge } from 'lodash';
+import * as API from '../api';
+import type { ReduxAction, ReduxState } from '../types';
 
 export type State = {
   general: Object,
@@ -10,10 +10,10 @@ export type State = {
 };
 
 export const types = {
-  CMS_FETCH_WEB: "CMS/FETCH_WEB",
-  CMS_FETCH_WEB_PENDING: "CMS/FETCH_WEB_PENDING",
-  CMS_FETCH_WEB_REJECTED: "CMS/FETCH_WEB_REJECTED",
-  CMS_FETCH_WEB_FULFILLED: "CMS/FETCH_WEB_FULFILLED",
+  CMS_FETCH_WEB: 'CMS/FETCH_WEB',
+  CMS_FETCH_WEB_PENDING: 'CMS/FETCH_WEB_PENDING',
+  CMS_FETCH_WEB_REJECTED: 'CMS/FETCH_WEB_REJECTED',
+  CMS_FETCH_WEB_FULFILLED: 'CMS/FETCH_WEB_FULFILLED',
 };
 
 export const selectors = {
@@ -27,8 +27,7 @@ export const actions = {
   }),
 };
 
-const _fetchWeb = (state: State, payload: Object) =>
-  merge({}, state, { [payload.destination]: payload.data });
+const _fetchWeb = (state: State, payload: Object) => merge({}, state, { [payload.destination]: payload.data });
 
 export const reducer = (state: State, action: any): any => {
   switch (action.type) {

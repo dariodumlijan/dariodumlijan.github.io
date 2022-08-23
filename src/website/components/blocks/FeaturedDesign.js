@@ -1,10 +1,10 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import PhoneModel from "../../assets/svg-components/PhoneModel";
-import MonitorModel from "../../assets/svg-components/MonitorModel";
-import contentfulToReact from "../../utils/cmsRichText";
+import React from 'react';
+import type { Node } from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import PhoneModel from '../../assets/svg-components/PhoneModel';
+import MonitorModel from '../../assets/svg-components/MonitorModel';
+import contentfulToReact from '../../utils/cmsRichText';
 
 type Props = {
   data: Object,
@@ -14,7 +14,7 @@ function FeaturedDesign(props: Props): Node {
   const { data } = props;
 
   const handleModel = (): Node => {
-    if (data.projectType === "App") {
+    if (data.projectType === 'App') {
       return (
         <>
           <PhoneModel className="project-svg" />
@@ -28,7 +28,7 @@ function FeaturedDesign(props: Props): Node {
         </>
       );
     }
-    if (data.projectType === "Web") {
+    if (data.projectType === 'Web') {
       return (
         <>
           <MonitorModel className="project-svg" />
@@ -62,7 +62,7 @@ function FeaturedDesign(props: Props): Node {
           <div className="content-description rich-content">
             {documentToReactComponents(
               data.description.json,
-              contentfulToReact()
+              contentfulToReact(),
             )}
           </div>
         )}

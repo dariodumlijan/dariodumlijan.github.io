@@ -1,16 +1,16 @@
 // @flow
-import React, { useEffect, useRef } from "react";
-import type { Node } from "react";
-import Typewriter from "../elements/Typewriter";
-import HeroGraphic from "../../assets/svg-components/HeroGraphic";
-import Portrait from "../../assets/svg-components/Portrait";
-import useLocale from "../../locale";
-import { useLocationInfo } from "../../utils";
+import React, { useEffect, useRef } from 'react';
+import type { Node } from 'react';
+import Typewriter from '../elements/Typewriter';
+import HeroGraphic from '../../assets/svg-components/HeroGraphic';
+import Portrait from '../../assets/svg-components/Portrait';
+import useLocale from '../../locale';
+import { useLocationInfo } from '../../utils';
 
 function HeroSection(): Node {
-  const t = useLocale;
+  const { t } = useLocale();
   const locationInfo = useLocationInfo();
-  const currentSection: string = locationInfo.current.replace(/\//g, "");
+  const currentSection: string = locationInfo.current.replace(/\//g, '');
   const sectionRef = useRef<HTMLElement | null>(null);
   const strength: number = 80;
 
@@ -22,7 +22,7 @@ function HeroSection(): Node {
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      let wrapper = document.querySelector("#hero-wrapper");
+      let wrapper = document.querySelector('#hero-wrapper');
       // $FlowFixMe
       wrapper = wrapper.getBoundingClientRect();
 
@@ -37,23 +37,23 @@ function HeroSection(): Node {
 
       if (document.documentElement) {
         document.documentElement.style.setProperty(
-          "--hero-graphic-offsetX",
-          calcX + "deg"
+          '--hero-graphic-offsetX',
+          calcX + 'deg',
         );
         // $FlowFixMe
         document.documentElement.style.setProperty(
-          "--hero-graphic-offsetY",
-          calcY + "deg"
+          '--hero-graphic-offsetY',
+          calcY + 'deg',
         );
       }
     };
 
     const graphic = sectionRef.current;
     // $FlowFixMe
-    graphic.addEventListener("mousemove", handleMouseMove);
+    graphic.addEventListener('mousemove', handleMouseMove);
 
     // $FlowFixMe
-    return () => graphic.removeEventListener("mousemove", handleMouseMove);
+    return () => graphic.removeEventListener('mousemove', handleMouseMove);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -61,7 +61,7 @@ function HeroSection(): Node {
     <section ref={sectionRef} id="hero-wrapper">
       <div className="hero-container">
         <div className="text-wrapper">
-          <h1 className="hero-title">{t("home.common.hero.title")}</h1>
+          <h1 className="hero-title">{t('home.common.hero.title')}</h1>
           <Typewriter
             messageStatic={t(`home.${currentSection}.hero.typewriter_static`)}
             prompts={typewriterPrompts}

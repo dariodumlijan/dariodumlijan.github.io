@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import reportWebVitals from "./reportWebVitals";
+// @flow
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import reportWebVitals from './reportWebVitals';
 
 // import App from "./under-construction/App";
-import App from "./website/App";
-import "./index.scss";
+import App from './website/App';
+import './index.scss';
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+createRoot(document.getElementById('root')).render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

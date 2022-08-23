@@ -1,22 +1,22 @@
 // @flow
-import React, { useEffect, useState } from "react";
-import type { Node } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { get, isEqual } from "lodash";
-import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from 'react';
+import type { Node } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { get, isEqual } from 'lodash';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBriefcase,
   faTools,
   faUniversity,
   faLightbulb,
-} from "@fortawesome/free-solid-svg-icons";
-import LoadingContent from "../elements/LoadingContent";
-import { useLocationInfo } from "../../utils";
-import contentfulToReact from "../../utils/cmsRichText";
-import { actions } from "../../store/cmsStore";
-import { ABOUT_QUERY } from "../../api/cms.querys";
+} from '@fortawesome/free-solid-svg-icons';
+import LoadingContent from '../elements/LoadingContent';
+import { useLocationInfo, useScreenSize } from '../../utils';
+import contentfulToReact from '../../utils/cmsRichText';
+import { actions } from '../../store/cmsStore';
+import { ABOUT_QUERY } from '../../api/cms.querys';
 
 type Props = {
   title: string,
@@ -25,29 +25,28 @@ type Props = {
 function About(props: Props): Node {
   const dispatch = useDispatch();
   const locationInfo = useLocationInfo();
-  const currentSection: string = locationInfo.isMusic ? "music" : "design";
+  const currentSection: string = locationInfo.isMusic ? 'music' : 'design';
   const error = useSelector((state) => state.error, isEqual);
   const about: { description: Object, tabs: Object[] } = useSelector(
     (state) => ({
       description: get(
         state.cms,
         `${currentSection}.aboutCollection.items[0]`,
-        null
+        null,
       ),
       tabs: get(state.cms, `${currentSection}.aboutTabsCollection.items`, null),
     }),
-    isEqual
+    isEqual,
   );
-  const mediaQuery = window.matchMedia("(max-width: 991px)");
+  const isSmallScreen = useScreenSize();
   const [activeTab, setActiveTab] = useState(null);
   const [tabContent, setTabContent] = useState(null);
-  const [smallScreen, setSmallScreen] = useState(mediaQuery.matches);
 
   const handleIcons = (title: string) => {
-    if (title === "Work") return <FontAwesomeIcon icon={faBriefcase} />;
-    if (title === "Skills") return <FontAwesomeIcon icon={faTools} />;
-    if (title === "Education") return <FontAwesomeIcon icon={faUniversity} />;
-    if (title === "Inspiration") return <FontAwesomeIcon icon={faLightbulb} />;
+    if (title === 'Work') return <FontAwesomeIcon icon={faBriefcase} />;
+    if (title === 'Skills') return <FontAwesomeIcon icon={faTools} />;
+    if (title === 'Education') return <FontAwesomeIcon icon={faUniversity} />;
+    if (title === 'Inspiration') return <FontAwesomeIcon icon={faLightbulb} />;
   };
 
   const handleTabClick = (tab: Object) => {
@@ -63,17 +62,6 @@ function About(props: Props): Node {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSection]);
 
-  useEffect(() => {
-    const handler = () => {
-      setSmallScreen(mediaQuery.matches);
-    };
-
-    mediaQuery.addEventListener("change", handler);
-
-    return () => mediaQuery.removeEventListener("change", handler);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   if (!about.description || !about.tabs) {
     return <LoadingContent error={error} />;
   }
@@ -88,12 +76,12 @@ function About(props: Props): Node {
             <div className="about-description rich-content">
               {documentToReactComponents(
                 about.description.description.json,
-                contentfulToReact()
+                contentfulToReact(),
               )}
             </div>
           )}
         </div>
-        {smallScreen ? (
+        {isSmallScreen ? (
           <img
             className="section-image"
             src={about.description.img.url}
@@ -111,7 +99,7 @@ function About(props: Props): Node {
           {about.tabs.map((tab: Object, index: number) => (
             <button
               key={tab.title}
-              className={classNames("tab-links", {
+              className={classNames('tab-links', {
                 animate: index === 0 && !activeTab,
                 active: tab.title === activeTab,
               })}

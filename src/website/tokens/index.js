@@ -1,5 +1,5 @@
 export const sessionStorageKeys = {
-  staginUser: "stagingUser",
+  staginUser: 'stagingUser',
 };
 
 export const localStorageKeys = {};

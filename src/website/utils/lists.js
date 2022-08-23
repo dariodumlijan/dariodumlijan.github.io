@@ -5,7 +5,7 @@ import {
   faInstagram,
   faLinkedin,
   faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
 
 type Lists = {
   cta: Object[],
@@ -15,56 +15,56 @@ type Lists = {
 const useLists = (): Lists => {
   const cta = [
     {
-      label: "LinkedIn",
+      label: 'LinkedIn',
       icon: faLinkedin,
-      url: "https://www.linkedin.com/in/dario-dumlijan-279a371b5/",
+      url: 'https://www.linkedin.com/in/dario-dumlijan-279a371b5/',
     },
     {
-      label: "Github",
+      label: 'Github',
       icon: faGithub,
-      url: "https://github.com/dariodumlijan",
+      url: 'https://github.com/dariodumlijan',
     },
     {
-      label: "AppStore",
+      label: 'AppStore',
       icon: faAppStore,
-      url: "https://apps.apple.com/us/developer/dario-dumlijan/id1561674382",
+      url: 'https://apps.apple.com/us/developer/dario-dumlijan/id1561674382',
     },
     {
-      label: "PlayStore",
+      label: 'PlayStore',
       icon: faGooglePlay,
-      url: "https://play.google.com/store/apps/dev?id=5565198170046611244",
+      url: 'https://play.google.com/store/apps/dev?id=5565198170046611244',
     },
     {
-      label: "Instagram",
+      label: 'Instagram',
       icon: faInstagram,
-      url: "https://instagram.com/dariodumlijan",
+      url: 'https://instagram.com/dariodumlijan',
     },
     {
-      label: "YouTube",
+      label: 'YouTube',
       icon: faYoutube,
-      url: "https://www.youtube.com/channel/UCauLC6nNzwA4CyGeMxQZbug",
+      url: 'https://www.youtube.com/channel/UCauLC6nNzwA4CyGeMxQZbug',
     },
   ];
   const filters = [
     {
-      label: "All",
-      value: "all",
+      label: 'All',
+      value: 'all',
     },
     {
-      label: "Advert",
-      value: "advert",
+      label: 'Advert',
+      value: 'advert',
     },
     {
-      label: "Album",
-      value: "album",
+      label: 'Album',
+      value: 'album',
     },
     {
-      label: "Composition",
-      value: "composition",
+      label: 'Composition',
+      value: 'composition',
     },
     {
-      label: "Single",
-      value: "single",
+      label: 'Single',
+      value: 'single',
     },
   ];
 

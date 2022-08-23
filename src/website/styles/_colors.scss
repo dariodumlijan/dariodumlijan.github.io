@@ -1,6 +1,6 @@
 :root {
   --primary-color: #0066cc;
-  --primary-light-color: #7fb2e5;
+  --primary-light-color: #4da6ff;
 }
 
 $bg: #1d1f20;
@@ -11,9 +11,9 @@ $gray: #555555;
 $primary: var(--primary-color);
 $primaryLight: var(--primary-light-color);
 $primaryMusic: #0066cc;
-$primaryMusicLight: #7fb2e5;
-$primaryDesign: #dc143c;
-$primaryDesignLight: #e06c83;
+$primaryMusicLight: lighten($primaryMusic, 25%);
+$primaryDesign: #05a56b;
+$primaryDesignLight: lighten($primaryDesign, 25%);
 $white: #cccccc;
 $whiteTransparent: #cccccc30;
 

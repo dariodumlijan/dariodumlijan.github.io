@@ -1,9 +1,9 @@
 // @flow
-import React, { useEffect, useRef, useState } from "react";
-import type { Node } from "react";
-import ReactDOM from "react-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useRef, useState } from 'react';
+import type { Node } from 'react';
+import ReactDOM from 'react-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
   className?: string,
@@ -21,9 +21,9 @@ function LightBox(props: Props): Node {
       }
     };
 
-    window.addEventListener("click", handleClick);
+    window.addEventListener('click', handleClick);
 
-    return () => window.removeEventListener("click", handleClick);
+    return () => window.removeEventListener('click', handleClick);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -32,8 +32,8 @@ function LightBox(props: Props): Node {
       <div className={props.className} onClick={() => setShowModal(true)}>
         {props.children}
       </div>
-      {showModal &&
-        ReactDOM.createPortal(
+      {showModal
+        && ReactDOM.createPortal(
           <div ref={modalRef} className="modal-overlay">
             <div className="modal-item">
               <FontAwesomeIcon
@@ -44,7 +44,7 @@ function LightBox(props: Props): Node {
               {props.children}
             </div>
           </div>,
-          document.getElementById("modal")
+          document.getElementById('modal'),
         )}
     </>
   );

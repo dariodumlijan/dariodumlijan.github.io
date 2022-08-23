@@ -1,7 +1,7 @@
 // @flow
-import React, { useEffect, useState } from "react";
-import type { Node } from "react";
-import classNames from "classnames";
+import React, { useEffect, useState } from 'react';
+import type { Node } from 'react';
+import classNames from 'classnames';
 
 type Props = {
   messageStatic: string,
@@ -13,7 +13,7 @@ let index = 0;
 let del = false;
 
 function Typewriter(props: Props): Node {
-  const className = classNames("typewriter", props.className);
+  const className = classNames('typewriter', props.className);
   const [animation, setAnimation] = useState(null);
   const [type, setType] = useState(props.prompts[index]);
 
@@ -28,7 +28,7 @@ function Typewriter(props: Props): Node {
         setAnimation(
           setTimeout(() => {
             setType(props.prompts[index].substring(0, newDelPosition));
-          }, 2000)
+          }, 2000),
         );
 
         return;

@@ -1,35 +1,35 @@
 // @flow
-import React, { useEffect, useState } from "react";
-import type { Node } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { get, isEqual } from "lodash";
-import classNames from "classnames";
-import LoadingContent from "../elements/LoadingContent";
-import AudioPlayer from "../elements/AudioPlayer";
-import Vinyl from "../../assets/svg-components/Vinyl";
-import useLocale from "../../locale";
-import useLists from "../../utils/lists";
-import contentfulToReact from "../../utils/cmsRichText";
-import { actions } from "../../store/cmsStore";
-import { PORTFOLIO_QUERY } from "../../api/cms.querys";
+import React, { useEffect, useState } from 'react';
+import type { Node } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { get, isEqual } from 'lodash';
+import classNames from 'classnames';
+import LoadingContent from '../elements/LoadingContent';
+import AudioPlayer from '../elements/AudioPlayer';
+import Vinyl from '../../assets/svg-components/Vinyl';
+import useLocale from '../../locale';
+import useLists from '../../utils/lists';
+import contentfulToReact from '../../utils/cmsRichText';
+import { actions } from '../../store/cmsStore';
+import { PORTFOLIO_QUERY } from '../../api/cms.querys';
 
 function PortfolioMusic(): Node {
-  const t = useLocale;
+  const { t } = useLocale();
   const dispatch = useDispatch();
   const { filters } = useLists();
   const error = useSelector((state) => state.error, isEqual);
   const portfolio = useSelector(
-    (state) => get(state.cms, "music.productionCollection.items", null),
-    isEqual
+    (state) => get(state.cms, 'music.productionCollection.items', null),
+    isEqual,
   );
   const [selected, setSelected] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState('all');
   const [animate, setAnimate] = useState(false);
-  const vinylClass = classNames("vinyl-cover", {
+  const vinylClass = classNames('vinyl-cover', {
     animate,
   });
-  const body = document.querySelector("body");
+  const body = document.querySelector('body');
 
   const handleSelectProject = (project: Object) => {
     setSelected(project);
@@ -42,7 +42,7 @@ function PortfolioMusic(): Node {
 
   useEffect(() => {
     if (!portfolio) {
-      dispatch(actions.fetchWeb("music", PORTFOLIO_QUERY("music")));
+      dispatch(actions.fetchWeb('music', PORTFOLIO_QUERY('music')));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -51,7 +51,7 @@ function PortfolioMusic(): Node {
 
   return (
     <main className="portfolio">
-      <h1 className="section-title">{t("portfolio.title")}</h1>
+      <h1 className="section-title">{t('portfolio.title')}</h1>
       {selected && (
         <section id="portfolio-music-wrapper">
           {selected.video ? (
@@ -99,19 +99,19 @@ function PortfolioMusic(): Node {
               <div className="content-description rich-content">
                 {documentToReactComponents(
                   selected.description.json,
-                  contentfulToReact()
+                  contentfulToReact(),
                 )}
               </div>
             )}
           </div>
         </section>
       )}
-      <h2 className="section-subtitle">{t("portfolio.subtitle")}</h2>
+      <h2 className="section-subtitle">{t('portfolio.subtitle')}</h2>
       <section id="portfolio-music-filters">
         {filters.map((filter) => (
           <button
             key={filter.value}
-            className={classNames("", {
+            className={classNames('', {
               active: activeFilter === filter.value,
             })}
             onClick={() => setActiveFilter(filter.value)}
@@ -123,7 +123,7 @@ function PortfolioMusic(): Node {
       <section id="portfolio-music-works">
         {portfolio.map((work) => (
           <React.Fragment key={work.title}>
-            {(activeFilter === work.filter || activeFilter === "all") && (
+            {(activeFilter === work.filter || activeFilter === 'all') && (
               <div
                 key={work.title}
                 className="portfolio-project"

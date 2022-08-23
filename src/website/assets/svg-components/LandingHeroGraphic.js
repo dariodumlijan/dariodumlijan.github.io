@@ -1,8 +1,8 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
-import colors from "../../styles/_colors.scss";
-import landingProfile from "../images/landing_img.jpg";
+import React from 'react';
+import type { Node } from 'react';
+import landingProfile from '../images/landing_profile.jpg';
+import colors from '../../styles/_colors.scss';
 
 function LandingHeroGraphic(): Node {
   return (

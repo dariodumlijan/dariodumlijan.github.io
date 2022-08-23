@@ -1,11 +1,11 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
+import React from 'react';
+import type { Node } from 'react';
 import {
   GoogleReCaptchaProvider,
   GoogleReCaptcha,
-} from "react-google-recaptcha-v3";
-import { useEnvironmentInfo } from "../../utils";
+} from 'react-google-recaptcha-v3';
+import { useEnvironmentInfo } from '../../utils';
 
 type Props = {
   children: Node,
@@ -28,7 +28,7 @@ function ReCaptchaWrapper(props: Props): Node {
       {props.children}
       <GoogleReCaptcha
         scriptProps={{
-          appendTo: "body",
+          appendTo: 'body',
         }}
         onVerify={(token) => props.onVerify(token)}
       />

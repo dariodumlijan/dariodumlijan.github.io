@@ -1,13 +1,13 @@
 // @flow
-import React, { useEffect, useState } from "react";
-import type { Node } from "react";
-import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useState } from 'react';
+import type { Node } from 'react';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 function ScrollToTop(): Node {
   const [show, setShow] = useState(false);
-  const body = document.querySelector("body");
+  const body = document.querySelector('body');
 
   const toTop = () => {
     if (body) body.scrollTo(0, 0);
@@ -25,10 +25,10 @@ function ScrollToTop(): Node {
       }
     };
 
-    if (body) body.addEventListener("scroll", handleScroll);
+    if (body) body.addEventListener('scroll', handleScroll);
 
     return () => {
-      if (body) body.removeEventListener("scroll", handleScroll);
+      if (body) body.removeEventListener('scroll', handleScroll);
     };
   }, [body]);
 

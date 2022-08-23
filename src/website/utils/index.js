@@ -1,27 +1,43 @@
 // @flow
-import { useLocation } from "react-router";
-import { inRange } from "lodash";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
+import { includes, inRange } from 'lodash';
 
 // $FlowFixMe
-export const isPromise = (p) => !!p && typeof p.then === "function";
+export const isPromise = (p) => !!p && typeof p.then === 'function';
 
 export const useLocationInfo = (): {
   current: string,
   isLanding: boolean,
   isMusic: boolean,
   isDesign: boolean,
+  isHome: boolean,
+  isAbout: boolean,
+  isPortfolio: boolean,
+  isShowreel: boolean,
+  isBusinessCard: boolean,
 } => {
   const location = useLocation();
   const current = location.pathname;
-  const landing = location.pathname === "/";
-  const music = location.pathname.includes("/music");
-  const design = location.pathname.includes("/design");
+  const isLanding = location.pathname === '/';
+  const isMusic = location.pathname.includes('/music');
+  const isDesign = location.pathname.includes('/design');
+  const isHome = includes(['/music', '/design'], location.pathname);
+  const isAbout = location.pathname.includes('/about');
+  const isPortfolio = location.pathname.includes('/portfolio');
+  const isShowreel = location.pathname.includes('/showreel');
+  const isBusinessCard = location.pathname.includes('/business-card');
 
   return {
     current,
-    isLanding: landing,
-    isMusic: music,
-    isDesign: design,
+    isLanding,
+    isMusic,
+    isDesign,
+    isHome,
+    isAbout,
+    isPortfolio,
+    isShowreel,
+    isBusinessCard,
   };
 };
 
@@ -31,9 +47,9 @@ export const useEnvironmentInfo = (): {
   isStaging: boolean,
   isInvalidHost: boolean,
 } => {
-  const development = window.location.hostname === "localhost";
-  const production = window.location.hostname === "dariodumlijan.com";
-  const staging = window.location.hostname === "staging.dariodumlijan.com";
+  const development = window.location.hostname === 'localhost';
+  const production = window.location.hostname === 'dariodumlijan.com';
+  const staging = window.location.hostname === 'staging.dariodumlijan.com';
   const invalidHost = !development && !production && !staging;
 
   return {
@@ -44,9 +60,27 @@ export const useEnvironmentInfo = (): {
   };
 };
 
+export const useScreenSize = (): boolean => {
+  const mediaQuery = window.matchMedia('(max-width: 991px)');
+  const [isSmallScreen, setIsSmallScreen] = useState(mediaQuery.matches);
+
+  useEffect(() => {
+    const handler = () => {
+      setIsSmallScreen(mediaQuery.matches);
+    };
+
+    mediaQuery.addEventListener('change', handler);
+
+    return () => mediaQuery.removeEventListener('change', handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return isSmallScreen;
+};
+
 export const elementInView = (
   body: HTMLBodyElement,
-  elementPosition: number
+  elementPosition: number,
 ): boolean => {
   if (!body) return false;
 
@@ -55,7 +89,7 @@ export const elementInView = (
     inRange(
       elementPosition + smallOffset,
       body.scrollTop,
-      body.scrollTop + body.clientHeight
+      body.scrollTop + body.clientHeight,
     )
   ) {
     return true;

@@ -1,15 +1,15 @@
 // @flow
-import React, { useEffect, useRef, useState } from "react";
-import type { Node } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useRef, useState } from 'react';
+import type { Node } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlay,
   faPause,
   faVolumeMute,
   faVolumeUp,
   faDownload,
-} from "@fortawesome/free-solid-svg-icons";
-import colors from "../../styles/_colors.scss";
+} from '@fortawesome/free-solid-svg-icons';
+import colors from '../../styles/_colors.scss';
 
 type Song = {
   title: string,
@@ -29,27 +29,25 @@ function AudioPlayer(props: Props): Node {
   const [progress, setProgress] = useState(0);
   const audio = useRef(new Audio(selected.url));
 
-  const calcPercentage = (value: number, total: number): number =>
-    (value * 100) / total;
+  const calcPercentage = (value: number, total: number): number => (value * 100) / total;
 
-  const progressPercent: string =
-    Math.round(
-      calcPercentage(progress, Math.round(audio.current.duration) || 100)
-    ) + "%";
-  const volumePercent: string = Math.round(calcPercentage(volume, 1)) + "%";
+  const progressPercent: string = Math.round(
+    calcPercentage(progress, Math.round(audio.current.duration) || 100),
+  ) + '%';
+  const volumePercent: string = Math.round(calcPercentage(volume, 1)) + '%';
 
   const handleHEX = (hex: string): string => {
     if (hex.length === 7) return hex;
     const newColor: string[] = Array.from(hex);
 
     return (
-      newColor[0] +
-      newColor[1] +
-      newColor[1] +
-      newColor[2] +
-      newColor[2] +
-      newColor[3] +
-      newColor[3]
+      newColor[0]
+      + newColor[1]
+      + newColor[1]
+      + newColor[2]
+      + newColor[2]
+      + newColor[3]
+      + newColor[3]
     );
   };
 
@@ -57,14 +55,14 @@ function AudioPlayer(props: Props): Node {
     background: `linear-gradient(90deg, ${colors.primary}, ${
       colors.primary
     } ${progressPercent}, ${handleHEX(
-      colors.primaryMusic
+      colors.primaryMusic,
     )}66 ${progressPercent}, ${handleHEX(colors.primaryMusic)}66 100%)`,
   };
   const volumeStyle = {
     background: `linear-gradient(90deg, ${colors.primary}, ${
       colors.primary
     } ${volumePercent}, ${handleHEX(
-      colors.primaryMusic
+      colors.primaryMusic,
     )}66 ${volumePercent}, ${handleHEX(colors.primaryMusic)}66 100%)`,
   };
 

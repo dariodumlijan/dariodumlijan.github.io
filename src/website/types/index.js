@@ -1,7 +1,7 @@
 // @flow
 /* istanbul ignore file */
-import type { State as CmsState } from "../store/cmsStore";
-import type { State as GlobalState } from "../store/globalStore";
+import type { State as CmsState } from '../store/cmsStore';
+import type { State as GlobalState } from '../store/globalStore';
 
 export type ReduxState = {
   cms: CmsState,

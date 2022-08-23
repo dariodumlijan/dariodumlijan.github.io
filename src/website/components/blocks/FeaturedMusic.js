@@ -1,11 +1,11 @@
 // @flow
-import React, { useState } from "react";
-import type { Node } from "react";
-import classNames from "classnames";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import AudioPlayer from "../elements/AudioPlayer";
-import Vinyl from "../../assets/svg-components/Vinyl";
-import contentfulToReact from "../../utils/cmsRichText";
+import React, { useState } from 'react';
+import type { Node } from 'react';
+import classNames from 'classnames';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import AudioPlayer from '../elements/AudioPlayer';
+import Vinyl from '../../assets/svg-components/Vinyl';
+import contentfulToReact from '../../utils/cmsRichText';
 
 type Props = {
   data: Object,
@@ -14,7 +14,7 @@ type Props = {
 function FeaturedMusic(props: Props): Node {
   const { data } = props;
   const [animate, setAnimate] = useState(false);
-  const vinylClass = classNames("vinyl-cover", {
+  const vinylClass = classNames('vinyl-cover', {
     animate,
   });
 
@@ -44,7 +44,7 @@ function FeaturedMusic(props: Props): Node {
           <div className="content-description rich-content">
             {documentToReactComponents(
               data.description.json,
-              contentfulToReact()
+              contentfulToReact(),
             )}
           </div>
         )}

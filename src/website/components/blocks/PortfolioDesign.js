@@ -1,25 +1,25 @@
 // @flow
-import React, { useEffect, useRef, useState } from "react";
-import type { Node } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { get, isEqual } from "lodash";
-import classNames from "classnames";
-import LoadingContent from "../elements/LoadingContent";
-import LightBox from "../elements/LightBox";
-import useLocale from "../../locale";
-import contentfulToReact from "../../utils/cmsRichText";
-import { actions } from "../../store/cmsStore";
-import { PORTFOLIO_QUERY } from "../../api/cms.querys";
+import React, { useEffect, useRef, useState } from 'react';
+import type { Node } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { get, isEqual } from 'lodash';
+import classNames from 'classnames';
+import LoadingContent from '../elements/LoadingContent';
+import LightBox from '../elements/LightBox';
+import useLocale from '../../locale';
+import contentfulToReact from '../../utils/cmsRichText';
+import { actions } from '../../store/cmsStore';
+import { PORTFOLIO_QUERY } from '../../api/cms.querys';
 
 function PortfolioDesign(): Node {
-  const t = useLocale;
+  const { t } = useLocale();
   const dispatch = useDispatch();
   const error = useSelector((state) => state.error, isEqual);
   const portfolio: Object[] = useSelector(
-    (state) => get(state.cms, "design.designCollection.items", null),
-    isEqual
+    (state) => get(state.cms, 'design.designCollection.items', null),
+    isEqual,
   );
   const slideRef = useRef(null);
   const [selected, setSelected] = useState(null);
@@ -35,12 +35,12 @@ function PortfolioDesign(): Node {
     };
 
     if (portfolio) setSelected(portfolio[0]);
-    if (slide) slide.splide.on("click", handleSlideClick);
+    if (slide) slide.splide.on('click', handleSlideClick);
   }, [portfolio]);
 
   useEffect(() => {
     if (!portfolio) {
-      dispatch(actions.fetchWeb("design", PORTFOLIO_QUERY("design")));
+      dispatch(actions.fetchWeb('design', PORTFOLIO_QUERY('design')));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -49,7 +49,7 @@ function PortfolioDesign(): Node {
 
   return (
     <main className="portfolio">
-      <h1 className="section-title">{t("portfolio.title")}</h1>
+      <h1 className="section-title">{t('portfolio.title')}</h1>
       <section id="portfolio-design-works">
         <div className="shadow" />
         <Splide
@@ -63,15 +63,15 @@ function PortfolioDesign(): Node {
             pauseOnHover: true,
             perPage: 3,
             perMove: 1,
-            type: "loop",
+            type: 'loop',
           }}
         >
           {portfolio.map((project) => (
             <SplideSlide key={project.title}>
               <div
-                className={classNames("portfolio-slide", {
-                  app: project.type === "app",
-                  web: project.type === "web",
+                className={classNames('portfolio-slide', {
+                  app: project.type === 'app',
+                  web: project.type === 'web',
                 })}
               >
                 <img src={project.coverArt.url} alt={project.title} />
@@ -87,21 +87,21 @@ function PortfolioDesign(): Node {
             <div className="project-notes">
               {selected.role && (
                 <div className="note">
-                  <h3>{t("portfolio.design.role")}</h3>
+                  <h3>{t('portfolio.design.role')}</h3>
                   <span>{selected.role}</span>
                 </div>
               )}
 
               {selected.client && (
                 <div className="note">
-                  <h3>{t("portfolio.design.client")}</h3>
+                  <h3>{t('portfolio.design.client')}</h3>
                   <span>{selected.client}</span>
                 </div>
               )}
 
               {selected.links && (
                 <div className="note">
-                  <h3>{t("portfolio.design.links")}</h3>
+                  <h3>{t('portfolio.design.links')}</h3>
                   {selected.links.map((link) => (
                     <a
                       key={link.id}
@@ -120,7 +120,7 @@ function PortfolioDesign(): Node {
                 <div className="rich-content">
                   {documentToReactComponents(
                     selected.description.json,
-                    contentfulToReact()
+                    contentfulToReact(),
                   )}
                 </div>
               </div>

@@ -1,11 +1,11 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
-import { times } from "lodash";
-import useLocale from "../../locale";
+import React from 'react';
+import type { Node } from 'react';
+import { times } from 'lodash';
+import useLocale from '../../locale';
 
 function Loading(): Node {
-  const t = useLocale;
+  const { t } = useLocale();
 
   return (
     <div className="loading-fixed">
@@ -14,8 +14,8 @@ function Loading(): Node {
           <div key={i} className="wave" />
         ))}
       </div>
-      <h2>{t("loading.p1")}</h2>
-      <h4>{t("loading.p2")}</h4>
+      <h2>{t('loading.p1')}</h2>
+      <h4>{t('loading.p2')}</h4>
     </div>
   );
 }

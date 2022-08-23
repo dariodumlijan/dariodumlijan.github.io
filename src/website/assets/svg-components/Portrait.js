@@ -1,7 +1,7 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
-import colors from "../../styles/_colors.scss";
+import React from 'react';
+import type { Node } from 'react';
+import colors from '../../styles/_colors.scss';
 
 type Props = {
   className: string,

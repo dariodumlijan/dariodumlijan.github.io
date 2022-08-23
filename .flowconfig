@@ -9,13 +9,12 @@
 
 [options]
 module.file_ext=.js
-module.file_ext=.scss
 module.file_ext=.svg
-module.file_ext=.jpeg
-module.file_ext=.jpg
-module.file_ext=.png
-module.name_mapper.extension='scss' -> 'empty/object'
+module.file_ext=.json
+module.file_ext=.scss
 module.name_mapper.extension='svg' -> 'empty/object'
+module.name_mapper.extension='json' -> 'empty/object'
+module.name_mapper.extension='scss' -> 'empty/object'
 module.name_mapper.extension='jpeg' -> 'empty/object'
 module.name_mapper.extension='jpg' -> 'empty/object'
 module.name_mapper.extension='png' -> 'empty/object'

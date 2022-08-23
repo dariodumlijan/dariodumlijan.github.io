@@ -1,12 +1,12 @@
 // @flow
-import React from "react";
-import { find, includes } from "lodash";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import React from 'react';
+import { find, includes } from 'lodash';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
 const contentfulToReact = (assets?: Object): any => ({
   renderMark: {
     [MARKS.UNDERLINE]: (text: string) => (
-      <span className="rich-text" style={{ textDecoration: "underline" }}>
+      <span className="rich-text" style={{ textDecoration: 'underline' }}>
         {text}
       </span>
     ),
@@ -34,11 +34,11 @@ const contentfulToReact = (assets?: Object): any => ({
     [BLOCKS.EMBEDDED_ENTRY]: () => null,
     [BLOCKS.EMBEDDED_ASSET]: (node: Object) => {
       const embeddedId = node.data.target.sys.id;
-      const asset = find(assets, ["sys.id", embeddedId]);
+      const asset = find(assets, ['sys.id', embeddedId]);
 
       return (
         <>
-          {includes(asset.contentType, "image") ? (
+          {includes(asset.contentType, 'image') ? (
             <img
               className="rich-img"
               alt="embedded-asset"

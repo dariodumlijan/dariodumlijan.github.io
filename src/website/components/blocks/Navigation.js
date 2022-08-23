@@ -1,64 +1,63 @@
 // @flow
-import React, { useEffect, useState } from "react";
-import type { Node } from "react";
-import { Link } from "react-router-dom";
-import classNames from "classnames";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from 'react';
+import type { Node } from 'react';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
   faChevronDown,
   faChevronUp,
   faTimes,
-} from "@fortawesome/free-solid-svg-icons";
-import FormCaller from "../elements/FormCaller";
-import DesignLogo from "../../assets/icons/DesignLogo";
-import MusicLogo from "../../assets/icons/MusicLogo";
-import { useLocationInfo } from "../../utils";
-import useLocale from "../../locale";
-import colors from "../../styles/_colors.scss";
+} from '@fortawesome/free-solid-svg-icons';
+import FormCaller from '../elements/FormCaller';
+import DesignLogo from '../../assets/icons/DesignLogo';
+import MusicLogo from '../../assets/icons/MusicLogo';
+import useLocale from '../../locale';
+import { useLocationInfo, useScreenSize } from '../../utils';
+import colors from '../../styles/_colors.scss';
 
 function Navigation(): Node {
-  const t = useLocale;
+  const { t } = useLocale();
   const locationInfo = useLocationInfo();
   const [showSettings, setShowSettings] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
-  const settingsClass = classNames("settings-wrapper", {
+  const settingsClass = classNames('settings-wrapper', {
     show: showSettings,
   });
-  const mediaQuery = window.matchMedia("(max-width: 991px)");
-  const [isMobile, setIsMobile] = useState(mediaQuery.matches);
+  const isSmallScreen = useScreenSize();
 
   const musicLinks = [
     {
-      label: "Home",
-      url: "/music",
+      label: 'Home',
+      url: '/music',
     },
     {
-      label: "Portfolio",
-      url: "/music/portfolio",
+      label: 'Portfolio',
+      url: '/music/portfolio',
     },
     {
-      label: "Showreel",
-      url: "/music/showreel",
+      label: 'Showreel',
+      url: '/music/showreel',
     },
     {
-      label: "About me",
-      url: "/music/about",
+      label: 'About me',
+      url: '/music/about',
     },
   ];
 
   const designLinks = [
     {
-      label: "Home",
-      url: "/design",
+      label: 'Home',
+      url: '/design',
     },
     {
-      label: "Portfolio",
-      url: "/design/portfolio",
+      label: 'Portfolio',
+      url: '/design/portfolio',
     },
     {
-      label: "About me",
-      url: "/design/about",
+      label: 'About me',
+      url: '/design/about',
     },
   ];
 
@@ -68,31 +67,20 @@ function Navigation(): Node {
 
   useEffect(() => {
     const doc: HTMLElement | null = document.documentElement;
-    const body: HTMLBodyElement | null = document.querySelector("body");
+    const body: HTMLBodyElement | null = document.querySelector('body');
     if (body) body.scrollTo(0, 0);
 
     if (!doc) return;
 
     if (locationInfo.isDesign) {
-      doc.style.setProperty("--primary-color", colors.primaryDesign);
-      doc.style.setProperty("--primary-light-color", colors.primaryDesignLight);
+      doc.style.setProperty('--primary-color', colors.primaryDesign);
+      doc.style.setProperty('--primary-light-color', colors.primaryDesignLight);
     } else {
-      doc.style.setProperty("--primary-color", colors.primaryMusic);
-      doc.style.setProperty("--primary-light-color", colors.primaryMusicLight);
+      doc.style.setProperty('--primary-color', colors.primaryMusic);
+      doc.style.setProperty('--primary-light-color', colors.primaryMusicLight);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locationInfo.current]);
-
-  useEffect(() => {
-    const handleScreen = () => {
-      setIsMobile(mediaQuery.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleScreen);
-
-    return () => mediaQuery.removeEventListener("change", handleScreen);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mediaQuery]);
 
   if (locationInfo.isLanding) return null;
 
@@ -103,16 +91,16 @@ function Navigation(): Node {
           {locationInfo.isDesign && <DesignLogo />}
           {locationInfo.isMusic && <MusicLogo />}
         </Link>
-        {!isMobile && (
+        {!isSmallScreen && (
           <>
             {links.map((slug) => (
               <Link
                 key={slug.url}
                 to={slug.url}
-                className={classNames("nav-link", {
+                className={classNames('nav-link', {
                   active:
-                    locationInfo.current === slug.url ||
-                    locationInfo.current === slug.url + "/",
+                    locationInfo.current === slug.url
+                    || locationInfo.current === slug.url + '/',
                 })}
               >
                 {slug.label}
@@ -121,9 +109,9 @@ function Navigation(): Node {
           </>
         )}
         <FormCaller>
-          <button className="hire-me">{t("bottom.hire_cta")}</button>
+          <button className="hire-me">{t('bottom.hire_cta')}</button>
         </FormCaller>
-        {isMobile && (
+        {isSmallScreen && (
           <FontAwesomeIcon
             icon={faBars}
             className="open-mobile"
@@ -131,7 +119,7 @@ function Navigation(): Node {
           />
         )}
       </div>
-      {!isMobile && (
+      {!isSmallScreen && (
         <div className={settingsClass}>
           {/* <div className="lang-wrapper">
             <span className="option">Eng</span>
@@ -141,8 +129,8 @@ function Navigation(): Node {
             <Link
               to="/design"
               onClick={() => setShowSettings(!showSettings)}
-              className={classNames("option", {
-                active: locationInfo.current.includes("design"),
+              className={classNames('option', {
+                active: locationInfo.current.includes('design'),
               })}
             >
               Design
@@ -151,8 +139,8 @@ function Navigation(): Node {
             <Link
               to="/music"
               onClick={() => setShowSettings(!showSettings)}
-              className={classNames("option", {
-                active: locationInfo.current.includes("music"),
+              className={classNames('option', {
+                active: locationInfo.current.includes('music'),
               })}
             >
               Music
@@ -165,7 +153,7 @@ function Navigation(): Node {
           />
         </div>
       )}
-      {isMobile && showMobile && (
+      {isSmallScreen && showMobile && (
         <div className="mobile-nav">
           <FontAwesomeIcon
             icon={faTimes}
@@ -176,8 +164,8 @@ function Navigation(): Node {
             <Link
               to="/design"
               onClick={() => setShowMobile(false)}
-              className={classNames("option", {
-                active: locationInfo.current.includes("design"),
+              className={classNames('option', {
+                active: locationInfo.current.includes('design'),
               })}
             >
               Design
@@ -186,8 +174,8 @@ function Navigation(): Node {
             <Link
               to="/music"
               onClick={() => setShowMobile(false)}
-              className={classNames("option", {
-                active: locationInfo.current.includes("music"),
+              className={classNames('option', {
+                active: locationInfo.current.includes('music'),
               })}
             >
               Music
@@ -197,10 +185,10 @@ function Navigation(): Node {
             <Link
               key={slug.url}
               to={slug.url}
-              className={classNames("nav-link", {
+              className={classNames('nav-link', {
                 active:
-                  locationInfo.current === slug.url ||
-                  locationInfo.current === slug.url + "/",
+                  locationInfo.current === slug.url
+                  || locationInfo.current === slug.url + '/',
               })}
               onClick={() => setShowMobile(false)}
             >

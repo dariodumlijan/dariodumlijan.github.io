@@ -1,10 +1,10 @@
 // @flow
-import React from "react";
-import type { Node } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router";
-import Particles from "react-tsparticles";
-import Logo from "./img/logo.png";
+import React from 'react';
+import type { Node } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router';
+import Particles from 'react-tsparticles';
+import Logo from './img/logo.png';
 
 function App(): Node {
   return (
@@ -13,7 +13,7 @@ function App(): Node {
         <Route
           exact
           path="/"
-          element={
+          element={(
             <div className="under-construction-wrapper">
               <img src={Logo} alt="logo" id="logo" />
               <div id="text">
@@ -46,15 +46,15 @@ function App(): Node {
                     move: {
                       random: true,
                       speed: 1,
-                      direction: "top",
-                      out_mode: "out",
+                      direction: 'top',
+                      out_mode: 'out',
                     },
                   },
                   interactivity: {
                     events: {
                       onhover: {
                         enable: true,
-                        mode: "repulse",
+                        mode: 'repulse',
                       },
                     },
                     modes: {
@@ -67,7 +67,7 @@ function App(): Node {
                 }}
               />
             </div>
-          }
+          )}
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
