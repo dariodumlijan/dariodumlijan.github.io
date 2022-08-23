@@ -23,7 +23,7 @@ const sections = ['/design', '/music'];
 
 function Body(): Node {
   const environment = useEnvironmentInfo();
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState('awaiting');
 
   const handleLogin = (credentials: Object) => {
     if (
@@ -44,11 +44,14 @@ function Body(): Node {
         sessionStorageKeys.staginUser,
       );
       if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials));
+      else setAuthenticated(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const isMusic = (section: string) => section === '/music';
+
+  if (authenticated === 'awaiting' && environment.isStaging) return null;
 
   if (!authenticated && environment.isStaging) {
     return (
