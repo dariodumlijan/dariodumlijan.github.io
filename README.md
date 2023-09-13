@@ -30,25 +30,31 @@
 </p>
 <br />
 
-## Languages & Frameworks:
+## Languages, Frameworks & others:
 <p align="left" style="background-color: #ffffff10; border-radius: 4px; padding: 10px 10px 5px 10px;">
-  <a href="https://git-scm.com" target="_blank" style="text-decoration: none; margin: 5px">
-    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" height="40" />
-  </a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://raw.githubusercontent.com/jmnote/z-icons/master/svg/javascript.svg" alt="javascript" height="40" />
   </a>
   <a href="https://www.typescriptlang.org" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="typescript" height="40" />
   </a>
-  <a href="https://reactjs.org" target="_blank" style="text-decoration: none; margin: 5px">
+  <a href="https://react.dev" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="react" height="40" />
+  </a>
+  <a href="https://nextjs.org" target="_blank" style="text-decoration: none; margin: 5px">
+    <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" alt="nextjs" height="40" />
   </a>
   <a href="https://www.ruby-lang.org/en/" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://www.vectorlogo.zone/logos/ruby-lang/ruby-lang-icon.svg" alt="ruby" height="40" />
   </a>
   <a href="https://rubyonrails.org" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg" alt="rails" height="40" />
+  </a>
+  <a href="https://elixir-lang.org/" target="_blank" style="text-decoration: none; margin: 5px">
+    <img src="https://www.vectorlogo.zone/logos/elixir-lang/elixir-lang-icon.svg" alt="elixir" height="40" />
+  </a>
+  <a href="https://www.phoenixframework.org/" target="_blank" style="text-decoration: none; margin: 5px">
+    <img src="https://avatars.githubusercontent.com/u/6510388?s=200&v=4" alt="phoenix" height="40" />
   </a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="html5" height="40"  />
@@ -64,6 +70,9 @@
   </a>
   <a href="https://www.postgresql.org" target="_blank" style="text-decoration: none; margin: 5px">
     <img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" alt="postgresql" height="40" />
+  </a>
+  <a href="https://git-scm.com" target="_blank" style="text-decoration: none; margin: 5px">
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" height="40" />
   </a>
 </p>
 <br />
