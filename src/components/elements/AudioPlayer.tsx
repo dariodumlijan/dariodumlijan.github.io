@@ -7,7 +7,7 @@ import {
   faVolumeUp,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import colors from '../../styles/_colors.scss';
+import colors from '../styles/colors.module.scss';
 
 type Song = {
   title: string,

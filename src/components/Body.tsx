@@ -8,7 +8,6 @@ import Navigation from './containers/Navigation';
 import Bottom from './elements/Bottom';
 import Footer from './elements/Footer';
 import ScrollToTop from './elements/ScrollToTop';
-import About from './pages/About';
 import BusinessCard from './pages/BusinessCard';
 import Home from './pages/Home';
 import Landing from './pages/Landing';
@@ -43,9 +42,7 @@ function Body() {
 
   useEffect(() => {
     if (!environment.isProduction) {
-      const credentials = window.sessionStorage.getItem(
-        sessionStorageKeys.staginUser,
-      );
+      const credentials = window.sessionStorage.getItem(sessionStorageKeys.staginUser);
       if (!isEmpty(credentials)) handleLogin(JSON.parse(credentials as string));
       else setAuthenticated(false);
     }
@@ -68,25 +65,21 @@ function Body() {
             <React.Fragment key={section}>
               <Route
                 path={section}
-                element={<Home title="" />}
-              />
-              <Route
-                path={section + '/about'}
-                element={<About title=" - About me" />}
+                element={<Home />}
               />
               <Route
                 path={section + '/portfolio'}
-                element={<Portfolio title=" - Portfolio" />}
+                element={<Portfolio />}
               />
               {isMusic(section) && (
                 <Route
                   path={section + '/showreel'}
-                  element={<Showreel title=" - Showreel" />}
+                  element={<Showreel />}
                 />
               )}
               <Route
                 path={section + '/business-card'}
-                element={<BusinessCard title={' - ' + (isMusic(section) ? 'Music Producer' : 'Full-stack Developer')} />}
+                element={<BusinessCard />}
               />
             </React.Fragment>
           ))}

@@ -12,7 +12,7 @@
 
 ## Connect / Follow me & my work:
 <p align="left" style="background-color: #ffffff10; border-radius: 4px; padding: 10px;">
-  <a href="https://www.linkedin.com/in/dario-dumlijan-279a371b5/" target="_blank" style="text-decoration: none; margin: 5px">
+  <a href="https://www.linkedin.com/in/dariodumlijan" target="_blank" style="text-decoration: none; margin: 5px">
     <img align="center" src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="linkedin" height="30" />
   </a>
   <a href="https://instagram.com/dariodumlijan/" target="_blank" style="text-decoration: none; margin: 5px">

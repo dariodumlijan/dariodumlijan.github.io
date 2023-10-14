@@ -1,5 +1,5 @@
-import colors from '../../styles/_colors.scss';
 import landingProfile from '../images/landing_profile.jpg';
+import colors from '../styles/colors.module.scss';
 
 function LandingHeroGraphic() {
   return (

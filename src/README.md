@@ -38,17 +38,6 @@ Node variables are populated only during initial dev server load, so restart ser
 
 #### A list of all used variables
     ESLINT_NO_DEV_ERRORS="true"
-    VITE_PROJECT_NAME="Dario Dumlijan"
-    VITE_STAGING_USERNAME="<secret>"
-    VITE_STAGING_PASSWORD="<secret>"
-    VITE_CMS_AUTHORIZATION="<secret>"
-    VITE_CMS_SPACE_ID="<secret>"
-    VITE_CMS_GRAPHQL_URL="<secret>"
-    VITE_EMAIL_TO_ADDRESS="<secret>"
-    VITE_EMAIL_ENDPOINT="<secret>"
-    VITE_EMAIL_API_KEY="<secret>"
-    VITE_RECAPTCHA_PRODUCTION="<secret>"
-    VITE_RECAPTCHA_TEST="<secret>"
 
 #### Other env variables
 

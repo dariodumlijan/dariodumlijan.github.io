@@ -1,4 +1,4 @@
-import colors from '../../styles/_colors.scss';
+import colors from '../styles/colors.module.scss';
 
 type Props = {
   isDesign: boolean,

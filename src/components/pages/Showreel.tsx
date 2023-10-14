@@ -1,10 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-type Props = {
-  title: string,
-};
-
-function Showreel(props: Props) {
+function Showreel() {
   const { t } = useTranslation();
 
   return (
@@ -16,18 +12,18 @@ function Showreel(props: Props) {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           className="video"
-          src={showreel.video}
+          // src={showreel.video}
           allowFullScreen
         />
       </section>
-      {showreel.description && (
+      {/* {showreel.description && (
         <section id="showreel-description" className="rich-content">
           {documentToReactComponents(
             showreel.description.json,
             contentfulToReact(),
           )}
         </section>
-      )}
+      )} */}
     </main>
   );
 }

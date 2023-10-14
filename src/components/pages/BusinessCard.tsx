@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
@@ -13,20 +12,11 @@ import { useLocationInfo } from '../../utils';
 import useLists from '../../utils/lists';
 import VCardSave from '../elements/VCardSave';
 
-type Props = {
-  title: string,
-};
-
-function BusinessCard(props: Props) {
+function BusinessCard() {
   const { t } = useTranslation();
   const { isMusic } = useLocationInfo();
   const { cta } = useLists();
   const currentSection = isMusic ? 'music' : 'design';
-
-  useEffect(() => {
-    document.title += props.title;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMusic]);
 
   const handleShare = () => {
     if (navigator.share) {

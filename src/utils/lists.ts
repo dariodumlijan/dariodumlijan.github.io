@@ -12,7 +12,7 @@ const useLists = () => {
     {
       label: 'LinkedIn',
       icon: faLinkedin,
-      url: 'https://www.linkedin.com/in/dario-dumlijan-279a371b5/',
+      url: 'https://www.linkedin.com/in/dariodumlijan',
     },
     {
       label: 'Github',

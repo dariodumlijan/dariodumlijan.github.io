@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 // import Blob from '../../assets/svg/Blob';
 import { useLocationInfo } from '../../utils';
@@ -6,20 +5,13 @@ import { useLocationInfo } from '../../utils';
 // import FeaturedMusic from '../containers/FeaturedMusic';
 import HeroSection from '../containers/HeroSection';
 
-type Props = {
-  title: string,
-};
-
-function Home(props: Props) {
+function Home() {
   const { t } = useTranslation();
   const locationInfo = useLocationInfo();
   const currentSection: string = locationInfo.current.replace(/\//g, '');
 
   return (
     <main className="home">
-      <Helmet>
-        <title>{props.title}</title>
-      </Helmet>
       <HeroSection />
       <section id="about-home-wrapper">
         <h1 className="section-title">{t('home.common.about.title')}</h1>

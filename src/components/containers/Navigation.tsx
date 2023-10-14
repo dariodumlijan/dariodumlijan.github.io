@@ -1,25 +1,24 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
   faBars, faChevronDown, faChevronUp, faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import { map } from 'lodash';
 import DesignLogo from '../../assets/icons/DesignLogo';
 import MusicLogo from '../../assets/icons/MusicLogo';
-import colors from '../../styles/_colors.scss';
+import colors from '../../assets/styles/colors.module.scss';
 import { useLocationInfo, useScreenSize } from '../../utils';
 
 function Navigation() {
-  const { t } = useTranslation();
   const locationInfo = useLocationInfo();
   const [showSettings, setShowSettings] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
+  const isSmallScreen = useScreenSize();
   const settingsClass = classNames('settings-wrapper', {
     show: showSettings,
   });
-  const isSmallScreen = useScreenSize();
 
   const musicLinks = [
     {
@@ -55,15 +54,12 @@ function Navigation() {
     },
   ];
 
-  const links: Object[] = locationInfo.isMusic
-    ? [...musicLinks]
-    : [...designLinks];
+  const links = locationInfo.isMusic ? [...musicLinks] : [...designLinks];
 
   useEffect(() => {
     const doc: HTMLElement | null = document.documentElement;
     const body: HTMLBodyElement | null = document.querySelector('body');
     if (body) body.scrollTo(0, 0);
-
     if (!doc) return;
 
     if (locationInfo.isDesign) {
@@ -85,23 +81,17 @@ function Navigation() {
           {locationInfo.isDesign && <DesignLogo />}
           {locationInfo.isMusic && <MusicLogo />}
         </Link>
-        {!isSmallScreen && (
-          <>
-            {links.map((slug) => (
-              <Link
-                key={slug.url}
-                to={slug.url}
-                className={classNames('nav-link', {
-                  active:
-                    locationInfo.current === slug.url
-                    || locationInfo.current === slug.url + '/',
-                })}
-              >
-                {slug.label}
-              </Link>
-            ))}
-          </>
-        )}
+        {!isSmallScreen && map(links, (slug) => (
+          <Link
+            key={slug.url}
+            to={slug.url}
+            className={classNames('nav-link', {
+              active: locationInfo.current === slug.url || locationInfo.current === slug.url + '/',
+            })}
+          >
+            {slug.label}
+          </Link>
+        ))}
         {isSmallScreen && (
           <FontAwesomeIcon
             icon={faBars}
@@ -172,14 +162,12 @@ function Navigation() {
               Music
             </Link>
           </div>
-          {links.map((slug) => (
+          {map(links, (slug) => (
             <Link
               key={slug.url}
               to={slug.url}
               className={classNames('nav-link', {
-                active:
-                  locationInfo.current === slug.url
-                  || locationInfo.current === slug.url + '/',
+                active: locationInfo.current === slug.url || locationInfo.current === slug.url + '/',
               })}
               onClick={() => setShowMobile(false)}
             >
