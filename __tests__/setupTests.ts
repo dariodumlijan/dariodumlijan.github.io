@@ -15,14 +15,6 @@ beforeEach(() => {
       dispatchEvent: vi.fn(),
     })),
   });
-
-  vi.mock('axios', () => {
-    const mockAxios = vi.mock('axios');
-  
-    return {
-      create: vi.fn(() => mockAxios),
-    };
-  });
 });
 
 afterEach(() => {
