@@ -6,23 +6,19 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { map } from 'lodash';
 import DesignLogo from '../../assets/icons/DesignLogo';
-import MusicLogo from '../../assets/icons/MusicLogo';
 import businessProfile from '../../assets/images/business_profile.jpg';
-import { useLocationInfo } from '../../utils';
 import useLists from '../../utils/lists';
 import VCardSave from '../elements/VCardSave';
 
 function BusinessCard() {
   const { t } = useTranslation();
-  const { isMusic } = useLocationInfo();
   const { cta } = useLists();
-  const currentSection = isMusic ? 'music' : 'design';
 
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
         title: t('business_card.full_name'),
-        text: t(`business_card.${currentSection}.role`),
+        text: t('business_card.role'),
         url: window.location.href,
       });
     }
@@ -32,12 +28,12 @@ function BusinessCard() {
     <main className="business-card">
       <div className="header">
         <Link to="/">
-          {isMusic ? <MusicLogo /> : <DesignLogo />}
+          <DesignLogo />
         </Link>
         <img src={businessProfile} alt="profile" className="profile" />
         <div className="credentials">
           <h2>{t('business_card.full_name')}</h2>
-          <h4>{t(`business_card.${currentSection}.role`)}</h4>
+          <h4>{t('business_card.role')}</h4>
         </div>
         <div className="quick-actions">
           <a className="quick-action" href={'mailto:' + t('business_card.contact.email.value')} target="_blank">
@@ -60,8 +56,8 @@ function BusinessCard() {
           </label>
           <label>
             {t('business_card.contact.company')}
-            <a href={t(`business_card.${currentSection}.company_url`)} target="_blank">
-              <input defaultValue={t(`business_card.${currentSection}.company`)} readOnly />
+            <a href={t('business_card.company_url')} target="_blank">
+              <input defaultValue={t('business_card.company')} readOnly />
             </a>
           </label>
         </div>
@@ -71,7 +67,7 @@ function BusinessCard() {
             <h2>{t('business_card.summary')}</h2>
           </div>
           <span>
-            {t(`business_card.${currentSection}.summary_1`) + (new Date().getFullYear() - 2014) + t(`business_card.${currentSection}.summary_2`)}
+            {t('business_card.summary_1') + (new Date().getFullYear() - 2021) + t('business_card.summary_2')}
           </span>
         </div>
         <div className="section-wrapper">
@@ -97,14 +93,14 @@ function BusinessCard() {
           ))}
         </div>
         <div className="section-wrapper">
-          <Link to={isMusic ? '/music' : '/design'} className="cta-website">
+          <Link to="/" className="cta-website">
             {t('business_card.actions.to_website')}
           </Link>
         </div>
       </div>
       <div className="actions-wrapper">
         <FontAwesomeIcon className="share" title={t('business_card.actions.share')} icon={faShare} onClick={handleShare} />
-        <VCardSave currentSection={currentSection}>
+        <VCardSave>
           <FontAwesomeIcon className="save" title={t('business_card.actions.save')} icon={faSave} />
         </VCardSave>
       </div>

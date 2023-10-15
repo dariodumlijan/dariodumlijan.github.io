@@ -4,7 +4,6 @@ import FileSaver from 'file-saver';
 
 type Props = {
   children: any,
-  currentSection: string,
 };
 
 function VCardSave(props: Props) {
@@ -17,8 +16,8 @@ function VCardSave(props: Props) {
 VERSION:3.0
 N:${t('business_card.last_name')};${t('business_card.first_name')};;;
 FN:${t('business_card.full_name')}
-TITLE:${t(`business_card.${props.currentSection}.role`)};
-ORG:${t(`business_card.${props.currentSection}.company`)};
+TITLE:${t('business_card.design.role')};
+ORG:${t('business_card.design.company')};
 ADR;type=WORK;type=pref:;;;${t('business_card.location.address')};;;
 EMAIL;type=INTERNET;type=HOME;type=pref:${t('business_card.contact.email.value')}
 END:VCARD`,
@@ -33,12 +32,12 @@ END:VCARD`,
     const reader = new FileReader();
     if (navigator.userAgent.match('CriOS')) {
       reader.onloadend = () => {
-        window.open(reader.result);
+        window.open(reader.result as string);
       };
       reader.readAsDataURL(file);
     } else if (navigator.userAgent.match(/iPad|iPhone|Android/i)) {
       reader.onload = () => {
-        window.location.href = reader.result;
+        window.location.href = reader.result as string;
       };
       reader.readAsDataURL(file);
     } else {

@@ -1,48 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { inRange, includes } from 'lodash';
+import { inRange } from 'lodash';
 
-export const useLocationInfo = (): {
-  current: string,
-  isLanding: boolean,
-  isMusic: boolean,
-  isDesign: boolean,
-  isHome: boolean,
-  isAbout: boolean,
-  isPortfolio: boolean,
-  isShowreel: boolean,
-  isBusinessCard: boolean,
-} => {
+export const useLocationInfo = () => {
   const location = useLocation();
   const current = location.pathname;
-  const isLanding = location.pathname === '/';
-  const isMusic = location.pathname.includes('/music');
-  const isDesign = location.pathname.includes('/design');
-  const isHome = includes(['/music', '/design'], location.pathname);
-  const isAbout = location.pathname.includes('/about');
-  const isPortfolio = location.pathname.includes('/portfolio');
-  const isShowreel = location.pathname.includes('/showreel');
   const isBusinessCard = location.pathname.includes('/business-card');
 
   return {
     current,
-    isLanding,
-    isMusic,
-    isDesign,
-    isHome,
-    isAbout,
-    isPortfolio,
-    isShowreel,
     isBusinessCard,
   };
 };
 
-export const useEnvironmentInfo = (): {
-  isDevelopment: boolean,
-  isProduction: boolean,
-  isStaging: boolean,
-  isInvalidHost: boolean,
-} => {
+export const useEnvironmentInfo = () => {
   const development = window.location.hostname === 'localhost';
   const production = window.location.hostname === 'dariodumlijan.com';
   const staging = window.location.hostname === 'staging.dariodumlijan.com';
