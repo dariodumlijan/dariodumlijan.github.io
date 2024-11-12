@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@keyframes loadingScroll {
+  50% {
+    background-size: 80%;
+  }
+  100% {
+    background-position: 125% 0;
+  }
+}
+
+html, body {
+  align-items: center;
+  background-color: #11181C;
+  color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-optical-sizing: auto;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+  justify-content: center;
+}
+
+.header-line {
+  background-color: #f2f2f2;
+  border-radius: 100vw;
+  height: 2px;
+  width: 40px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  font-family: "Oleo Script", system-ui;
+  font-size: 72px;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.title span {
+  line-height: 72px;
+}
+
+.title span:first-child {
+  font-size: 72px;
+}
+
+.title span:last-child {
+  font-size: 64px;
+}
+
+.loading {
+  animation: loadingScroll 3s ease-in-out infinite;
+  background: linear-gradient(to right, #0066cc, #0066cc);
+  background-color: #f2f2f2;
+  background-position: -25% 0;
+  background-repeat: repeat-y;
+  background-size: 20%;
+  border-radius: 100vw;
+  border: none;
+  height: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.socials {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.socials a {
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid #f2f2f2;
+  color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+}
+
+.socials a svg {
+  height: 25px;
+  width: 25px;
+}
+
+.playstore-icon {
+  margin: 2px;
+  height: 21px !important;
+  width: 21px !important;
+}
