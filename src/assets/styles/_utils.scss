@@ -62,6 +62,7 @@
   p,
   li,
   blockquote {
+    color: rgba(appColor(light), 0.6);
     font-size: appFontSize(sm);
     margin: appFontSize(sm) 0;
   }

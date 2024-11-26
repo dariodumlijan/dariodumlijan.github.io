@@ -1,11 +1,7 @@
-@import "./variables";
+@import "variables";
 
 #about {
   display: flex;
   flex-direction: column;
   gap: 15px;
-
-  .card {
-    opacity: 0.6;
-  }
 }

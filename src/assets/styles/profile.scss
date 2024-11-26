@@ -1,10 +1,26 @@
-@import "./variables";
+@import "variables";
 
 #profile {
   display: flex;
   flex-direction: column;
   gap: 15px;
   width: 100%;
+
+  &.desktop-profile {
+    display: flex;
+
+    @media screen and (max-width: appDimension(mobile)) {
+      display: none;
+    }
+  }
+
+  &.mobile-profile {
+    display: none;
+
+    @media screen and (max-width: appDimension(mobile)) {
+      display: flex;
+    }
+  }
 
   .profile {
     align-self: center;

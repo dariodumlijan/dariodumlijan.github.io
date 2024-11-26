@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import {frontmatter as text} from '../../content/home/misc.md';
+import Base from '../../layouts/Base.astro';
+import Profile from '../../components/Profile.astro';
+import Skills from '../../components/Skills.astro';
+import '../../assets/styles/project.scss';
+
+type Props = CollectionEntry<'projects'>;
+
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
+
+	return projects.map((project: Props) => ({
+		params: { slug: project.slug },
+		props: project,
+	}));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+<Base>
+	<main id="project">
+		<div id="a-side" class="column-wrapper">
+			<Profile />
+			<Skills />
+		</div>
+		<div id="b-side" class="column-wrapper">
+      <div class="heading">
+        <h3 class="code">{text.project.component}</h3>
+        <a class="link" href="/">
+          <Icon name="home" />
+          <span>{text.project.cta}</span>
+        </a>
+      </div>
+      <div class="card">
+        <div class="markdown">
+          <Content />
+        </div>
+      </div>
+		</div>
+	</main>
+</Base>

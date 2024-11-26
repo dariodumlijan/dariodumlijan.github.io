@@ -1,0 +1,26 @@
+@import "variables";
+
+#project {
+  @media screen and (max-width: appDimension(mobile)) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  #b-side {
+    gap: 15px !important;
+
+    .heading {
+      align-items: flex-end;
+      display: flex;
+      gap: 15px;
+      justify-content: space-between;
+
+      .link {
+        align-items: center;
+        display: flex;
+        font-size: appFontSize(sm);
+        gap: 5px;
+      }
+    }
+  }
+}
