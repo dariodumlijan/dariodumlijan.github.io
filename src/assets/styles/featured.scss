@@ -1,0 +1,61 @@
+@import "./variables";
+
+#featured {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .project-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        font-size: fontSize(md);
+      }
+
+      .description {
+        font-size: fontSize(sm);
+        opacity: 0.6;
+      }
+
+      .bottom {
+        align-items: center;
+        display: flex;
+        font-size: fontSize(xs);
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 15px;
+
+        .language {
+          align-items: center;
+          display: flex;
+          gap: 10px;
+
+          i {
+            aspect-ratio: 1;
+            background-color: color(primary);
+            border-radius: 50%;
+            height: 8px;
+            width: 8px;
+          }
+
+          span {
+            opacity: 0.6;
+          }
+        }
+
+        .project-link {
+          align-items: center;
+          display: flex;
+          gap: 5px;
+        }
+      }
+    }
+  }
+}

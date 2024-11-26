@@ -1,0 +1,16 @@
+.card {
+  border-radius: 8px;
+  border: 1pt solid rgba(color(light), 0.2);
+  padding: 15px;
+  width: 100%;
+}
+
+.code {
+  font-family: fontFamily(code);
+  font-size: fontSize(md);
+  font-weight: 400;
+}
+
+.markdown {
+  white-space: pre-line;
+}

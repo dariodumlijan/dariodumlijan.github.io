@@ -1,0 +1,71 @@
+@import "./variables";
+
+#skills {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .sorter {
+    align-items: center;
+    border-bottom: 1px solid rgba(color(light), 0.4);
+    display: flex;
+    font-size: fontSize(sm);
+    gap: 10px;
+    justify-content: space-between;
+    margin: 15px 15px 0 15px;
+    opacity: 0.6;
+    padding-bottom: 5px;
+  }
+
+  .skills-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 300px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 15px 10px 15px 15px;
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: rgba(color(light), 0.1);
+      }
+
+      .skill-item {
+        align-items: center;
+        display: flex;
+        gap: 5px;
+
+        i {
+          aspect-ratio: 1;
+          background-color: color(primary);
+          border-radius: 50%;
+          height: 8px;
+          margin-right: 5px;
+          width: 8px;
+        }
+
+        span {
+          font-size: fontSize(sm);
+          white-space: nowrap;
+        }
+
+        hr {
+          background-color: color(light);
+          border-radius: 100vw;
+          height: 1px;
+          margin-bottom: 4px;
+          margin-top: auto;
+          opacity: 0.2;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

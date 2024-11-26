@@ -1,0 +1,92 @@
+@import "./variables";
+
+#profile {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+
+  .profile {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1pt solid rgba(color(light), 0.2);
+    height: auto;
+    object-fit: cover;
+    object-position: center 30%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .name {
+    font-size: fontSize(xl);
+    font-weight: 400;
+  }
+
+  .title {
+    font-size: fontSize(md);
+    opacity: 0.6;
+  }
+
+  .location {
+    align-items: center;
+    display: flex;
+    font-size: fontSize(sm);
+    gap: 5px;
+
+    svg {
+      height: 16px;
+      width: 16px;
+    }
+
+    span {
+      opacity: 0.6;
+    }
+  }
+
+  .call-to-action {
+    align-items: center;
+    background-color: color(primary);
+    border-radius: 5px;
+    color: color(light);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .divider {
+    background-color: color(light);
+    border-radius: 100vw;
+    border: none;
+    height: 1px;
+    opacity: 0.2;
+    width: 100%;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    font-size: fontSize(sm);
+    gap: 10px;
+
+    .social-item {
+      align-items: center;
+      color: color(light);
+      display: flex;
+      gap: 10px;
+
+      svg {
+        height: 16px;
+        width: 16px;
+      }
+
+      span {
+        opacity: 0.6;
+        transition: 0.3s;
+      }
+
+      &:hover span {
+        opacity: 1;
+      }
+    }
+  }
+}

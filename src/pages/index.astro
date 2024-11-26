@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Profile from '../components/Profile.astro';
+import Skills from '../components/Skills.astro';
+import Bio from '../components/Bio.astro';
+import Featured from '../components/Featured.astro';
+import Experience from '../components/Experience.astro';
+---
+<Base>
+	<main>
+		<div class="column-wrapper">
+			<Profile />
+			<Skills />
+		</div>
+		<div class="column-wrapper">
+			<Bio />
+			<Featured />
+			<Experience />
+		</div>
+	</main>
+</Base>

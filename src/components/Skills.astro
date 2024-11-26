@@ -1,0 +1,35 @@
+---
+import {frontmatter as content} from '../content/home/skills.md';
+import '../assets/styles/skills.scss';
+
+type Skill = {
+  language: string,
+  link: string,
+  year: number,
+};
+
+const currentYear = new Date().getFullYear();
+---
+<section id="skills">
+  <h3 class="code">{content.component}</h3>
+  <div class="card skills-card">
+    <div class="sorter">
+      <span>{content.sortBy.label}</span>
+      <span>{content.sortBy.option}</span>
+    </div>
+    <div class="skills-list">
+      {content.skills.map((skill: Skill) => {
+        const diff = currentYear - skill.year
+
+        return (
+          <a class="skill-item" href={skill.link} target="_blank">
+            <i />
+            <span>{skill.language}</span>
+            <hr />
+            <span>{diff || 1}y</span>
+          </a>
+        )
+      })}
+    </div>
+  </div>
+</section>

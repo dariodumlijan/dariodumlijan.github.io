@@ -1,0 +1,32 @@
+---
+import '../assets/styles/reset.css';
+import '../assets/styles/main.scss';
+
+interface Props {
+	titleSuffix?: string;
+	description?: string;
+}
+
+const { titleSuffix, description } = Astro.props;
+const pageTitle = titleSuffix ? 'Dario Dumlijan | ' + titleSuffix : 'Dario Dumlijan'
+const pageDescription = description || 'Full-Stack Engineer'
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all" />
+    <meta name="author" content="Dario Dumlijan">
+    <meta name="keywords" content="engineering, web, app, development">
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={pageDescription} />
+    <link rel="canonical" href="https://dariodumlijan.com" />
+		<link rel="icon" sizes="any" type="image/svg+xml" href="./favicon.svg" />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<slot />
+		<footer>dariodumlijan.com &copy; {new Date().getFullYear()}</footer>
+	</body>
+</html>

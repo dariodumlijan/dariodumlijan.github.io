@@ -1,0 +1,39 @@
+$colors: (
+  primary: #0066cc,
+  dark: #11181c,
+  light: #f2f2f2
+);
+
+$fontFamilies: (
+  text: "Inter",
+  code: "Noto Sans Mono"
+);
+
+$fontSizes: (
+  xl: 26px,
+  lg: 22px,
+  md: 16px,
+  sm: 14px,
+  xs: 12px
+);
+
+@function color($key) {
+  @if not map-has-key($colors, $key) {
+    @warn "Color `#{$key}` not found.";
+  }
+  @return map-get($colors, $key);
+}
+
+@function fontFamily($key) {
+  @if not map-has-key($fontFamilies, $key) {
+    @warn "Font `#{$key}` not found.";
+  }
+  @return map-get($fontFamilies, $key);
+}
+
+@function fontSize($key) {
+  @if not map-has-key($fontSizes, $key) {
+    @warn "Size `#{$key}` not found.";
+  }
+  @return map-get($fontSizes, $key);
+}

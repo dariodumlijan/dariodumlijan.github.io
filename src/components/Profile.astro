@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from "astro-icon/components"
+import {frontmatter as content} from '../content/home/profile.md';
+import profile from '../assets/images/profile.png';
+import '../assets/styles/profile.scss';
+
+type Social = {
+  icon: string,
+  label: string,
+  value: string,
+};
+---
+<section id="profile" class="card">
+  <Image class="profile" src={profile} alt="Dario Dumlijan - profile" />
+  <div class="credentials">
+    <h1 class="name">{content.name}</h1>
+    <h2 class="title">{content.title}</h2>
+  </div>
+  <div class="location">
+    <Icon name="location" />
+    <span>{content.location}</span>
+  </div>
+  <a class="call-to-action" href={content.cta.value} target="_blank">
+    {content.cta.label}
+  </a>
+  <hr class="divider" />
+  <div class="socials">
+    {content.socials.map((social: Social) => (
+      <a class="social-item" href={social.value} target="_blank">
+        <Icon name={social.icon} />
+        <span>{social.label}</span>
+      </a>
+    ))}
+  </div>
+</section>

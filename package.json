@@ -1,0 +1,22 @@
+{
+  "name": "dariodumlijan",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --port 3000",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^4.16.13",
+    "astro-icon": "^1.1.4",
+    "sass": "^1.81.0",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {}
+}
