@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 const post = Astro.props;
 const { Content } = await post.render();
 ---
-<Base>
+<Base titleSuffix={post.data.title}>
 	<main id="project">
 		<div id="a-side" class="column-wrapper">
 			<Profile />
