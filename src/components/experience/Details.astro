@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	job: CollectionEntry<'jobs'>;
+}
+
+const { job } = Astro.props;
+
+const toDate = (value: string) => {
+  if (value == "Present") return value
+
+  const date = new Date(value);
+  return date.toLocaleString('default', { month: 'short' }) + ' ' + date.getFullYear()
+}
+---
+<div class="job-details">
+  <Icon class="job-icon" name="job" />
+  <span class="job-title">{job.data.title}</span>
+  <div class="duration">
+    {toDate(job.data.from)} - {toDate(job.data.to)}
+    <Icon name="calendar" />
+  </div>
+  <span class="job-type">{job.data.type}</span>
+  <div class="workplace-wrapper">
+    {job.data.company.url ? (
+      <a class="workplace-name" href={job.data.company.url} target="_blank">
+        {job.data.company.name}
+      </a>
+    ) : (
+      <span class="workplace-name">{job.data.company.name}</span>
+    )}
+    {job.data.client && (
+      <span>&dash;</span>
+      <>
+        {job.data.client.url ? (
+          <a class="workplace-name" href={job.data.client.url} target="_blank">
+            {job.data.client.name}
+          </a>
+        ) : (
+          <span class="workplace-name">{job.data.client.name}</span>
+        )}
+      </>
+    )}
+  </div>
+</div>

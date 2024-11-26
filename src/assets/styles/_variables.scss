@@ -17,23 +17,36 @@ $fontSizes: (
   xs: 12px
 );
 
-@function color($key) {
+$dimensions: (
+  tablet: 1000px,
+  fold: 800px,
+  mobile: 700px
+);
+
+@function appColor($key) {
   @if not map-has-key($colors, $key) {
     @warn "Color `#{$key}` not found.";
   }
   @return map-get($colors, $key);
 }
 
-@function fontFamily($key) {
+@function appFontFamily($key) {
   @if not map-has-key($fontFamilies, $key) {
     @warn "Font `#{$key}` not found.";
   }
   @return map-get($fontFamilies, $key);
 }
 
-@function fontSize($key) {
+@function appFontSize($key) {
   @if not map-has-key($fontSizes, $key) {
     @warn "Size `#{$key}` not found.";
   }
   @return map-get($fontSizes, $key);
+}
+
+@function appDimension($key) {
+  @if not map-has-key($dimensions, $key) {
+    @warn "Dimension `#{$key}` not found.";
+  }
+  @return map-get($dimensions, $key);
 }

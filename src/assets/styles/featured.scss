@@ -10,24 +10,28 @@
     gap: 15px;
     grid-template-columns: repeat(2, 1fr);
 
+    @media screen and (max-width: appDimension(tablet)) {
+      grid-template-columns: auto;
+    }
+
     .project {
       display: flex;
       flex-direction: column;
       gap: 10px;
 
       .title {
-        font-size: fontSize(md);
+        font-size: appFontSize(md);
       }
 
       .description {
-        font-size: fontSize(sm);
+        font-size: appFontSize(sm);
         opacity: 0.6;
       }
 
       .bottom {
         align-items: center;
         display: flex;
-        font-size: fontSize(xs);
+        font-size: appFontSize(xs);
         justify-content: space-between;
         margin-top: auto;
         padding-top: 15px;
@@ -39,7 +43,7 @@
 
           i {
             aspect-ratio: 1;
-            background-color: color(primary);
+            background-color: appColor(primary);
             border-radius: 50%;
             height: 8px;
             width: 8px;

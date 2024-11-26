@@ -7,10 +7,12 @@
   width: 100%;
 
   .profile {
+    align-self: center;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 1pt solid rgba(color(light), 0.2);
+    border: 1pt solid rgba(appColor(light), 0.2);
     height: auto;
+    max-width: 260px;
     object-fit: cover;
     object-position: center 30%;
     overflow: hidden;
@@ -18,19 +20,19 @@
   }
 
   .name {
-    font-size: fontSize(xl);
+    font-size: appFontSize(xl);
     font-weight: 400;
   }
 
   .title {
-    font-size: fontSize(md);
+    font-size: appFontSize(md);
     opacity: 0.6;
   }
 
   .location {
     align-items: center;
     display: flex;
-    font-size: fontSize(sm);
+    font-size: appFontSize(sm);
     gap: 5px;
 
     svg {
@@ -45,16 +47,16 @@
 
   .call-to-action {
     align-items: center;
-    background-color: color(primary);
+    background-color: appColor(primary);
     border-radius: 5px;
-    color: color(light);
+    color: appColor(light);
     display: flex;
     justify-content: center;
     padding: 10px;
   }
 
   .divider {
-    background-color: color(light);
+    background-color: appColor(light);
     border-radius: 100vw;
     border: none;
     height: 1px;
@@ -65,12 +67,12 @@
   .socials {
     display: flex;
     flex-direction: column;
-    font-size: fontSize(sm);
+    font-size: appFontSize(sm);
     gap: 10px;
 
     .social-item {
       align-items: center;
-      color: color(light);
+      color: appColor(light);
       display: flex;
       gap: 10px;
 

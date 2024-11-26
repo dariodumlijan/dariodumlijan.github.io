@@ -4,18 +4,19 @@ import Profile from '../components/Profile.astro';
 import Skills from '../components/Skills.astro';
 import Bio from '../components/Bio.astro';
 import Featured from '../components/Featured.astro';
-import Experience from '../components/Experience.astro';
+import Experience from '../components/experience/index.astro';
 ---
 <Base>
 	<main>
-		<div class="column-wrapper">
+		<div id="a-side" class="column-wrapper">
 			<Profile />
-			<Skills />
+			<Skills class="desktop-skills" />
 		</div>
-		<div class="column-wrapper">
+		<div id="b-side" class="column-wrapper">
 			<Bio />
 			<Featured />
 			<Experience />
+			<Skills class="mobile-skills" />
 		</div>
 	</main>
 </Base>

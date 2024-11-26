@@ -1,16 +1,177 @@
 .card {
   border-radius: 8px;
-  border: 1pt solid rgba(color(light), 0.2);
+  border: 1pt solid rgba(appColor(light), 0.2);
   padding: 15px;
   width: 100%;
 }
 
 .code {
-  font-family: fontFamily(code);
-  font-size: fontSize(md);
+  font-family: appFontFamily(code);
+  font-size: appFontSize(md);
   font-weight: 400;
 }
 
 .markdown {
-  white-space: pre-line;
+  & > :first-child {
+    margin-top: 0 !important;
+  }
+
+  & > :last-child {
+    margin-bottom: 0 !important;
+  }
+
+  h1 {
+    font-size: appFontSize(xl);
+
+    @media screen and (max-width: appDimension(mobile)) {
+      font-size: appFontSize(lg);
+    }
+  }
+
+  h2 {
+    font-size: appFontSize(lg);
+
+    @media screen and (max-width: appDimension(mobile)) {
+      font-size: appFontSize(md);
+    }
+  }
+
+  h3 {
+    font-size: appFontSize(md);
+
+    @media screen and (max-width: appDimension(mobile)) {
+      font-size: appFontSize(sm);
+    }
+  }
+
+  h4 {
+    font-size: appFontSize(sm);
+  }
+
+  h5 {
+    font-size: appFontSize(xs);
+    margin: appFontSize(md) 0;
+  }
+
+  h6 {
+    font-size: appFontSize(xs);
+    margin: appFontSize(md) 0;
+  }
+
+  a,
+  p,
+  li,
+  blockquote {
+    font-size: appFontSize(sm);
+    margin: appFontSize(sm) 0;
+  }
+
+  li {
+    margin: 5px !important;
+
+    &:first-of-type {
+      margin-top: 0 !important;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+
+    ul,
+    ol {
+      margin-bottom: 5px !important;
+      margin-top: 5px !important;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: appFontSize(lg) 0 appFontSize(md) 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  b,
+  strong {
+    font-weight: 500;
+  }
+
+  a {
+    color: appColor(light);
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  s {
+    text-decoration: line-through;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  ul {
+    list-style: initial;
+    margin: appFontSize(sm) 0;
+    margin-left: appFontSize(sm) !important;
+  }
+
+  ol {
+    list-style: upper-roman;
+    margin: appFontSize(sm) 0;
+    margin-left: appFontSize(sm) !important;
+  }
+
+  li::marker {
+    color: rgba(appColor(light), 0.6);
+  }
+
+  blockquote {
+    position: relative;
+    padding-left: appFontSize(sm);
+
+    &::before {
+      background-color: rgba(appColor(light), 0.6);
+      border-radius: 5px;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 5px;
+    }
+  }
+
+  table {
+    margin: 0 !important;
+    vertical-align: middle;
+    width: 100%;
+
+    * {
+      margin: 0 !important;
+    }
+
+    tr {
+      th,
+      td {
+        border: 1px solid rgba(appColor(light), 0.2);
+        padding: 4px;
+      }
+
+      th {
+        background-color: rgba(appColor(primary), 0.1);
+        text-align: center;
+      }
+    }
+  }
+
+  center {
+    text-align: center;
+  }
 }

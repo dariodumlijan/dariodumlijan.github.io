@@ -11,19 +11,21 @@ const jobs = defineCollection({
 		client: z.object({
 			name: z.string(),
 			url: z.string().optional(),
-		}),
+		}).optional(),
+		type: z.string(),
 		from: z.string(),
 		to: z.string(),
 	}),
 });
 
-const project = defineCollection({
+const projects = defineCollection({
 	type: 'content',
 	schema: z.object({
+		order: z.number(),
 		title: z.string(),
 		description: z.string(),
 		language: z.string(),
 	}),
 });
 
-export const collections = { jobs, project };
+export const collections = { jobs, projects };

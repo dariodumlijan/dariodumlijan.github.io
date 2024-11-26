@@ -1,7 +1,7 @@
 ---
 component: '<Skills/>'
 sortBy: {
-  label: 'Sort by:',
+  label: 'Sorted by:',
   option: 'Relevance'
 }
 skills: [
