@@ -1,5 +1,28 @@
 ---
 name: 'Dario Dumlijan'
+description: 'Full-Stack Engineer, passionate about working on projects I care about. Explore my portfolio and get in touch.'
+keywords: [
+  'full-stack engineer',
+  'front-end engineer',
+  'back-end engineer',
+  'software engineering',
+  'web development',
+  'app development',
+  'UI/UX design',
+  'mobile apps',
+  'SaaS',
+  'microservices',
+  'e-learning',
+  'e-health',
+  'development',
+  'programming',
+  'coding',
+  'Kubernetes',
+  'AWS',
+  'LRS',
+  'LMS',
+  'xAPI',
+]
 title: 'Full-Stack Engineer'
 location: 'Zagreb, Croatia'
 cta: {

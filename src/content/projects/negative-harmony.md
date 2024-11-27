@@ -1,7 +1,7 @@
 ---
 order: 1
 title: 'Negative Harmony'
-description: 'It is an app made to make the musical theory of negative harmony easier to understand and visualise.'
+description: 'Unlock new melodies and sounds. An app made to make the musical theory of negative harmony easier to understand and visualise.'
 language: 'ReactNative'
 ---
 ![feature_graphic](/images/projects/negative_harmony/feature_graphic.png)

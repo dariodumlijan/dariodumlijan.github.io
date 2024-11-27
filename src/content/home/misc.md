@@ -7,7 +7,7 @@ featured: {
   cta: 'View project'
 }
 project: {
-  component: '<Projects/>',
+  component: '<Project/>',
   cta: 'Go home'
 }
 ---

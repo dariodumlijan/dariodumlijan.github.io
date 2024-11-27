@@ -1,4 +1,6 @@
 ---
+import {frontmatter as profile} from '../content/home/profile.md';
+import {frontmatter as skills} from '../content/home/skills.md';
 import '../assets/styles/reset.css';
 import '../assets/styles/main.scss';
 
@@ -8,8 +10,12 @@ type Props = {
 }
 
 const { titleSuffix, description } = Astro.props;
-const pageTitle = titleSuffix ? 'Dario Dumlijan | ' + titleSuffix : 'Dario Dumlijan'
-const pageDescription = description || 'Full-Stack Engineer'
+
+const pageTitle = titleSuffix ? `${profile.name} | ${titleSuffix}` : profile.name
+const pageDescription = description || profile.description
+
+const languages = skills.skills.map((skill: {language: string}) => skill.language)
+const keywords = [profile.name, ...profile.keywords, ...languages].join(', ')
 ---
 <!doctype html>
 <html lang="en">
@@ -17,9 +23,9 @@ const pageDescription = description || 'Full-Stack Engineer'
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="all" />
-    <meta name="author" content="Dario Dumlijan">
-    <meta name="keywords" content="engineering, web, app, development">
 		<meta name="generator" content={Astro.generator} />
+    <meta name="author" content={profile.name}>
+    <meta name="keywords" content={keywords}>
 		<meta name="description" content={pageDescription} />
     <link rel="canonical" href="https://dariodumlijan.com" />
 		<link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
