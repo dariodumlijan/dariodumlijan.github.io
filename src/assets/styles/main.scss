@@ -65,6 +65,10 @@ body {
       position: sticky;
       top: 40px;
 
+      @media screen and (max-width: appDimension(tablet)) {
+        top: 15px;
+      }
+
       @media screen and (max-width: appDimension(mobile)) {
         height: auto;
         position: relative;
