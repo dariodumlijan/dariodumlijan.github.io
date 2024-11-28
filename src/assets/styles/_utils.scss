@@ -103,6 +103,12 @@
 
   a {
     color: appColor(light);
+    text-decoration: underline solid transparent;
+    transition: 0.3s;
+
+    &:hover {
+      text-decoration: underline solid appColor(light);
+    }
   }
 
   i {

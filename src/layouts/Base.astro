@@ -16,6 +16,7 @@ const pageDescription = description || profile.description
 
 const languages = skills.skills.map((skill: {language: string}) => skill.language)
 const keywords = [profile.name, ...profile.keywords, ...languages].join(', ')
+const year = new Date().getFullYear()
 ---
 <!doctype html>
 <html lang="en">
@@ -34,6 +35,11 @@ const keywords = [profile.name, ...profile.keywords, ...languages].join(', ')
 	</head>
 	<body>
 		<slot />
-		<footer>dariodumlijan.com &copy; {new Date().getFullYear()}</footer>
+		<footer>
+			dariodumlijan.com &copy;&NonBreakingSpace;<span id="footer-year">{year}</span>
+		</footer>
+		<script is:inline>
+			document.getElementById("footer-year").innerText = new Date().getFullYear();
+		</script>
 	</body>
 </html>
