@@ -20,7 +20,8 @@ $fontSizes: (
 $dimensions: (
   tablet: 1000px,
   fold: 800px,
-  mobile: 700px
+  mobile: 700px,
+  mini: 500px
 );
 
 @function appColor($key) {

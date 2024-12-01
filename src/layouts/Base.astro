@@ -5,14 +5,16 @@ import '../assets/styles/reset.css';
 import '../assets/styles/main.scss';
 
 type Props = {
-	titleSuffix?: string;
-	description?: string;
+	pagePath?: string
+	pageTitle?: string;
+	pageDescription?: string;
 }
 
-const { titleSuffix, description } = Astro.props;
+const { pagePath, pageTitle, pageDescription } = Astro.props;
 
-const pageTitle = titleSuffix ? `${profile.name} | ${titleSuffix}` : profile.name
-const pageDescription = description || profile.description
+const url = pagePath ? profile.baseUrl + pagePath : profile.baseUrl
+const title = pageTitle ? `${profile.name} | ${pageTitle}` : profile.name
+const description = pageDescription || profile.description
 
 const languages = skills.skills.map((skill: {language: string}) => skill.language)
 const keywords = [profile.name, ...profile.keywords, ...languages].join(', ')
@@ -24,22 +26,51 @@ const year = new Date().getFullYear()
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="all" />
-		<meta name="generator" content={Astro.generator} />
-    <meta name="author" content={profile.name}>
-    <meta name="keywords" content={keywords}>
-		<meta name="description" content={pageDescription} />
+    <link rel="canonical" href={profile.baseUrl} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href="https://dariodumlijan.com" />
 		<link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
-		<title>{pageTitle}</title>
+		
+		{/* HTML Meta Tags */}
+		<title>{title}</title>
+		<meta name="description" content={description} />
+    <meta name="keywords" content={keywords}>
+    <meta name="author" content={profile.name}>
+		<meta name="copyright" content={year.toString()} />
+		<meta name="generator" content={Astro.generator} />
+
+		{/* Open Graph Meta Tags */}
+		<meta property="og:title" content={title} />
+		<meta property="og:renderedTitle" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:keywords" content={keywords} />
+		<meta property="og:url" content={url} />
+		<meta property="og:type" content="website" />
+
+		{/* Twitter Meta Tags */}
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta property="twitter:url" content={url} />
+		<meta property="twitter:domain" content={url.replace('https://', '')} />
+
+		{/* Schema.org Tag */}
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			image: `${profile.baseUrl}/favicon.svg`,
+			description: description,
+			name: title,
+			url: url,
+		})} />
 	</head>
 	<body>
 		<slot />
 		<footer>
-			dariodumlijan.com &copy;&NonBreakingSpace;<span id="footer-year">{year}</span>
+			{profile.baseUrl.replace('https://', '')} &copy;&NonBreakingSpace;<span id="footer-year">{year}</span>
 		</footer>
 		<script is:inline>
-			document.getElementById("footer-year").innerText = new Date().getFullYear();
+			const actualYear = new Date().getFullYear();
+			document.getElementById("footer-year").innerText = actualYear;
+			document.querySelector('meta[name="copyright"]').setAttribute("content", actualYear);
 		</script>
 	</body>
 </html>
