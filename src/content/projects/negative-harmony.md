@@ -4,7 +4,7 @@ title: 'Negative Harmony'
 description: 'Unlock new melodies and sounds. An app made to make the musical theory of negative harmony easier to understand and visualise.'
 language: 'ReactNative'
 ---
-![feature_graphic](/images/projects/negative_harmony/feature_graphic.png)
+![feature_graphic](@images/projects/negative_harmony/feature_graphic.webp)
 
 # Negative Harmony - Simplified
 
@@ -23,7 +23,7 @@ Checkout the code at [git/negative_harmony](https://github.com/Chimera-Studio/ne
 <!-- Hack to display images in a grid -->
 | | | |
 |-|-|-|
-| ![screen_1](/images/projects/negative_harmony/screen_1.png) | ![screen_2](/images/projects/negative_harmony/screen_2.png) | ![screen_3](/images/projects/negative_harmony/screen_3.png)
+| ![screen_1](@images/projects/negative_harmony/screen_1.webp) | ![screen_2](@images/projects/negative_harmony/screen_2.webp) | ![screen_3](@images/projects/negative_harmony/screen_3.webp)
 | | | |
 
 ### Negative Harmony is an app made to make the musical theory of negative harmony easier to understand and visualise.
@@ -44,8 +44,8 @@ The second-page "Chords" is made available after selecting the key and scale on 
 
 ## The Chimera Team
 
-- [Dario Dumlijan - Application Engineer](https://www.linkedin.com/in/dariodumlijan/)
-- [Damjan Gazibaric - UI/UX Designer](https://www.linkedin.com/in/damjangazibaric/)
-- [Boris Vida - Assets Designer](https://studiolumistra.com)
+- [Dario Dumlijan - Application Engineer](https://www.linkedin.com/in/dariodumlijan)
+- [Damjan Gazibaric - UI/UX Designer](https://www.linkedin.com/in/damjangazibaric)
+- [Studio Lumistra - Assets Designer](https://studiolumistra.com)
 
 [More by Chimera Studio](https://linktr.ee/chimerastudiotm)

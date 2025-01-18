@@ -1,8 +1,8 @@
 ---
 import { Icon } from "astro-icon/components"
 import { getCollection } from 'astro:content';
-import {frontmatter as content} from '../content/home/misc.md';
-import '../assets/styles/featured.scss';
+import {frontmatter as content} from '@content/home/misc.md';
+import '@styles/featured.scss';
 
 const projects = (await getCollection('projects'))
 .sort((jobA, jobB) => jobA.data.order - jobB.data.order);

@@ -1,9 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from "astro-icon/components"
-import {frontmatter as content} from '../content/home/profile.md';
-import profile from '../assets/images/profile.png';
-import '../assets/styles/profile.scss';
+import {frontmatter as content} from '@content/home/profile.md';
+import profile from '@images/profile.webp';
+import '@styles/profile.scss';
 
 type Social = {
   icon: string,
@@ -12,7 +12,7 @@ type Social = {
 };
 ---
 <section id="profile" class="card">
-  <Image class="profile" src={profile} alt="Dario Dumlijan - profile" />
+  <Image class="profile" src={profile} alt="Dario Dumlijan - profile" loading="eager" />
   <div class="credentials">
     <h1 class="name">{content.name}</h1>
     <h2 class="title">{content.title}</h2>

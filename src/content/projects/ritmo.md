@@ -4,7 +4,7 @@ title: 'Ritmo'
 description: 'A new fresh way to visualise beats and rhythms as well as create them. With Ritmo, creating exciting, different more complex beats is super easy.'
 language: 'ReactNative'
 ---
-![feature_graphic](/images/projects/ritmo/feature_graphic.png)
+![feature_graphic](@images/projects/ritmo/feature_graphic.webp)
 
 # Ritmo - Beatmaking Redefined
 
@@ -23,7 +23,7 @@ Checkout the code at [git/ritmo](https://github.com/Chimera-Studio/ritmo)
 <!-- Hack to display images in a grid -->
 | | | |
 |-|-|-|
-| ![screen_1](/images/projects/ritmo/screen_1.png) | ![screen_2](/images/projects/ritmo/screen_2.png) | ![screen_3](/images/projects/ritmo/screen_3.png)
+| ![screen_1](@images/projects/ritmo/screen_1.webp) | ![screen_2](@images/projects/ritmo/screen_2.webp) | ![screen_3](@images/projects/ritmo/screen_3.webp)
 | | | |
 
 ### A new fresh way to visualise beats and rhythms as well as create them. With Ritmo, creating exciting, different more complex beats is super easy.
@@ -44,8 +44,8 @@ The app has an adjustable BPM, a selection of different time signatures and mult
 
 ## The Chimera Team
 
-- [Dario Dumlijan - Application Engineer](https://www.linkedin.com/in/dariodumlijan/)
-- [Boris Vida - UI/UX Designer](https://www.linkedin.com/in/bvida48/)
-- [Damjan Gazibaric - Assets Designer](https://studiolumistra.com)
+- [Dario Dumlijan - Application Engineer](https://www.linkedin.com/in/dariodumlijan)
+- [Studio Lumistra - UI/UX Designer](https://studiolumistra.com)
+- [Damjan Gazibaric - Assets Designer](https://www.linkedin.com/in/damjangazibaric)
 
 [More by Chimera Studio](https://linktr.ee/chimerastudiotm)

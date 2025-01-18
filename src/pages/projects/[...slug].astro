@@ -1,11 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { type CollectionEntry, getCollection } from 'astro:content';
-import {frontmatter as text} from '../../content/home/misc.md';
-import Base from '../../layouts/Base.astro';
-import Profile from '../../components/Profile.astro';
-import Skills from '../../components/Skills.astro';
-import '../../assets/styles/project.scss';
+import {frontmatter as text} from '@content/home/misc.md';
+import Base from '@layouts/Base.astro';
+import Profile from '@components/Profile.astro';
+import Skills from '@components/Skills.astro';
+import '@styles/project.scss';
 
 type Props = CollectionEntry<'projects'>;
 

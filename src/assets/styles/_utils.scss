@@ -181,4 +181,11 @@
   center {
     text-align: center;
   }
+
+  img,
+  picture,
+  video {
+    height: auto;
+    width: auto;
+  }
 }
