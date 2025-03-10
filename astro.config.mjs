@@ -8,14 +8,8 @@ export default defineConfig({
   output: 'static',
   site: 'https://dariodumlijan.com',
   integrations: [
-    icon({
-      iconDir: 'src/assets/icons'
-    }),
-    sitemap({
-      priority: 0.7,
-      changefreq: 'monthly',
-      lastmod: new Date(),
-    }),
+    icon({ iconDir: 'src/assets/icons' }),
+    sitemap({ lastmod: new Date() }),
   ],
   vite: {
     css: {

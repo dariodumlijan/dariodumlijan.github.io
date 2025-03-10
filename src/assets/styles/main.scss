@@ -62,6 +62,7 @@ body {
 
     #a-side {
       height: calc(100vh - 80px);
+      min-height: 850px;
       position: sticky;
       top: 40px;
 
@@ -71,6 +72,7 @@ body {
 
       @media screen and (max-width: appDimension(mobile)) {
         height: auto;
+        min-height: auto;
         position: relative;
         top: auto;
       }
@@ -90,7 +92,7 @@ body {
     display: flex;
     font-size: appFontSize(xs);
     height: 60px;
-    opacity: 0.4;
+    opacity: 0.5;
     position: absolute;
   }
 }
