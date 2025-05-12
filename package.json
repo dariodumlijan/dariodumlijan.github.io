@@ -16,7 +16,7 @@
     "astro": "^5.4.2",
     "astro-icon": "^1.1.5",
     "sass": "^1.85.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "devDependencies": {}
 }
