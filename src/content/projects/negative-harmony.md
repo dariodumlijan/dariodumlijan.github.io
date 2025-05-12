@@ -32,7 +32,7 @@ Easy to use, user-friendly interface:
 
 - Selection of all western scales and modes
 - Over 10 different chord types
-- Diatonic note detection / Indicator for notes/chords outside of the scale
+- Diatonic note detection / Indicator for notes & chords outside of the scale
 
 The app shows in a clear and easy way to understand what are the notes inside the chosen scale/mode and their relative negative harmony while also representing this inside the circle of fifths with the blue axis showing the relationship between each note.
 

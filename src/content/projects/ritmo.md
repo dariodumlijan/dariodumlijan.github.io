@@ -30,7 +30,7 @@ Checkout the code at [git/ritmo](https://github.com/Chimera-Studio/ritmo)
 
 Easy to use, user-friendly interface:
 
--   10 different sound library (Acoustic, Trap, Lo-fi and more) - more to come
+-   10 different sound libraries (Acoustic, Trap, Lo-fi and more)
 -   3 time signatures (adjustable for each sound "kick/snare/hi-hat")
 -   An adjustable BPM
 -   Presets
