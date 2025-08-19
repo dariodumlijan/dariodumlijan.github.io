@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .card {
   border-radius: 8px;
   border: 1pt solid rgba(appColor(light), 0.2);

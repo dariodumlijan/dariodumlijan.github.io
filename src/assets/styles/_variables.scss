@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $colors: (
   primary: #0066cc,
   dark: #11181c,
@@ -25,29 +27,29 @@ $dimensions: (
 );
 
 @function appColor($key) {
-  @if not map-has-key($colors, $key) {
+  @if not map.has-key($colors, $key) {
     @warn "Color `#{$key}` not found.";
   }
-  @return map-get($colors, $key);
+  @return map.get($colors, $key);
 }
 
 @function appFontFamily($key) {
-  @if not map-has-key($fontFamilies, $key) {
+  @if not map.has-key($fontFamilies, $key) {
     @warn "Font `#{$key}` not found.";
   }
-  @return map-get($fontFamilies, $key);
+  @return map.get($fontFamilies, $key);
 }
 
 @function appFontSize($key) {
-  @if not map-has-key($fontSizes, $key) {
+  @if not map.has-key($fontSizes, $key) {
     @warn "Size `#{$key}` not found.";
   }
-  @return map-get($fontSizes, $key);
+  @return map.get($fontSizes, $key);
 }
 
 @function appDimension($key) {
-  @if not map-has-key($dimensions, $key) {
+  @if not map.has-key($dimensions, $key) {
     @warn "Dimension `#{$key}` not found.";
   }
-  @return map-get($dimensions, $key);
+  @return map.get($dimensions, $key);
 }
