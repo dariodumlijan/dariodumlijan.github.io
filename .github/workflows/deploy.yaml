@@ -11,6 +11,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  NODE_VERSION: 24.0
+
 jobs:
   build:
     name: Build
@@ -20,7 +23,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install, build, and upload your site
-        uses: withastro/action@v3
+        uses: withastro/action@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
   deploy:
     name: Deploy

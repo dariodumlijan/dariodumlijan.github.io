@@ -22,7 +22,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './__under_construction__'
+          path: "./__under_construction__"
 
   deploy:
     name: Deploy
