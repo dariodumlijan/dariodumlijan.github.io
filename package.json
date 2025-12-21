@@ -1,7 +1,7 @@
 {
   "name": "dariodumlijan",
   "type": "module",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "private": true,
   "scripts": {
     "dev": "astro dev --port 3000",
@@ -11,11 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.5",
+    "@astrojs/check": "^0.9.6",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.15.3",
+    "astro": "^5.16.6",
     "astro-icon": "^1.1.5",
-    "sass": "^1.93.3",
+    "sass": "^1.97.1",
     "typescript": "^5.9.3"
   },
   "devDependencies": {}
