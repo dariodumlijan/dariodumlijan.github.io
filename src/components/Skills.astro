@@ -1,20 +1,21 @@
 ---
-import {frontmatter as content} from '@content/home/skills.md';
-import '@styles/skills.scss';
+import { frontmatter as content } from "@content/home/skills.md";
+import "@styles/skills.scss";
 
 type Props = {
-  class?: string,
+  class?: string;
 };
 
 type Skill = {
-  language: string,
-  link: string,
-  year: number,
+  language: string;
+  link: string;
+  year: number;
 };
 
 const { props } = Astro;
 const currentYear = new Date().getFullYear();
 ---
+
 <section id="skills" class={props.class}>
   <div class="skills-wrapper">
     <h3 class="code">{content.component}</h3>
@@ -24,18 +25,20 @@ const currentYear = new Date().getFullYear();
         <span>{content.sortBy.option}</span>
       </div>
       <div class="skills-list">
-        {content.skills.map((skill: Skill) => {
-          const diff = currentYear - skill.year
+        {
+          content.skills.map((skill: Skill) => {
+            const diff = currentYear - skill.year;
 
-          return (
-            <a class="skill-item" href={skill.link} target="_blank">
-              <i />
-              <span>{skill.language}</span>
-              <hr />
-              <span>{diff || 1}y</span>
-            </a>
-          )
-        })}
+            return (
+              <a class="skill-item" href={skill.link} target="_blank">
+                <i />
+                <span>{skill.language}</span>
+                <hr />
+                <span>{diff || 1}y</span>
+              </a>
+            );
+          })
+        }
       </div>
     </div>
   </div>

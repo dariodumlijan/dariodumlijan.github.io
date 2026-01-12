@@ -1,30 +1,34 @@
 ---
-import { Icon } from "astro-icon/components"
-import { getCollection } from 'astro:content';
-import {frontmatter as content} from '@content/home/misc.md';
-import '@styles/featured.scss';
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import { frontmatter as content } from "@content/home/misc.md";
+import "@styles/featured.scss";
 
-const projects = (await getCollection('projects'))
-.sort((jobA, jobB) => jobA.data.order - jobB.data.order);
+const projects = (await getCollection("projects")).sort(
+  (jobA, jobB) => jobA.data.order - jobB.data.order
+);
 ---
+
 <section id="featured">
   <h3 class="code">{content.featured.component}</h3>
   <div class="project-grid">
-    {projects.map((project) => (
-      <div class="card project">
-        <span class="title">{project.data.title}</span>
-        <p class="description">{project.data.description}</p>
-        <div class="bottom">
-          <div class="language">
-            <i />
-            <span>{project.data.language}</span>
+    {
+      projects.map((project) => (
+        <div class="card project">
+          <span class="title">{project.data.title}</span>
+          <p class="description">{project.data.description}</p>
+          <div class="bottom">
+            <div class="language">
+              <i />
+              <span>{project.data.language}</span>
+            </div>
+            <a class="project-link" href={"/projects/" + project.slug}>
+              {content.featured.cta}
+              <Icon name="link" />
+            </a>
           </div>
-          <a class="project-link" href={'/projects/' + project.slug}>
-            {content.featured.cta}
-            <Icon name="link" />
-          </a>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </section>

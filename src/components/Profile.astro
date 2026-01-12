@@ -1,18 +1,24 @@
 ---
-import { Image } from 'astro:assets';
-import { Icon } from "astro-icon/components"
-import {frontmatter as content} from '@content/home/profile.md';
-import profile from '@images/profile.webp';
-import '@styles/profile.scss';
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { frontmatter as content } from "@content/home/profile.md";
+import profile from "@images/profile.webp";
+import "@styles/profile.scss";
 
 type Social = {
-  icon: string,
-  label: string,
-  value: string,
+  icon: string;
+  label: string;
+  value: string;
 };
 ---
+
 <section id="profile" class="card">
-  <Image class="profile" src={profile} alt="Dario Dumlijan - profile" loading="eager" />
+  <Image
+    class="profile"
+    src={profile}
+    alt="Dario Dumlijan - profile"
+    loading="eager"
+  />
   <div class="credentials">
     <h1 class="name">{content.name}</h1>
     <h2 class="title">{content.title}</h2>
@@ -26,11 +32,13 @@ type Social = {
   </a>
   <hr class="divider" />
   <div class="socials">
-    {content.socials.map((social: Social) => (
-      <a class="social-item" href={social.value} target="_blank">
-        <Icon name={social.icon} />
-        <span>{social.label}</span>
-      </a>
-    ))}
+    {
+      content.socials.map((social: Social) => (
+        <a class="social-item" href={social.value} target="_blank">
+          <Icon name={social.icon} />
+          <span>{social.label}</span>
+        </a>
+      ))
+    }
   </div>
 </section>

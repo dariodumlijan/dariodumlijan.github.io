@@ -1,22 +1,24 @@
 ---
-import Base from '@layouts/Base.astro';
-import Profile from '@components/Profile.astro';
-import Skills from '@components/Skills.astro';
-import Bio from '@components/Bio.astro';
-import Featured from '@components/Featured.astro';
-import Experience from '@components/experience/index.astro';
+import Base from "@layouts/Base.astro";
+import Profile from "@components/Profile.astro";
+import Skills from "@components/Skills.astro";
+import Bio from "@components/Bio.astro";
+import Featured from "@components/Featured.astro";
+import Experience from "@components/experience/index.astro";
+import "@styles/print.scss";
 ---
+
 <Base>
-	<main>
-		<div id="a-side" class="column-wrapper">
-			<Profile />
-			<Skills class="desktop-skills" />
-		</div>
-		<div id="b-side" class="column-wrapper">
-			<Bio />
-			<Featured />
-			<Experience />
-			<Skills class="mobile-skills" />
-		</div>
-	</main>
+  <main>
+    <div id="a-side" class="column-wrapper">
+      <Profile />
+      <Skills class="desktop-skills" />
+    </div>
+    <div id="b-side" class="column-wrapper">
+      <Bio />
+      <Featured />
+      <Experience />
+      <Skills class="mobile-skills" />
+    </div>
+  </main>
 </Base>

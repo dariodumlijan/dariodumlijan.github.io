@@ -1,76 +1,86 @@
 ---
-import {frontmatter as profile} from '@content/home/profile.md';
-import {frontmatter as skills} from '@content/home/skills.md';
-import '@styles/reset.css';
-import '@styles/main.scss';
+import { frontmatter as profile } from "@content/home/profile.md";
+import { frontmatter as skills } from "@content/home/skills.md";
+import "@styles/reset.css";
+import "@styles/main.scss";
 
 type Props = {
-	pagePath?: string
-	pageTitle?: string;
-	pageDescription?: string;
-}
+  pagePath?: string;
+  pageTitle?: string;
+  pageDescription?: string;
+};
 
 const { pagePath, pageTitle, pageDescription } = Astro.props;
 
-const url = pagePath ? profile.baseUrl + pagePath : profile.baseUrl
-const title = pageTitle ? `${profile.name} | ${pageTitle}` : profile.name
-const description = pageDescription || profile.description
+const url = pagePath ? profile.baseUrl + pagePath : profile.baseUrl;
+const title = pageTitle ? `${profile.name} | ${pageTitle}` : profile.name;
+const description = pageDescription || profile.description;
 
-const languages = skills.skills.map((skill: {language: string}) => skill.language)
-const keywords = [profile.name, ...profile.keywords, ...languages].join(', ')
-const year = new Date().getFullYear()
+const languages = skills.skills.map(
+  (skill: { language: string }) => skill.language
+);
+const keywords = [profile.name, ...profile.keywords, ...languages].join(", ");
+const year = new Date().getFullYear();
 ---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="all" />
     <link rel="canonical" href={profile.baseUrl} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
-		
-		{/* HTML Meta Tags */}
-		<title>{title}</title>
-		<meta name="description" content={description} />
-    <meta name="keywords" content={keywords}>
-    <meta name="author" content={profile.name}>
-		<meta name="copyright" content={year.toString()} />
-		<meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
 
-		{/* Open Graph Meta Tags */}
-		<meta property="og:title" content={title} />
-		<meta property="og:renderedTitle" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:keywords" content={keywords} />
-		<meta property="og:url" content={url} />
-		<meta property="og:type" content="website" />
+    {/* HTML Meta Tags */}
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={profile.name} />
+    <meta name="copyright" content={year.toString()} />
+    <meta name="generator" content={Astro.generator} />
 
-		{/* Twitter Meta Tags */}
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta property="twitter:url" content={url} />
-		<meta property="twitter:domain" content={url.replace('https://', '')} />
+    {/* Open Graph Meta Tags */}
+    <meta property="og:title" content={title} />
+    <meta property="og:renderedTitle" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:keywords" content={keywords} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
 
-		{/* Schema.org Tag */}
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "WebPage",
-			image: `${profile.baseUrl}/favicon.svg`,
-			description: description,
-			name: title,
-			url: url,
-		})} />
-	</head>
-	<body>
-		<slot />
-		<footer>
-			{profile.baseUrl.replace('https://', '')} &copy;&NonBreakingSpace;<span id="footer-year">{year}</span>
-		</footer>
-		<script is:inline>
-			const actualYear = new Date().getFullYear();
-			document.getElementById("footer-year").innerText = actualYear;
-			document.querySelector('meta[name="copyright"]').setAttribute("content", actualYear);
-		</script>
-	</body>
+    {/* Twitter Meta Tags */}
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:domain" content={url.replace("https://", "")} />
+
+    {/* Schema.org Tag */}
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        image: `${profile.baseUrl}/favicon.svg`,
+        description: description,
+        name: title,
+        url: url,
+      })}
+    />
+  </head>
+  <body>
+    <slot />
+    <footer>
+      {profile.baseUrl.replace("https://", "")} &copy;&NonBreakingSpace;<span
+        id="footer-year">{year}</span
+      >
+    </footer>
+    <script is:inline>
+      const actualYear = new Date().getFullYear();
+      document.getElementById("footer-year").innerText = actualYear;
+      document
+        .querySelector('meta[name="copyright"]')
+        .setAttribute("content", actualYear);
+    </script>
+  </body>
 </html>

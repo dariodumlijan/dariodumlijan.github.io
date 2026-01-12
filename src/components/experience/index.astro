@@ -1,21 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
-import Details from '@components/experience/Details.astro';
-import Description from '@components/experience/Description.astro';
-import {frontmatter as content} from '@content/home/misc.md';
-import '@styles/experience.scss';
+import { getCollection } from "astro:content";
+import Details from "@components/experience/Details.astro";
+import Description from "@components/experience/Description.astro";
+import { frontmatter as content } from "@content/home/misc.md";
+import "@styles/experience.scss";
 
-const jobs = (await getCollection('jobs'))
-.sort((jobA, jobB) => new Date(jobB.data.from).getTime() - new Date(jobA.data.from).getTime())
+const jobs = (await getCollection("jobs")).sort(
+  (jobA, jobB) =>
+    new Date(jobB.data.from).getTime() - new Date(jobA.data.from).getTime()
+);
 ---
+
 <section id="experience">
   <h3 class="code">{content.experience.component}</h3>
   <div class="card jobs-list">
-    {jobs.map((job) => (
-      <div class="job">
-        <Details job={job} />
-        <Description job={job} />
-      </div>
-    ))}
+    {
+      jobs.map((job) => (
+        <div class="job">
+          <Details job={job} />
+          <Description job={job} />
+        </div>
+      ))
+    }
   </div>
 </section>

@@ -1,9 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
-import type { CollectionEntry } from 'astro:content';
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-	job: CollectionEntry<'jobs'>;
+	job: CollectionEntry<"jobs">;
 }
 
 const { job } = Astro.props;
@@ -15,6 +15,7 @@ const toDate = (value: string) => {
   return date.toLocaleString('default', { month: 'short' }) + ' ' + date.getFullYear()
 }
 ---
+
 <div class="job-details">
   <Icon class="job-icon" name="job" />
   <span class="job-title">{job.data.title}</span>
