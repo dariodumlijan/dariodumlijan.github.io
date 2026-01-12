@@ -1,20 +1,16 @@
 ---
-title: 'Full-Stack Engineer'
-company: {
-  name: 'Thespian',
-  url: 'https://thespian.eu'
-}
-client: {
-  name: 'DCK Media GmbH',
-  url: 'https://dck-media.de'
-}
-type: 'Full-time'
-from: '2022/07/01'
-to: '2023/06/01'
+title: "Full-Stack Engineer"
+company: { name: "Thespian", url: "https://thespian.eu" }
+client: { name: "DCK Media GmbH", url: "https://dck-media.de" }
+type: "Full-time"
+from: "2022/07/01"
+to: "2023/06/01"
 ---
+
 Led the development of a large-scale, custom SaaS Learning Management System (LMS) for a client, overseeing engineering, design, and project management aspects.
 
 Some of the main features and responsibilities that I had were:
+
 - Engineering:
   - Migrated over 40,000 users, 1,000 courses, and approximately 500,000 data records from a third-party platform to the new system.
   - Implemented advanced course progress tracking using Learning Record Store (LRS) and xAPI standards.
@@ -30,8 +26,8 @@ Some of the main features and responsibilities that I had were:
 <br />
 
 Tech-stack used:
-| Framework | Language   | Front-end                | Back-end                 |
+| Framework | Language | Front-end | Back-end |
 | --------- | ---------- | ------------------------ | ------------------------ |
-| Rails     | Ruby       | <center>&cross;</center> | <center>&check;</center> |
-| React     | TypeScript | <center>&check;</center> | <center>&cross;</center> |
-| NextJS    | TypeScript | <center>&check;</center> | <center>&cross;</center> |
+| Rails | Ruby | <center>&cross;</center> | <center>&check;</center> |
+| React | TypeScript | <center>&check;</center> | <center>&cross;</center> |
+| NextJS | TypeScript | <center>&check;</center> | <center>&cross;</center> |

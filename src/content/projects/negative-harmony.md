@@ -1,9 +1,10 @@
 ---
 order: 1
-title: 'Negative Harmony'
-description: 'Unlock new melodies and sounds. An app made to make the musical theory of negative harmony easier to understand and visualise.'
-language: 'ReactNative'
+title: "Negative Harmony"
+description: "Unlock new melodies and sounds. An app made to make the musical theory of negative harmony easier to understand and visualise."
+language: "ReactNative"
 ---
+
 ![feature_graphic](@images/projects/negative_harmony/feature_graphic.webp)
 
 # Negative Harmony - Simplified
@@ -20,11 +21,10 @@ Checkout the code at [git/negative_harmony](https://github.com/Chimera-Studio/ne
 - [App Store](https://apps.apple.com/us/app/negative-harmony-simplified/id1561674380)
 - [Amazon Store](https://www.amazon.com/Chimera-Studio-Negative-Harmony-Simplified/dp/B09QBMPTBJ)
 
-<!-- Hack to display images in a grid -->
-| | | |
-|-|-|-|
-| ![screen_1](@images/projects/negative_harmony/screen_1.webp) | ![screen_2](@images/projects/negative_harmony/screen_2.webp) | ![screen_3](@images/projects/negative_harmony/screen_3.webp)
-| | | |
+|                                                              |                                                              |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![screen_1](@images/projects/negative_harmony/screen_1.webp) | ![screen_2](@images/projects/negative_harmony/screen_2.webp) | ![screen_3](@images/projects/negative_harmony/screen_3.webp) |
+|                                                              |                                                              |                                                              |
 
 ### Negative Harmony is an app made to make the musical theory of negative harmony easier to understand and visualise.
 

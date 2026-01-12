@@ -1,9 +1,10 @@
 ---
 order: 4
-title: 'Project Status'
-description: 'Open-source, zero cost SPA (React) app for displaying projects/softwares current status, release notes & roadmap'
-language: 'React'
+title: "Project Status"
+description: "Open-source, zero cost SPA (React) app for displaying projects/softwares current status, release notes & roadmap"
+language: "React"
 ---
+
 # Project Status
 
 An open-source, zero cost SPA (React) app for displaying projects'/softwares' current status, release notes & roadmap
@@ -19,6 +20,7 @@ Whenever you have a public, user-facing application that should be up 24/7, ther
 This template can be used as a basic status page. And because it is using GitHub resources, there is zero cost to host and maintain it.
 
 Using [GitHubs' API](https://docs.github.com/en/rest/quickstart?apiVersion=2022-11-28) we are getting:
+
 - **Release notes**, from projects' [latest release](https://github.com/dariodumlijan/project-status/releases)
 - **Current status**, from [this issues'](https://github.com/dariodumlijan/project-status/issues/1) description
 - **Individual service statuses**, from [these sub issues](https://github.com/dariodumlijan/project-status/issues/1)

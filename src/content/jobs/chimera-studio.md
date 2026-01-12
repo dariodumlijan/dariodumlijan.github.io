@@ -1,13 +1,11 @@
 ---
-title: 'Mobile Application Engineer'
-company: {
-  name: 'Chimera Studio',
-  url: 'https://chimerastudio.co.uk'
-}
-type: 'Freelance'
-from: '2020/09/01'
-to: 'Present'
+title: "Mobile Application Engineer"
+company: { name: "Chimera Studio", url: "https://chimerastudio.co.uk" }
+type: "Self-employed"
+from: "2020/09/01"
+to: "2025/04/28"
 ---
+
 Sole developer responsible for designing, building, and maintaining two fully functional cross-platform mobile applications, successfully released on both the [App Store](https://apps.apple.com/us/developer/dario-dumlijan/id1561674382) and [Play Store](https://play.google.com/store/apps/dev?id=5565198170046611244).
 
 Implemented Over-The-Air (OTA) updates to enable seamless deployment of changes and improvements without requiring users to download new versions.
@@ -19,6 +17,6 @@ Managed all aspects of the development lifecycle, including planning, coding, te
 <br />
 
 Tech-stack used:
-| Framework   | Language   | Front-end                | Back-end                 |
+| Framework | Language | Front-end | Back-end |
 | ----------- | ---------- | ------------------------ | ------------------------ |
 | ReactNative | TypeScript | <center>&check;</center> | <center>&cross;</center> |

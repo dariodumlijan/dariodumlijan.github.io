@@ -1,17 +1,12 @@
 ---
-title: 'Full-Stack Engineer'
-company: {
-  name: 'Thespian',
-  url: 'https://thespian.eu'
-}
-client: {
-  name: 'BetterDoc',
-  url: 'https://betterdoc.org'
-}
-type: 'Full-time'
-from: '2023/02/01'
-to: 'Present'
+title: "Full-Stack Engineer"
+company: { name: "Thespian", url: "https://thespian.eu" }
+client: { name: "BetterDoc", url: "https://betterdoc.org" }
+type: "Full-time"
+from: "2023/02/01"
+to: "Present"
 ---
+
 Collaborated with a medium-large engineering team to develop and maintain an internal e-health software platform, powered by 40+ microservices running on Kubernetes clusters within AWS infrastructure.
 
 Designed and implemented patient-facing services for creating and managing online surveys/questionnaires, enabling data collection, processing, and automation across multiple system components.
@@ -23,9 +18,9 @@ Contributed to the transition from legacy Ruby services to new Elixir-based micr
 <br />
 
 Tech-stack used:
-| Framework | Language   | Front-end                | Back-end                 |
+| Framework | Language | Front-end | Back-end |
 | --------- | ---------- | ------------------------ | ------------------------ |
-| Phoenix   | Elixir     | <center>&check;</center> | <center>&check;</center> |
-| Rails     | Ruby       | <center>&check;</center> | <center>&check;</center> |
-| React     | TypeScript | <center>&check;</center> | <center>&cross;</center> |
-| NextJS    | TypeScript | <center>&check;</center> | <center>&cross;</center> |
+| Phoenix | Elixir | <center>&check;</center> | <center>&check;</center> |
+| Rails | Ruby | <center>&check;</center> | <center>&check;</center> |
+| React | TypeScript | <center>&check;</center> | <center>&cross;</center> |
+| NextJS | TypeScript | <center>&check;</center> | <center>&cross;</center> |
