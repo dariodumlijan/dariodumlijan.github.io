@@ -19,6 +19,33 @@
       flex-direction: column;
       gap: 10px;
 
+      .language {
+        align-items: center;
+        display: flex;
+        font-size: appFontSize(xs);
+        gap: 5px;
+
+        &[data-type="web"] {
+          display: flex;
+        }
+
+        &[data-type="print"] {
+          display: none;
+        }
+
+        i {
+          aspect-ratio: 1;
+          background-color: appColor(primary);
+          border-radius: 50%;
+          height: 8px;
+          width: 8px;
+        }
+
+        span {
+          opacity: 0.6;
+        }
+      }
+
       .title {
         font-size: appFontSize(md);
       }
@@ -28,6 +55,12 @@
         opacity: 0.6;
       }
 
+      .header {
+        align-items: flex-end;
+        display: flex;
+        justify-content: space-between;
+      }
+
       .bottom {
         align-items: center;
         display: flex;
@@ -35,24 +68,6 @@
         justify-content: space-between;
         margin-top: auto;
         padding-top: 15px;
-
-        .language {
-          align-items: center;
-          display: flex;
-          gap: 5px;
-
-          i {
-            aspect-ratio: 1;
-            background-color: appColor(primary);
-            border-radius: 50%;
-            height: 8px;
-            width: 8px;
-          }
-
-          span {
-            opacity: 0.6;
-          }
-        }
 
         .project-link {
           align-items: center;

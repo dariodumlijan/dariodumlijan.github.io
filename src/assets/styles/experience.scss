@@ -91,5 +91,11 @@
         }
       }
     }
+
+    .job-description {
+      details > summary {
+        display: none !important;
+      }
+    }
   }
 }

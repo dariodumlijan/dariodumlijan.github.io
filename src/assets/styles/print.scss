@@ -1,0 +1,173 @@
+@use "variables" as *;
+
+@media print {
+  @page {
+    margin: 1cm;
+    size: A4;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html,
+  body {
+    background-color: white;
+    color: appColor(dark) !important;
+  }
+
+  html body {
+    padding: 20px;
+  }
+
+  footer {
+    display: none !important;
+  }
+
+  .card {
+    background-color: appColor(light);
+    border: 1pt solid rgba(appColor(dark), 0.2);
+  }
+
+  .markdown {
+    a,
+    p,
+    li,
+    blockquote {
+      color: rgba(appColor(dark), 1);
+    }
+
+    table {
+      th,
+      td {
+        border: 1px solid rgba(appColor(dark), 0.2) !important;
+      }
+    }
+  }
+
+  #a-side {
+    position: relative !important;
+    top: 0 !important;
+  }
+
+  #b-side {
+    flex-direction: column-reverse !important;
+    justify-content: flex-end;
+  }
+
+  #profile {
+    * {
+      opacity: 1 !important;
+    }
+
+    .profile {
+      justify-self: center;
+      max-width: 160px;
+    }
+
+    .call-to-action {
+      display: none;
+    }
+
+    .divider {
+      background-color: appColor(dark);
+      opacity: 0.2 !important;
+    }
+
+    .socials {
+      .social-item {
+        color: appColor(dark);
+
+        svg path {
+          fill: appColor(dark);
+        }
+      }
+    }
+  }
+
+  .skills {
+    &[data-type="desktop"] {
+      // display: flex !important;
+      display: none !important;
+    }
+
+    &[data-type="mobile"] {
+      display: none !important;
+    }
+
+    .skills-wrapper {
+      height: fit-content !important;
+      max-height: none !important;
+      position: relative !important;
+    }
+  }
+
+  .about {
+    &[data-type="web"] {
+      display: none !important;
+    }
+
+    &[data-type="print"] {
+      display: flex !important;
+    }
+  }
+
+  #experience {
+    .job {
+      border-bottom: 1px solid rgba(appColor(dark), 0.2);
+      color: rgba(appColor(dark), 1) !important;
+
+      .job-title {
+        color: appColor(dark) !important;
+      }
+
+      .job-description {
+        details {
+          display: none !important;
+        }
+
+        > p {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  #featured {
+    // display: flex !important;
+    display: none !important;
+
+    .project-grid {
+      grid-template-columns: 1fr;
+
+      .description {
+        opacity: 1 !important;
+      }
+
+      .project-link {
+        display: none !important;
+      }
+    }
+
+    .language {
+      &[data-type="web"] {
+        display: none !important;
+      }
+
+      &[data-type="print"] {
+        display: flex !important;
+      }
+    }
+
+    .bottom {
+      display: none !important;
+    }
+  }
+}

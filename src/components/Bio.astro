@@ -4,9 +4,15 @@ import {
   frontmatter as content,
 } from "@content/home/bio.md";
 import "@styles/bio.scss";
+
+type Props = {
+  type?: string;
+};
+
+const { props } = Astro;
 ---
 
-<section id="about">
+<section class="about" data-type={props.type}>
   <h3 class="code">{content.component}</h3>
   <div class="card markdown">
     <Markdown />

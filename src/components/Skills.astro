@@ -3,7 +3,7 @@ import { frontmatter as content } from "@content/home/skills.md";
 import "@styles/skills.scss";
 
 type Props = {
-  class?: string;
+  type?: string;
 };
 
 type Skill = {
@@ -16,7 +16,7 @@ const { props } = Astro;
 const currentYear = new Date().getFullYear();
 ---
 
-<section id="skills" class={props.class}>
+<section class="skills" data-type={props.type}>
   <div class="skills-wrapper">
     <h3 class="code">{content.component}</h3>
     <div class="card skills-card">

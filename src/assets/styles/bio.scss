@@ -1,7 +1,14 @@
 @use "variables" as *;
 
-#about {
-  display: flex;
+.about {
   flex-direction: column;
   gap: 15px;
+
+  &[data-type="web"] {
+    display: flex;
+  }
+
+  &[data-type="print"] {
+    display: none;
+  }
 }
