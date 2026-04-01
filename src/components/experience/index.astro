@@ -2,12 +2,12 @@
 import { getCollection } from "astro:content";
 import Details from "@components/experience/Details.astro";
 import Description from "@components/experience/Description.astro";
-import { frontmatter as content } from "@content/home/misc.md";
+import { frontmatter as content } from "@content/shared/misc.md";
 import "@styles/experience.scss";
 
 const jobs = (await getCollection("jobs")).sort(
   (jobA, jobB) =>
-    new Date(jobB.data.from).getTime() - new Date(jobA.data.from).getTime()
+    new Date(jobB.data.from).getTime() - new Date(jobA.data.from).getTime(),
 );
 ---
 

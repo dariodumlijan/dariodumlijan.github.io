@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import { type CollectionEntry, getCollection } from "astro:content";
-import { frontmatter as text } from "@content/home/misc.md";
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import { frontmatter as text } from "@content/shared/misc.md";
 import Base from "@layouts/Base.astro";
 import Profile from "@components/Profile.astro";
 import Skills from "@components/Skills.astro";
@@ -13,17 +13,17 @@ export async function getStaticPaths() {
   const projects = await getCollection("projects");
 
   return projects.map((project: Props) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: project,
   }));
 }
 
 const project = Astro.props;
-const { Content } = await project.render();
+const { Content } = await render(project);
 ---
 
 <Base
-  pagePath={"/projects/" + project.slug}
+  pagePath={"/projects/" + project.id}
   pageTitle={project.data.title}
   pageDescription={project.data.description}
 >

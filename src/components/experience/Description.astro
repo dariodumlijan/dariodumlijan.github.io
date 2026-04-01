@@ -1,12 +1,12 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { render, type CollectionEntry } from "astro:content";
 
 interface Props {
   job: CollectionEntry<"jobs">;
 }
 
 const { job } = Astro.props;
-const { Content } = await job.render();
+const { Content } = await render(job);
 ---
 
 <div class="markdown job-description">

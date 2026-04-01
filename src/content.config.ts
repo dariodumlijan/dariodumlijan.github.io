@@ -1,7 +1,9 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from "astro/zod";
 
-const home = defineCollection({
-	type: 'content',
+const shared = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/content/shared" }),
 	schema: z.object({
 		// bio.md
 		component: z.string().optional(),
@@ -48,7 +50,7 @@ const home = defineCollection({
 });
 
 const jobs = defineCollection({
-	type: 'content',
+	loader: glob({ pattern: "**/*.md", base: "./src/content/jobs" }),
 	schema: z.object({
 		title: z.string(),
 		company: z.object({
@@ -66,7 +68,7 @@ const jobs = defineCollection({
 });
 
 const projects = defineCollection({
-	type: 'content',
+	loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
 	schema: z.object({
 		order: z.number(),
 		title: z.string(),
@@ -75,4 +77,4 @@ const projects = defineCollection({
 	}),
 });
 
-export const collections = { home, jobs, projects };
+export const collections = { shared, jobs, projects };

@@ -1,25 +1,27 @@
 {
   "extends": "astro/tsconfigs/strict",
+  "sourceMap": true,
+  "inlineSources": true,
+  "sourceRoot": "/",
   "compilerOptions": {
-    "baseUrl": ".",
     "paths": {
       "@components/*": [
-        "src/components/*"
+        "./src/components/*"
       ],
       "@content/*": [
-        "src/content/*"
+        "./src/content/*"
       ],
       "@images/*": [
-        "src/assets/images/*"
+        "./src/assets/images/*"
       ],
       "@layouts/*": [
-        "src/layouts/*"
+        "./src/layouts/*"
       ],
       "@pages/*": [
-        "src/pages/*"
+        "./src/pages/*"
       ],
       "@styles/*": [
-        "src/assets/styles/*"
+        "./src/assets/styles/*"
       ]
     }
   }

@@ -1,11 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
-import { frontmatter as content } from "@content/home/misc.md";
+import { frontmatter as content } from "@content/shared/misc.md";
 import "@styles/featured.scss";
 
 const projects = (await getCollection("projects")).sort(
-  (jobA, jobB) => jobA.data.order - jobB.data.order
+  (jobA, jobB) => jobA.data.order - jobB.data.order,
 );
 ---
 
@@ -28,7 +28,7 @@ const projects = (await getCollection("projects")).sort(
               <i />
               <span>{project.data.language}</span>
             </div>
-            <a class="project-link" href={"/projects/" + project.slug}>
+            <a class="project-link" href={"/projects/" + project.id}>
               {content.featured.cta}
               <Icon name="link" />
             </a>

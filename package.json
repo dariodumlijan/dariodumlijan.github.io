@@ -1,7 +1,7 @@
 {
   "name": "dariodumlijan",
   "type": "module",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": true,
   "scripts": {
     "dev": "astro dev --port 3000",
@@ -11,12 +11,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/sitemap": "^3.6.1",
-    "astro": "^5.16.9",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/sitemap": "^3.7.2",
+    "astro": "^6.1.2",
     "astro-icon": "^1.1.5",
-    "sass": "^1.97.2",
-    "typescript": "^5.9.3"
+    "sass": "^1.98.0",
+    "typescript": "^6.0.2"
   },
   "devDependencies": {}
 }
