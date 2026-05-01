@@ -11,12 +11,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@astrojs/sitemap": "^3.7.2",
     "astro": "^6.1.2",
     "astro-icon": "^1.1.5",
     "sass": "^1.98.0",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   },
   "devDependencies": {}
 }
