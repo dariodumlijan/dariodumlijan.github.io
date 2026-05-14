@@ -9,6 +9,7 @@ to: "2023/06/01"
 
 <details open>
 <summary>Details</summary>
+
 Led the development of a large-scale, custom SaaS Learning Management System (LMS) for a client, overseeing engineering, design, and project management aspects.
 
 Some of the main features and responsibilities that I had were:

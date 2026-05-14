@@ -9,6 +9,7 @@ to: "Present"
 
 <details open>
 <summary>Details</summary>
+
 Collaborated with a medium-large engineering team to develop and maintain an internal e-health software platform, powered by 40+ microservices running on Kubernetes clusters within AWS infrastructure.
 
 Designed and implemented patient-facing services for creating and managing online surveys/questionnaires, enabling data collection, processing, and automation across multiple system components.

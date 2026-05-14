@@ -8,6 +8,7 @@ to: "2025/04/28"
 
 <details open>
 <summary>Details</summary>
+
 Sole developer responsible for designing, building, and maintaining two fully functional cross-platform mobile applications, successfully released on both the [App Store](https://apps.apple.com/us/developer/dario-dumlijan/id1561674382) and [Play Store](https://play.google.com/store/apps/dev?id=5565198170046611244).
 
 Implemented Over-The-Air (OTA) updates to enable seamless deployment of changes and improvements without requiring users to download new versions.

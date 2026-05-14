@@ -9,6 +9,7 @@ to: "2022/07/01"
 
 <details open>
 <summary>Details</summary>
+
 Designed and developed an enterprise-level dispatching application for monitoring and reporting real-time bus events.
 
 Implemented a robust role-based permission system to control access to actions, data, and specific application pages based on user roles.
