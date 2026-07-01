@@ -8,7 +8,7 @@ to: "Present"
 ---
 
 <details open>
-<summary>Details</summary>
+<summary>I collaborated with a medium-large engineering team to develop and maintain an e-health platform powered by 40+ microservices on AWS and Kubernetes. I built patient-facing survey services, an admin configuration interface, and contributed to migrating legacy Ruby services to Elixir microservices.</summary>
 
 Collaborated with a medium-large engineering team to develop and maintain an internal e-health software platform, powered by 40+ microservices running on Kubernetes clusters within AWS infrastructure.
 
@@ -21,7 +21,8 @@ Contributed to the transition from legacy Ruby services to new Elixir-based micr
 <br />
 </details>
 
-Tech-stack used:
+<p class="table-headline">Tech-stack used:</p>
+
 | Framework | Language | Front-end | Back-end |
 | --------- | ---------- | ------------------------ | ------------------------ |
 | Phoenix | Elixir | <center>&check;</center> | <center>&check;</center> |

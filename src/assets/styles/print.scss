@@ -21,6 +21,7 @@
   body {
     background-color: white;
     color: appColor(dark) !important;
+    font-size: 14px;
   }
 
   html body {
@@ -119,55 +120,63 @@
     }
   }
 
+  #featured {
+    display: none !important;
+  }
+
   #experience {
     .job {
       border-bottom: 1px solid rgba(appColor(dark), 0.2);
       color: rgba(appColor(dark), 1) !important;
+      page-break-inside: avoid;
 
-      .job-title {
-        color: appColor(dark) !important;
+      .job-details {
+        gap: 5px 0px;
+
+        .job-icon {
+          opacity: 0;
+          height: 0px;
+          width: 0px;
+        }
+
+        .job-title {
+          color: appColor(dark) !important;
+        }
       }
 
       .job-description {
+        font-size: 12px;
+
         details {
-          display: none !important;
+          > summary,
+          > br {
+            display: block !important;
+          }
+
+          > * {
+            display: none !important;
+          }
         }
 
         > p {
           margin-top: 0;
+
+          &.table-headline {
+            margin-bottom: 2px;
+          }
+        }
+
+        > table {
+          font-size: 8px;
+
+          tr {
+            th,
+            td {
+              padding: 2px 4px;
+            }
+          }
         }
       }
-    }
-  }
-
-  #featured {
-    // display: flex !important;
-    display: none !important;
-
-    .project-grid {
-      grid-template-columns: 1fr;
-
-      .description {
-        opacity: 1 !important;
-      }
-
-      .project-link {
-        display: none !important;
-      }
-    }
-
-    .language {
-      &[data-type="web"] {
-        display: none !important;
-      }
-
-      &[data-type="print"] {
-        display: flex !important;
-      }
-    }
-
-    .bottom {
-      display: none !important;
     }
   }
 }

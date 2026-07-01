@@ -8,7 +8,7 @@ to: "2022/07/01"
 ---
 
 <details open>
-<summary>Details</summary>
+<summary>I designed and developed an enterprise-level dispatching application for monitoring real-time bus events, implementing a role-based permission system for access control. Working in a small agile team, I progressively took full ownership of communication, task execution, and stakeholder presentations.</summary>
 
 Designed and developed an enterprise-level dispatching application for monitoring and reporting real-time bus events.
 
@@ -21,7 +21,8 @@ Operated within a small, agile three-person team, progressively taking on increa
 <br />
 </details>
 
-Tech-stack used:
+<p class="table-headline">Tech-stack used:</p>
+
 | Framework | Language | Front-end | Back-end |
 | --------- | ---------- | ------------------------ | ------------------------ |
 | React | JavaScript | <center>&check;</center> | <center>&cross;</center> |

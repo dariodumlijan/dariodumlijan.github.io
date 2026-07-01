@@ -8,7 +8,7 @@ to: "2023/06/01"
 ---
 
 <details open>
-<summary>Details</summary>
+<summary>I led engineering, design, and project management for a large-scale custom SaaS LMS, migrating 40,000+ users and 500,000 records from a third-party platform. I architected the full UI/UX, implemented xAPI tracking and white-labeled themes, and acted as the primary stakeholder contact.</summary>
 
 Led the development of a large-scale, custom SaaS Learning Management System (LMS) for a client, overseeing engineering, design, and project management aspects.
 
@@ -29,7 +29,8 @@ Some of the main features and responsibilities that I had were:
 <br />
 </details>
 
-Tech-stack used:
+<p class="table-headline">Tech-stack used:</p>
+
 | Framework | Language | Front-end | Back-end |
 | --------- | ---------- | ------------------------ | ------------------------ |
 | Rails | Ruby | <center>&cross;</center> | <center>&check;</center> |
