@@ -60,7 +60,7 @@ export default defineConfig({
   site: 'https://dariodumlijan.com',
   integrations: [
     icon({ iconDir: 'src/assets/icons' }),
-    sitemap({ lastmod: new Date() }),
+    sitemap(),
   ],
   markdown: {
     processor: eagerSatteri(),

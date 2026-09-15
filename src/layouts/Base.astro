@@ -1,6 +1,8 @@
 ---
+import { getImage } from "astro:assets";
 import { frontmatter as profile } from "@content/shared/profile.md";
 import { frontmatter as skills } from "@content/shared/skills.md";
+import profileImage from "@images/profile.webp";
 import "@styles/reset.css";
 import "@styles/main.scss";
 
@@ -19,8 +21,24 @@ const description = pageDescription || profile.description;
 const languages = skills.skills.map(
   (skill: { language: string }) => skill.language,
 );
-const keywords = [profile.name, ...profile.keywords, ...languages].join(", ");
+const keywords = [
+  profile.name,
+  profile.alternateName,
+  ...profile.keywords,
+  ...languages,
+].join(", ");
 const year = new Date().getFullYear();
+
+type Social = { icon: string; label: string; value: string };
+const sameAs = profile.socials.map((social: Social) => social.value);
+
+const ogImage = await getImage({
+  src: profileImage,
+  width: 1200,
+  height: 1200,
+  format: "jpg",
+});
+const ogImageUrl = profile.baseUrl + ogImage.src;
 ---
 
 <!doctype html>
@@ -29,7 +47,7 @@ const year = new Date().getFullYear();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="all" />
-    <link rel="canonical" href={profile.baseUrl} />
+    <link rel="canonical" href={url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
 
@@ -48,10 +66,16 @@ const year = new Date().getFullYear();
     <meta property="og:keywords" content={keywords} />
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content={`${profile.name} - profile photo`} />
 
     {/* Twitter Meta Tags */}
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <meta property="twitter:url" content={url} />
     <meta property="twitter:domain" content={url.replace("https://", "")} />
 
@@ -60,11 +84,15 @@ const year = new Date().getFullYear();
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        image: `${profile.baseUrl}/favicon.svg`,
+        "@type": "Person",
+        name: profile.name,
+        alternateName: profile.alternateName,
+        jobTitle: profile.title,
         description: description,
-        name: title,
-        url: url,
+        image: ogImageUrl,
+        url: profile.baseUrl,
+        mainEntityOfPage: url,
+        sameAs: sameAs,
       })}
     />
   </head>

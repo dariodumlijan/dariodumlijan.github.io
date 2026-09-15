@@ -34,7 +34,7 @@ type Social = {
   <div class="socials">
     {
       content.socials.map((social: Social) => (
-        <a class="social-item" href={social.value} target="_blank">
+        <a class="social-item" href={social.value} target="_blank" rel="me">
           <Icon name={social.icon} />
           <span>{social.label}</span>
         </a>

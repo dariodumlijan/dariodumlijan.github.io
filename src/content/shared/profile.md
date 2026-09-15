@@ -1,6 +1,7 @@
 ---
 baseUrl: "https://dariodumlijan.com"
 name: "Dario Dumlijan"
+alternateName: "Dario Đumlijan"
 description: "Full-Stack Engineer, passionate about working on projects I care about. Explore my portfolio and get in touch."
 keywords:
   [
