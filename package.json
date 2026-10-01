@@ -15,7 +15,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.2.9",
     "astro-icon": "^1.2.0",
-    "sass": "^1.103.1",
+    "sass": "^1.105.0",
     "typescript": "^6.0.3"
   },
   "devDependencies": {}
